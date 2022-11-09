@@ -7,12 +7,6 @@ const PostList: React.FC = () => {
   return (
     <S.Container>
       <S.State>
-        <ul>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
-        </ul>
         <div>
           <span>1</span>
           <span> votes</span>
