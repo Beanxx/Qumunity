@@ -1,7 +1,7 @@
 import React from "react"
 
 function App() {
-  return <div>TS-Project</div>
+  return <div>gdgd</div>
 }
 
 export default App
