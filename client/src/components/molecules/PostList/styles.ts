@@ -2,14 +2,12 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   display: flex;
-  border: 1px solid #e3e6e8;
-  /* border-bottom: 1px solid #e3e6e8; */
+  border-bottom: 1px solid #e3e6e8;
   padding: 16px;
   font-size: 13px;
 `
 
 export const State = styled.div`
-  border: 1px solid red;
   margin-right: 16px;
 
   display: flex;
@@ -22,8 +20,6 @@ export const State = styled.div`
 `
 
 export const Content = styled.div`
-  border: 1px solid blue;
-
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -54,5 +50,3 @@ export const Tags = styled.div`
   display: flex;
   gap: 4px;
 `
-
-export const UserInfo = styled.div``

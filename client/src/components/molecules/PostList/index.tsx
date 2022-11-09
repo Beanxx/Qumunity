@@ -1,10 +1,15 @@
 import React from "react"
 import * as S from "./styles"
 import Tag from "../../atoms/Tag"
+import SmallProfile from "../../atoms/SmallProfile"
 
-// export type Props = {}
+export type Props = {
+  profileImg: string
+  userName: string
+  createdDate: string
+}
 
-const PostList: React.FC = () => {
+const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
   return (
     <S.Container>
       <S.State>
@@ -46,13 +51,11 @@ const PostList: React.FC = () => {
             <Tag>태그1</Tag>
             <Tag>태그1</Tag>
           </S.Tags>
-          <S.UserInfo>
-            <a href="/">
-              <img src="#" alt=" " />
-            </a>
-            <a href="/">user-name</a>
-            <time>39 sec ago</time>
-          </S.UserInfo>
+          <SmallProfile
+            profileImg={profileImg}
+            userName={userName}
+            createdDate={createdDate}
+          />
         </S.ContentBot>
       </S.Content>
     </S.Container>
