@@ -9,7 +9,7 @@ import Mypage from "./pages/Mypage"
 import Users from "./pages/Users"
 import Detail from "./pages/Detail"
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />

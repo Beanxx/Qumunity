@@ -1,6 +1,6 @@
 import React from "react"
 
-function Join() {
+const Join = () => {
   return <div>Join</div>
 }
 
