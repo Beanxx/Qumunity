@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import SmallProfile, { Props } from "./index"
 
 export default {
-  title: "SmallProfile",
+  title: "atoms/SmallProfile",
   component: SmallProfile,
 
   argTypes: {

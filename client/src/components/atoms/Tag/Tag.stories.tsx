@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import Tag, { Props } from "./index"
 
 export default {
-  title: "Tag",
+  title: "atoms/Tag",
   component: Tag,
 
   argTypes: {

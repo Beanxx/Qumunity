@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import PostList from "./index"
 
 export default {
-  title: "PostList",
+  title: "molecules/PostList",
   components: PostList,
 }
 
