@@ -1,5 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
+import MainLayout from "./layouts/MainLayout/MainLayout"
 import Main from "./pages/Main"
 import Post from "./pages/Post"
 import Header from "./components/templates/Header/Header"
@@ -15,13 +16,15 @@ const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/mypage" element={<Mypage />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="/users" element={<Users />} />
+        </Route>
       </Routes>
       <Footer />
     </>
