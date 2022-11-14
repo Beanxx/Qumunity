@@ -4,6 +4,10 @@ import reset from "styled-reset"
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
+  body {
+    padding-top: 53px;
+  }
+
   * {
     box-sizing: border-box;
     line-height: 1.2;
