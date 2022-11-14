@@ -8,6 +8,7 @@ import Join from "./pages/Join"
 import Mypage from "./pages/Mypage"
 import Users from "./pages/Users"
 import Detail from "./pages/Detail"
+import Footer from "./components/templates/Footer"
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/users" element={<Users />} />
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>
+      <Footer />
     </>
   )
 }
