@@ -7,7 +7,9 @@ export default {
   component: SmallProfile,
 
   argTypes: {
-    children: { control: { type: "text" } },
+    profileImg: {},
+    userName: { control: { type: "text" } },
+    createdDate: {},
   },
 }
 
@@ -15,6 +17,8 @@ const Template: Story<Props> = (args) => <SmallProfile {...args} />
 
 export const Default = Template.bind({})
 
-// Default.args = {
-//   children: "프로필",
-// };
+Default.args = {
+  profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
+  userName: "userName",
+  createdDate: "2022-11-10",
+}
