@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react"
-import Tag from "../../atoms/Tag"
+import Tag from "../../atoms/Tag/Tag"
 import Input from "../../atoms/Input"
 import * as S from "./TagsInput.styles"
 

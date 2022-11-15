@@ -46,7 +46,7 @@ export const ContentBot = styled.div`
   justify-content: space-between;
 `
 
-export const Tags = styled.div`
+export const Tags = styled.ul`
   display: flex;
   gap: 4px;
 `

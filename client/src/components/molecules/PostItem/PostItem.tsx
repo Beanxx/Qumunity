@@ -1,6 +1,6 @@
 import React from "react"
 import * as S from "./PostItem.styles"
-import Tag from "../../atoms/Tag"
+import Tag from "../../atoms/Tag/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
 
 export type Props = {
