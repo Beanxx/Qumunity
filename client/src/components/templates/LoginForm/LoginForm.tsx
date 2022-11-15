@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import * as S from "./styles"
 import LoginInput from "../../atoms/LoginInput"
 import Button from "../../atoms/Button"
+import Form from "../../../layouts/Form/Form"
 
 const LoginForm = () => {
   const [email, setEmail] = useState("")
@@ -15,7 +15,7 @@ const LoginForm = () => {
   }
 
   return (
-    <S.Container>
+    <Form>
       <LoginInput
         type="email"
         value={email}
@@ -35,7 +35,7 @@ const LoginForm = () => {
       <Button btnType="highlighted" onClick={(e) => SignInFunc(e)}>
         Log in
       </Button>
-    </S.Container>
+    </Form>
   )
 }
 

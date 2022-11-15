@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 300px;
   height: 250px;
   display: flex;
@@ -15,7 +15,4 @@ export const Container = styled.div`
   margin-top: 6rem;
   margin-bottom: 1rem;
 `
-
-export const ButtonContianer = styled.div`
-  background: #0b9688;
-`
+export default Container
