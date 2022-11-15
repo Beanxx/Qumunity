@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const Container = styled.li`
   display: flex;
   border-bottom: 1px solid #e3e6e8;
   padding: 16px;
