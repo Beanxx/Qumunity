@@ -1,5 +1,5 @@
 import React from "react"
-import * as S from "./styles"
+import * as S from "./PostItem.styles"
 import Tag from "../../atoms/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
 
@@ -9,7 +9,7 @@ export type Props = {
   createdDate: string
 }
 
-const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
+const PostItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
   return (
     <S.Container>
       <S.State>
@@ -62,4 +62,4 @@ const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
   )
 }
 
-export default PostList
+export default PostItem
