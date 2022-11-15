@@ -7,7 +7,7 @@ export const Container = styled.div`
   font-size: 13px;
 `
 
-export const State = styled.div`
+export const State = styled.ul`
   margin-right: 16px;
 
   display: flex;

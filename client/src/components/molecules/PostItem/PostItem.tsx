@@ -13,18 +13,9 @@ const PostItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
   return (
     <S.Container>
       <S.State>
-        <div>
-          <span>1</span>
-          <span> votes</span>
-        </div>
-        <div className="font_color">
-          <span>2</span>
-          <span> answers</span>
-        </div>
-        <div className="font_color">
-          <span>121</span>
-          <span> views</span>
-        </div>
+        <li>1 votes</li>
+        <li>2 answers</li>
+        <li>121 views</li>
       </S.State>
       <S.Content>
         <h1>
