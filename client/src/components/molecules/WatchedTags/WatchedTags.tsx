@@ -10,7 +10,7 @@ const WatchedTags = () => {
       <S.Content>
         <Watch />
         <div>Watch tags to curate your list of questions.</div>
-        <Button BtnType="highlighted">Watch a tag</Button>
+        <Button btnType="highlighted">Watch a tag</Button>
       </S.Content>
     </S.Container>
   )

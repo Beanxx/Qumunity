@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import * as S from "./styles"
-import Button from "../../atoms/ButtonExample"
 import SearchInput from "../../atoms/SearchInput"
+import Button from "../../atoms/Button"
 
 const Header = () => {
   return (
@@ -17,10 +17,10 @@ const Header = () => {
         </div>
         <S.ButtonContianer>
           <Link to="/login">
-            <Button buttonType="primary">Login</Button>
+            <Button btnType="highlighted">Login</Button>
           </Link>
           <Link to="/join">
-            <Button buttonType="primary">Join</Button>
+            <Button btnType="highlighted">Join</Button>
           </Link>
         </S.ButtonContianer>
       </S.Container>
