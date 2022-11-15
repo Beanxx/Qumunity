@@ -1,8 +1,8 @@
 import React from "react"
-import Button from "../../atoms/Button"
 import FilterButtons from "../../atoms/FilterButton/FilterButtons"
 import PostList from "../../organisms/PostList/PostList"
-import * as S from "./MainContent.styles"
+import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
+import Info from "./MainContent.styles"
 
 export type Props = {
   profileImg: string
@@ -17,14 +17,11 @@ const MainContent: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <S.HeaderTop>
-        <h1>Questions</h1>
-        <Button BtnType="highlighted">Ask Question</Button>
-      </S.HeaderTop>
-      <S.HeaderBot>
+      <MiniHeader>Questions</MiniHeader>
+      <Info>
         <div>13,123 questions</div>
         <FilterButtons />
-      </S.HeaderBot>
+      </Info>
       <PostList
         profileImg={profileImg}
         userName={userName}
