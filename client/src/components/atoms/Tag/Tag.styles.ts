@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Container = styled.li`
+const Container = styled.span`
   font-size: 13px;
   color: #39739d;
   background-color: #e1ecf4;

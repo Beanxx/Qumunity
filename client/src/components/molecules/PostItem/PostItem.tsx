@@ -38,9 +38,15 @@ const PostItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
         </p>
         <S.ContentBot>
           <S.Tags>
-            <Tag>태그1</Tag>
-            <Tag>태그1</Tag>
-            <Tag>태그1</Tag>
+            <li>
+              <Tag>태그1</Tag>
+            </li>
+            <li>
+              <Tag>태그1</Tag>
+            </li>
+            <li>
+              <Tag>태그1</Tag>
+            </li>
           </S.Tags>
           <SmallProfile
             profileImg={profileImg}
