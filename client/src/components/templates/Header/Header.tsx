@@ -16,8 +16,12 @@ const Header = () => {
           <SearchInput />
         </div>
         <S.ButtonContianer>
-          <Button buttonType="primary">Login</Button>
-          <Button buttonType="primary">Join</Button>
+          <Link to="/login">
+            <Button buttonType="primary">Login</Button>
+          </Link>
+          <Link to="/join">
+            <Button buttonType="primary">Join</Button>
+          </Link>
         </S.ButtonContianer>
       </S.Container>
     </S.Layout>
