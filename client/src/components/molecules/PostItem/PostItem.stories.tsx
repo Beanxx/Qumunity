@@ -1,10 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import PostList, { Props } from "./index"
+import PostItem, { Props } from "./PostItem"
 
 export default {
-  title: "molecules/PostList",
-  components: PostList,
+  title: "molecules/PostItem",
+  components: PostItem,
 
   argTypes: {
     profileImg: {},
@@ -13,7 +13,7 @@ export default {
   },
 }
 
-const Template: Story<Props> = (args) => <PostList {...args} />
+const Template: Story<Props> = (args) => <PostItem {...args} />
 
 export const Default = Template.bind({})
 

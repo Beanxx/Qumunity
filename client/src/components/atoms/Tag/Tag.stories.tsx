@@ -1,6 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import Tag, { Props } from "./index"
+import Tag, { Props } from "./Tag"
 
 export default {
   title: "atoms/Tag",

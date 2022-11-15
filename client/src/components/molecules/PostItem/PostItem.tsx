@@ -1,6 +1,6 @@
 import React from "react"
-import * as S from "./styles"
-import Tag from "../../atoms/Tag"
+import * as S from "./PostItem.styles"
+import Tag from "../../atoms/Tag/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
 
 export type Props = {
@@ -9,22 +9,13 @@ export type Props = {
   createdDate: string
 }
 
-const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
+const PostItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
   return (
     <S.Container>
       <S.State>
-        <div>
-          <span>1</span>
-          <span> votes</span>
-        </div>
-        <div className="font_color">
-          <span>2</span>
-          <span> answers</span>
-        </div>
-        <div className="font_color">
-          <span>121</span>
-          <span> views</span>
-        </div>
+        <li>1 votes</li>
+        <li>2 answers</li>
+        <li>121 views</li>
       </S.State>
       <S.Content>
         <h1>
@@ -47,9 +38,15 @@ const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
         </p>
         <S.ContentBot>
           <S.Tags>
-            <Tag>태그1</Tag>
-            <Tag>태그1</Tag>
-            <Tag>태그1</Tag>
+            <li>
+              <Tag>태그1</Tag>
+            </li>
+            <li>
+              <Tag>태그1</Tag>
+            </li>
+            <li>
+              <Tag>태그1</Tag>
+            </li>
           </S.Tags>
           <SmallProfile
             profileImg={profileImg}
@@ -62,4 +59,4 @@ const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
   )
 }
 
-export default PostList
+export default PostItem

@@ -1,7 +1,7 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
 import MainLayout from "./layouts/MainLayout/MainLayout"
-import Main from "./pages/Main"
+import Main from "./pages/Main/Main"
 import Post from "./pages/Post"
 import Header from "./components/templates/Header/Header"
 import Login from "./pages/Login"

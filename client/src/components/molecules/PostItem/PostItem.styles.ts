@@ -1,13 +1,13 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const Container = styled.li`
   display: flex;
   border-bottom: 1px solid #e3e6e8;
   padding: 16px;
   font-size: 13px;
 `
 
-export const State = styled.div`
+export const State = styled.ul`
   margin-right: 16px;
 
   display: flex;
@@ -46,7 +46,7 @@ export const ContentBot = styled.div`
   justify-content: space-between;
 `
 
-export const Tags = styled.div`
+export const Tags = styled.ul`
   display: flex;
   gap: 4px;
 `
