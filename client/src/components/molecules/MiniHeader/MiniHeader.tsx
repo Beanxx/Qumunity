@@ -10,7 +10,7 @@ const MiniHeader: React.FC<Props> = ({ children }) => {
   return (
     <Container>
       <h1>{children}</h1>
-      <Button BtnType="highlighted">Ask Question</Button>
+      <Button btnType="highlighted">Ask Question</Button>
     </Container>
   )
 }

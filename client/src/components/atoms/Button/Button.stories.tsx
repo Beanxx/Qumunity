@@ -9,7 +9,8 @@ export default {
   argTypes: {
     children: { control: { type: "text" } },
     color: { control: "color" },
-    backgroundColor: { control: "color" },
+    width: { control: "text" },
+    onClick: { action: "clicked" },
   },
 }
 

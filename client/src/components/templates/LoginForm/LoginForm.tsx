@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import * as S from "./styles"
-import Button from "../../atoms/ButtonExample"
 import LoginInput from "../../atoms/LoginInput"
+import Button from "../../atoms/Button"
 
 const LoginForm = () => {
   const [email, setEmail] = useState("")
@@ -32,7 +32,7 @@ const LoginForm = () => {
         Password
       </LoginInput>
       {errorMsg !== "" && <p>{errorMsg}</p>}
-      <Button buttonType="ghost" onClick={(e) => SignInFunc(e)}>
+      <Button btnType="highlighted" onClick={(e) => SignInFunc(e)}>
         Log in
       </Button>
     </S.Container>

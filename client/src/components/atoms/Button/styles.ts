@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components"
 import { Props } from "."
 
+interface BtnProps {
+  width?: string
+}
+
 export const defaultButton = css`
   background: hsl(205, 46%, 92%);
   color: hsl(205, 47%, 42%);
@@ -11,10 +15,11 @@ export const defaultButton = css`
   }
 `
 
-export const highlightedButton = css`
+export const highlightedButton = css<BtnProps>`
   background: #0a96ff;
   color: #fff;
   border: 1px solid hsl(205, 41%, 63%);
+  width: ${(props) => props.width || "100%"};
 
   &:hover {
     background-color: #0074cc;
@@ -27,7 +32,7 @@ const Container = styled.button<Props>`
   cursor: pointer;
 
   ${(props) => {
-    switch (props.BtnType) {
+    switch (props.btnType) {
       case "default":
         return defaultButton
       case "highlighted":
