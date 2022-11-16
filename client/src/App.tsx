@@ -9,7 +9,7 @@ import Join from "./pages/Join/Join"
 import Mypage from "./pages/Mypage"
 import Users from "./pages/Users"
 import Detail from "./pages/Detail"
-import Footer from "./components/templates/Footer"
+import Footer from "./components/templates/Footer/Footer"
 
 const App = () => {
   return (
