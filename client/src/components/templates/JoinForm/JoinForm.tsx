@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import LoginInput from "../../atoms/LoginInput"
 import Button from "../../atoms/Button"
 import Form from "../../../layouts/Form/Form"
-import styles from "./styles"
+import * as S from "./styles"
+import { ReactComponent as QuestionImg } from "../../../assets/icons/questionmark.svg"
 
 const JoinForm = () => {
   const [nickname, setNickname] = useState("")
@@ -18,7 +19,7 @@ const JoinForm = () => {
   }
 
   return (
-    <Form style={styles.container}>
+    <Form style={S.styles.container}>
       <LoginInput
         type="text"
         value={nickname}
@@ -48,9 +49,30 @@ const JoinForm = () => {
       >
         Password Confirm
       </LoginInput>
+
+      <S.Description>
+        Passwords must contain at least eight characters, including at least 1
+        letter and 1 number.
+      </S.Description>
+
+      <S.CheckDescription>
+        <input type="checkbox" />
+        Opt-in to receive occasional product updates, user research invitations,
+        company announcements, and digests.
+        <div>
+          <QuestionImg />
+        </div>
+      </S.CheckDescription>
+
       <Button btnType="highlighted" onClick={(e) => JoinFunc(e)}>
         Sign up
       </Button>
+
+      <S.BottomDescription>
+        By clicking “Sign up”, you agree to our
+        <span> terms of service, privacy policy</span> and
+        <span> cookie policy</span>
+      </S.BottomDescription>
     </Form>
   )
 }
