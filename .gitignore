@@ -1,0 +1,16 @@
+# dependencies
+/client/node_modules
+/client/src/firebase-config.js
+
+/server/node_modules
+/server/config/dev.js
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
