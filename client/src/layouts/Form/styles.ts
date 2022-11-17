@@ -12,7 +12,7 @@ const Container = styled.div`
   box-shadow: 0 10px 24px hsla(0, 0%, 0%, 0.05),
     0 20px 48px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.1);
   padding: 20px;
-  margin-top: 6rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 `
 export default Container
