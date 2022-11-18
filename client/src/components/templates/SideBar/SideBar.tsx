@@ -1,8 +1,14 @@
 import React from "react"
-import Container from "./styles"
+import Container from "./SideBar.styles"
 
 const SideBar = () => {
-  return <Container>SideBar</Container>
+  return (
+    <Container>
+      <ul>
+        <li>Question</li>
+        <li>Users</li>
+      </ul>
+    </Container>
+  )
 }
-
 export default SideBar

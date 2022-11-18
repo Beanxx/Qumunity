@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import Button from "../../atoms/Button"
 import Container from "./MiniHeader.styles"
 
@@ -10,9 +11,11 @@ const MiniHeader: React.FC<Props> = ({ children }) => {
   return (
     <Container>
       <h1>{children}</h1>
-      <Button btnType="highlighted" width="auto">
-        Ask Question
-      </Button>
+      <Link to="/ask">
+        <Button btnType="highlighted" width="auto">
+          Ask Question
+        </Button>
+      </Link>
     </Container>
   )
 }

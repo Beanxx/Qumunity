@@ -10,6 +10,7 @@ import Mypage from "./pages/Mypage"
 import Users from "./pages/Users"
 import Detail from "./pages/Detail"
 import Footer from "./components/templates/Footer/Footer"
+import Ask from "./pages/Ask/Ask"
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
+        <Route path="/ask" element={<Ask />} />
         <Route element={<MainLayout />}>
           <Route path="/" element={<Main />} />
           <Route path="/detail/:id" element={<Detail />} />

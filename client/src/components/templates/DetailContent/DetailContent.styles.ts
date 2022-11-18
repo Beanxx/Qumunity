@@ -15,23 +15,10 @@ export const AnswerTitle = styled.div`
 `
 
 export const AnswerForm = styled.form`
-  > label {
-    display: flex;
-    flex-direction: column;
+  > div {
     margin: 24px 0;
-    gap: 24px 0;
-
-    > textarea {
-      border: 1px solid #babfc4;
-      border-radius: 3px;
-      width: 100%;
-      height: 200px;
-      resize: none;
-      padding: 10px;
-
-      &:focus {
-        outline: 1px solid #59a4de;
-      }
-    }
   }
+  /* > label {
+    margin: 24px 0;
+  } */
 `

@@ -4,6 +4,7 @@ import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
 import AnswerList from "../../organisms/AnswerList/AnswerList"
 import DetailItem from "../../molecules/DetailItem/DetailItem"
 import Button from "../../atoms/Button"
+import TextArea from "../../atoms/TextArea/TextArea"
 
 export type Props = {
   profileImg: string
@@ -38,10 +39,9 @@ const DetailContent: React.FC<Props> = ({
         createdDate={createdDate}
       />
       <S.AnswerForm>
-        <label htmlFor="test">
-          Your Answer
-          <textarea id="test" name="test" />
-        </label>
+        {/* <label htmlFor="answer">Your Answer</label> */}
+        <div>Your Answer</div>
+        <TextArea id="answer" name="answer" />
         <Button btnType="highlighted" width="auto">
           Post Your Answer
         </Button>
