@@ -4,7 +4,7 @@ type Props = {
   detailType: "question" | "answer"
 }
 
-export const Container = styled.div<Props>`
+export const Container = styled.li<Props>`
   display: flex;
   gap: 16px;
   padding: 16px;
