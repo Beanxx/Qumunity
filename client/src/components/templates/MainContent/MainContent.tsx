@@ -16,7 +16,7 @@ const MainContent: React.FC<Props> = ({
   createdDate,
 }) => {
   return (
-    <>
+    <div>
       <MiniHeader>Questions</MiniHeader>
       <Info>
         <div>13,123 questions</div>
@@ -27,7 +27,7 @@ const MainContent: React.FC<Props> = ({
         userName={userName}
         createdDate={createdDate}
       />
-    </>
+    </div>
   )
 }
 
