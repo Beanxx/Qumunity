@@ -1,8 +1,16 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+type Props = {
+  detailType: "question" | "answer"
+}
+
+export const Container = styled.li<Props>`
   display: flex;
   gap: 16px;
+  padding: 16px;
+
+  border-bottom: ${(props) =>
+    props.detailType === "answer" ? "1px solid #e3e6e8" : null};
 `
 
 export const Side = styled.div`
@@ -23,13 +31,14 @@ export const Content = styled.div`
     font-size: 15px;
     color: #232629;
     line-height: 22.5px;
+    margin-bottom: 24px;
   }
 `
 
 export const Tags = styled.ul`
   display: flex;
   gap: 3px;
-  margin: 24px 0 12px 0;
+  margin-bottom: 12px;
 `
 
 export const Edit = styled.div`

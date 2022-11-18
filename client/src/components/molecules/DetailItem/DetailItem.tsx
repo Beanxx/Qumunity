@@ -10,11 +10,17 @@ export type Props = {
   profileImg: string
   userName: string
   createdDate: string
+  detailType: "question" | "answer"
 }
 
-const DetailItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
+const DetailItem: React.FC<Props> = ({
+  profileImg,
+  userName,
+  createdDate,
+  detailType,
+}) => {
   return (
-    <S.Container>
+    <S.Container detailType={detailType}>
       <S.Side>
         <ArrowTop />
         <span>3</span>
@@ -29,14 +35,17 @@ const DetailItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
           adipisicing labore ullamco est nostrud commodo. Occaecat irure aute
           adipisicing fugiat. Consectetur nulla nostrud velit elit sunt eu.
         </p>
-        <S.Tags>
-          <li>
-            <Tag>redux</Tag>
-          </li>
-          <li>
-            <Tag>css</Tag>
-          </li>
-        </S.Tags>
+        {detailType === "question" ? (
+          <S.Tags>
+            <li>
+              <Tag>redux</Tag>
+            </li>
+            <li>
+              <Tag>css</Tag>
+            </li>
+          </S.Tags>
+        ) : null}
+
         <S.Edit>
           <a href="/">Edit</a>
           <SmallProfile
