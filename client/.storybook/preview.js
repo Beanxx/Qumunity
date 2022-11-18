@@ -1,4 +1,5 @@
 import GlobalStyle from "../src/GlobalStyle"
+import "@storybook/addon-console"
 
 export const decorators = [
   (Story) => (
