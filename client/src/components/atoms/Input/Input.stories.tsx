@@ -1,6 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import Input, { Props } from "."
+import Input, { Props } from "./Input"
 
 export default {
   title: "atoms/Input",

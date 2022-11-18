@@ -1,5 +1,5 @@
 import React from "react"
-import Container from "./styles"
+import Container from "./Input.styles"
 
 export type Props = {
   id: string
