@@ -15,6 +15,14 @@ Question.args = {
   profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
   userName: "userName",
   createdDate: "2022-11-10",
+  detailType: "question",
 }
 
 export const Answer = Template.bind({})
+
+Answer.args = {
+  profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
+  userName: "userName",
+  createdDate: "2022-11-10",
+  detailType: "answer",
+}
