@@ -5,26 +5,16 @@ export type Props = {
   id: string
   name: string
   placeholder?: string
-  ref: React.RefObject<HTMLInputElement>
-  onKeyUp: () => void
-  // inputHandler: (text: React.SetStateAction<string>) => void
+  onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
-const Input: React.FC<Props> = ({ id, placeholder, name, ref, onKeyUp }) => {
-  // const changeHandler = (event: {
-  //   target: { value: React.SetStateAction<string> }
-  // }) => {
-  //   inputHandler(event.target.value)
-  // }
-
+const Input: React.FC<Props> = ({ id, name, placeholder, onKeyUp }) => {
   return (
     <Container
       id={id}
       placeholder={placeholder}
       name={name}
-      ref={ref}
       onKeyUp={onKeyUp}
-      // onChange={changeHandler}
     />
   )
 }

@@ -16,7 +16,3 @@ export default {
 const Template: Story<Props> = (args) => <Input {...args} />
 
 export const Default = Template.bind({})
-
-// Default.args = {
-
-// }

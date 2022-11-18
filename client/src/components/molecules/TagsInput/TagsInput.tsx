@@ -1,34 +1,37 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import Tag from "../../atoms/Tag/Tag"
-import Input from "../../atoms/Input"
+import Input from "../../atoms/Input/Input"
 import * as S from "./TagsInput.styles"
-
-// type Test = {}
 
 const TagsInput: React.FC = () => {
   const [tags, setTags] = useState<string[]>([])
-  const tagInputRef = useRef<HTMLInputElement>(null)
 
-  const tagAddHandler = () => {
-    // setTags([...tags, tagInputRef.current?.value])
+  const tagAddHandler = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ): void => {
+    const isIncludes = tags.filter((el) => el === event.currentTarget.value)
+    if (event.key === "Enter" || event.key === " ") {
+      if (isIncludes.length === 0 && event.currentTarget.value !== "") {
+        setTags([...tags, event.currentTarget.value])
+        // setTags((preTags) => {
+        //   return [...preTags, event.currentTarget.value]
+        // })
+        // 이건 왜 안되는거지?
+      }
+    }
   }
 
   return (
     <S.Container>
       <S.Tags>
-        <li>
-          <Tag>태그</Tag>
-        </li>
-        <li>
-          <Tag>태그</Tag>
-        </li>
+        {tags.map((el, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={idx}>
+            <Tag>{el}</Tag>
+          </li>
+        ))}
       </S.Tags>
-      <Input
-        id="input"
-        name="input"
-        ref={tagInputRef}
-        onKeyUp={tagAddHandler}
-      />
+      <Input id="input" name="input" onKeyUp={tagAddHandler} />
     </S.Container>
   )
 }
