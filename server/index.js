@@ -10,9 +10,11 @@ const config = require("./config/dev.js");
 // build 폴더명까지 작성 주의! (여기엔 파일명 작성 X)
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-// [body-parser] client에서 보내는 body 명령어 추적 가능해짐!
+// [body-parser] client에서 보내는 body 명령어 추적 가능
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/user", require("./Router/user.js"));
 
 app.listen(port, () => {
   mongoose
