@@ -69,7 +69,8 @@
         "optionalDependencies": true,
         "peerDependencies": true
       }
-    ]
+    ],
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {
