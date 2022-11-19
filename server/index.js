@@ -8,6 +8,7 @@ const port = 4000; // 포트 번호 4000번으로 설정
 const config = require("./config/dev.js");
 
 app.use(cors());
+
 // path 모듈 사용 (server & client folder를 join으로 합쳐주기)
 // build 폴더명까지 작성 주의! (여기엔 파일명 작성 X)
 app.use(express.static(path.join(__dirname, "../client/build")));
