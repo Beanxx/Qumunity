@@ -14,7 +14,7 @@ const output = {
 
 const process = {
   test: (req, res) => {
-    const TestPost = new Post({ title: "test", content: "test중" });
+    const TestPost = new Post(req.body);
     TestPost.save()
       .then(() => {
         res.status(200).json({ success: true });
