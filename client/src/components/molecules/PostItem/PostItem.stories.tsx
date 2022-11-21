@@ -20,6 +20,7 @@ export const Default = Template.bind({})
 
 Default.args = {
   postData: {
+    id: "1",
     profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
     userName: "userName",
     createdDate: "2022-11-10",

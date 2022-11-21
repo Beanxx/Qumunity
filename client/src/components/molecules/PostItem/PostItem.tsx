@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import * as S from "./PostItem.styles"
 import Tag from "../../atoms/Tag/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
@@ -13,11 +14,13 @@ const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
         <li>121 views</li>
       </S.State>
       <S.Content>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, nisi
-          temporibus! Consequuntur, repellendus obcaecati fuga labore commodi
-          reprehenderit molestiae quo?
-        </h1>
+        <Link to={`/detail/${postData.id}`}>
+          <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
+            nisi temporibus! Consequuntur, repellendus obcaecati fuga labore
+            commodi reprehenderit molestiae quo?
+          </h1>
+        </Link>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
           modi unde dolor recusandae accusamus rem distinctio? Nesciunt in

@@ -8,6 +8,7 @@ import postType from "../../../types/post.interface"
 const MainContent: React.FC = () => {
   const postData: postType[] = [
     {
+      id: "1",
       profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
       userName: "userName",
       createdDate: "2022-11-10",
@@ -16,6 +17,7 @@ const MainContent: React.FC = () => {
       tags: ["javascript, typescript"],
     },
     {
+      id: "2",
       profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
       userName: "userName",
       createdDate: "2022-11-10",
@@ -24,6 +26,7 @@ const MainContent: React.FC = () => {
       tags: ["javascript, typescript"],
     },
     {
+      id: "3",
       profileImg: `${process.env.PUBLIC_URL}/logo192.png`,
       userName: "userName",
       createdDate: "2022-11-10",
