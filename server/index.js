@@ -9,6 +9,8 @@ app.use(express.static(path.join(__dirname, "../client/build"))); // path 모듈
 app.use(express.json()); // [body-parser] client에서 보내는 body 명령어 추적 가능해짐!
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api/user", require("./Router/user.js"));
+
 // https://localhost:4000/ 으로 빌드한 client 파일 연결
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
