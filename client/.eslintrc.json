@@ -70,7 +70,10 @@
         "peerDependencies": true
       }
     ],
-    "no-console": "off"
+    "no-console": "off",
+    "consistent-return": "off",
+    "func-names": "off",
+    "@typescript-eslint/no-var-requires": "off"
   },
   "settings": {
     "import/resolver": {
