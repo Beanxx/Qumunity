@@ -20,7 +20,7 @@ const AskForm: React.FC<Props> = ({ id, title, children, type }) => {
       </label>
       {type === "default" && <Input id={id} name={id} />}
       {type === "textarea" && <TextArea id={id} name={id} />}
-      {type === "tagsInput" && <TagsInput />}
+      {type === "tagsInput" && <TagsInput id={id} name={id} />}
     </Container>
   )
 }

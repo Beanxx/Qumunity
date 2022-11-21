@@ -3,7 +3,12 @@ import Tag from "../../atoms/Tag/Tag"
 import Input from "../../atoms/Input/Input"
 import * as S from "./TagsInput.styles"
 
-const TagsInput: React.FC = () => {
+export interface Props {
+  id: string
+  name: string
+}
+
+const TagsInput: React.FC<Props> = ({ id, name }) => {
   const [tags, setTags] = useState<string[]>([])
 
   const tagAddHandler = (
@@ -31,7 +36,7 @@ const TagsInput: React.FC = () => {
           </li>
         ))}
       </S.Tags>
-      <Input id="input" name="input" onKeyUp={tagAddHandler} />
+      <Input id={id} name={name} onKeyUp={tagAddHandler} />
     </S.Container>
   )
 }

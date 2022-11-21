@@ -28,7 +28,7 @@ const AskForms = () => {
         resulted. Minimum 20 characters.
       </AskForm>
 
-      <AskForm id="content" title="Tags" type="tagsInput">
+      <AskForm id="tags" title="Tags" type="tagsInput">
         Add up to 5 tags to describe what your question is about. Start typing
         to see suggestions.
       </AskForm>
