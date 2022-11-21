@@ -15,7 +15,6 @@ router.post("/join", (req, res) => {
         Counter.updateOne({ name: "counter" }, { $inc: { userNum: 1 } }).then(
           () => {
             res.status(200).json({ success: true });
-            console.log(userNum);
           }
         );
       });
