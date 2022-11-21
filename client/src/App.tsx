@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login"
 import Join from "./pages/Join/Join"
 import Mypage from "./pages/Mypage"
 import Users from "./pages/Users"
-import Detail from "./pages/Detail"
+import Detail from "./pages/Detail/Detail"
 import Footer from "./components/templates/Footer/Footer"
 import Ask from "./pages/Ask/Ask"
 
