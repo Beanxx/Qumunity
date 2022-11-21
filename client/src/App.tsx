@@ -14,21 +14,23 @@ import Footer from "./components/templates/Footer/Footer"
 import Ask from "./pages/Ask/Ask"
 
 const App = () => {
-  axios
-    .post(`${process.env.REACT_APP_API_URL}/main/test`, {
-      title: "지금추가",
-      content: "지금추가",
-    })
-    .then((res) => {
-      console.log(res.data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  // 테스트 코드입니다.
+  // axios
+  //   .post(`${process.env.REACT_APP_API_URL}/main/test`, {
+  //     title: "지금추가",
+  //     content: "지금추가",
+  //   })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
 
   return (
     <>
       <Header />
+
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
@@ -41,6 +43,7 @@ const App = () => {
           <Route path="/users" element={<Users />} />
         </Route>
       </Routes>
+
       <Footer />
     </>
   )
