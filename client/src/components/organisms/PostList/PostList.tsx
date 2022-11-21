@@ -1,30 +1,13 @@
 import React from "react"
 import PostItem from "../../molecules/PostItem/PostItem"
+import postType from "../../../types/post.interface"
 
-export type Props = {
-  profileImg: string
-  userName: string
-  createdDate: string
-}
-
-const PostList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
+const PostList: React.FC<{ postData: postType[] }> = ({ postData }) => {
   return (
     <ul>
-      <PostItem
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
-      />
-      <PostItem
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
-      />
-      <PostItem
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
-      />
+      {postData.map((el: postType) => (
+        <PostItem postData={el} />
+      ))}
     </ul>
   )
 }

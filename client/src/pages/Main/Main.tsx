@@ -7,11 +7,7 @@ import Container from "./Main.styles"
 const Main: React.FC = () => {
   return (
     <Container>
-      <MainContent
-        profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
-        userName="userName"
-        createdDate="2022-11-10"
-      />
+      <MainContent />
       <div>
         <WatchedTags />
         <RelatedTags />

@@ -2,14 +2,9 @@ import React from "react"
 import * as S from "./PostItem.styles"
 import Tag from "../../atoms/Tag/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
+import postType from "../../../types/post.interface"
 
-export type Props = {
-  profileImg: string
-  userName: string
-  createdDate: string
-}
-
-const PostItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
+const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
   return (
     <S.Container>
       <S.State>
@@ -49,9 +44,9 @@ const PostItem: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
             </li>
           </S.Tags>
           <SmallProfile
-            profileImg={profileImg}
-            userName={userName}
-            createdDate={createdDate}
+            profileImg={postData.profileImg}
+            userName={postData.userName}
+            createdDate={postData.createdDate}
           />
         </S.ContentBot>
       </S.Content>

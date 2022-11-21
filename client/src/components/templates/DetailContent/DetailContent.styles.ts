@@ -9,7 +9,7 @@ export const Info = styled.div`
 `
 
 export const AnswerTitle = styled.div`
-  font-size: 19px;
+  font-size: 27px;
   color: #232629;
   padding: 24px 12px;
 `
@@ -18,7 +18,4 @@ export const AnswerForm = styled.form`
   > div {
     margin: 24px 0;
   }
-  /* > label {
-    margin: 24px 0;
-  } */
 `
