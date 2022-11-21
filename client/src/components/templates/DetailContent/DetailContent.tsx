@@ -9,7 +9,11 @@ import TextArea from "../../atoms/TextArea/TextArea"
 const DetailContent: React.FC = () => {
   return (
     <div>
-      <MiniHeader>질문제목</MiniHeader>
+      <MiniHeader>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore,
+        ipsam corrupti? Assumenda libero, dignissimos sed enim deserunt ipsa
+        iusto neque.
+      </MiniHeader>
       <S.Info>
         <div>Asked 5 years ago</div>
         <div>Viewed 454 times</div>
