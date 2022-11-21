@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom"
 import axios from "axios"
 import MainLayout from "./layouts/MainLayout/MainLayout"
 import Main from "./pages/Main/Main"
-import Post from "./pages/Post"
 import Header from "./components/templates/Header/Header"
 import Login from "./pages/Login/Login"
 import Join from "./pages/Join/Join"
@@ -39,7 +38,6 @@ const App = () => {
           <Route path="/" element={<Main />} />
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/mypage" element={<Mypage />} />
-          <Route path="/post" element={<Post />} />
           <Route path="/users" element={<Users />} />
         </Route>
       </Routes>
