@@ -1,5 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
+import axios from "axios"
 import MainLayout from "./layouts/MainLayout/MainLayout"
 import Main from "./pages/Main/Main"
 import Post from "./pages/Post"
@@ -13,6 +14,18 @@ import Footer from "./components/templates/Footer/Footer"
 import Ask from "./pages/Ask/Ask"
 
 const App = () => {
+  axios
+    .post(`${process.env.REACT_APP_API_URL}/main/test`, {
+      title: "지금추가",
+      content: "지금추가",
+    })
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
   return (
     <>
       <Header />
