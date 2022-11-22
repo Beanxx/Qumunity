@@ -2,10 +2,10 @@ import styled from "styled-components"
 
 const Container = styled.ul`
   border: 1px solid green;
-  width: 160px;
+  flex: 0 0 160px;
   font-size: 13px;
 
-  li {
+  a {
     padding: 8px;
     display: flex;
     align-items: center;
