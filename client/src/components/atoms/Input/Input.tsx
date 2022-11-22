@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
   }
 )
 
-// const Input: React.FC<Props> = ({ id, name, placeholder, onKeyUp, ref }) => {
+// const Input: React.FC<Props> = ({ id, name, placeholder, onKeyUp }) => {
 //   return (
 //     <Container
 //       id={id}

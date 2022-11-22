@@ -1,11 +1,10 @@
-import React, { FormEvent, useRef } from "react"
+import React, { FormEvent, useRef, useState } from "react"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
 import Container from "./AskForms.styles"
 
 const AskForms = () => {
-  // 글 작성후 제출 할 때
-  // userId, title, content, tags 전송
+  const [tags, setTags] = useState<string[]>([])
   const titleInputRef = useRef<HTMLInputElement>(null)
   // const summaryInputRef = useRef<HTMLTextAreaElement>(null)
   // const contentInputRef = useRef<HTMLInputElement>(null)
@@ -19,10 +18,10 @@ const AskForms = () => {
       userId: "1",
       title,
       content: "내용",
-      tags: [],
+      tags,
     }
 
-    console.log(title)
+    console.log(postData)
   }
 
   return (
@@ -49,7 +48,7 @@ const AskForms = () => {
         resulted. Minimum 20 characters.
       </AskForm>
 
-      <AskForm id="tags" title="Tags" type="tagsInput">
+      <AskForm id="tags" title="Tags" type="tagsInput" onEnterTag={setTags}>
         Add up to 5 tags to describe what your question is about. Start typing
         to see suggestions.
       </AskForm>

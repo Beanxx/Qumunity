@@ -9,10 +9,11 @@ export type Props = {
   title: string
   children: React.ReactNode
   type: "default" | "textarea" | "tagsInput"
+  onEnterTag?: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 const AskForm = forwardRef<HTMLInputElement, Props>(
-  ({ id, title, children, type }, ref) => {
+  ({ id, title, children, type, onEnterTag }, ref) => {
     return (
       <Container>
         <label htmlFor={id}>
@@ -21,7 +22,9 @@ const AskForm = forwardRef<HTMLInputElement, Props>(
         </label>
         {type === "default" && <Input id={id} name={id} ref={ref} />}
         {type === "textarea" && <TextArea id={id} name={id} />}
-        {type === "tagsInput" && <TagsInput id={id} name={id} />}
+        {type === "tagsInput" && (
+          <TagsInput id={id} name={id} onEnterTag={onEnterTag} />
+        )}
       </Container>
     )
   }

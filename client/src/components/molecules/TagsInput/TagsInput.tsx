@@ -6,9 +6,10 @@ import * as S from "./TagsInput.styles"
 export interface Props {
   id: string
   name: string
+  onEnterTag?: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-const TagsInput: React.FC<Props> = ({ id, name }) => {
+const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
   const [tags, setTags] = useState<string[]>([])
 
   const tagAddHandler = (
@@ -22,6 +23,10 @@ const TagsInput: React.FC<Props> = ({ id, name }) => {
         //   return [...preTags, event.currentTarget.value]
         // })
         // 이건 왜 안되는거지?
+
+        if (onEnterTag) {
+          onEnterTag([...tags, event.currentTarget.value])
+        }
       }
     }
   }
