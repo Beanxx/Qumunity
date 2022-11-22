@@ -4,12 +4,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 7px;
 
   input {
     border: 1px solid #babfc4;
     border-radius: 3px;
     padding: 8px 9px;
+    margin-bottom: 3px;
 
     ::placeholder {
       color: red;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 export const Box = styled.div`
   label {
     padding: 0 2px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
   }
 
