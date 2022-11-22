@@ -1,6 +1,7 @@
 "use strict";
 
 const Post = require("../../models/post");
+const PostCollection = require("../../models/postCollection");
 
 const output = {
   main: (req, res) => {

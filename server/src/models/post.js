@@ -7,4 +7,4 @@ const PostSchema = new mongoose.Schema({
   content: String,
 });
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("post", PostSchema);
