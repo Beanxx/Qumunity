@@ -6,20 +6,14 @@ import DetailItem from "../../molecules/DetailItem/DetailItem"
 import Button from "../../atoms/Button"
 import TextArea from "../../atoms/TextArea/TextArea"
 
-export type Props = {
-  profileImg: string
-  userName: string
-  createdDate: string
-}
-
-const DetailContent: React.FC<Props> = ({
-  profileImg,
-  userName,
-  createdDate,
-}) => {
+const DetailContent: React.FC = () => {
   return (
-    <>
-      <MiniHeader>질문제목</MiniHeader>
+    <div>
+      <MiniHeader>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore,
+        ipsam corrupti? Assumenda libero, dignissimos sed enim deserunt ipsa
+        iusto neque.
+      </MiniHeader>
       <S.Info>
         <div>Asked 5 years ago</div>
         <div>Viewed 454 times</div>
@@ -27,16 +21,16 @@ const DetailContent: React.FC<Props> = ({
       <ul>
         <DetailItem
           detailType="question"
-          profileImg={profileImg}
-          userName={userName}
-          createdDate={createdDate}
+          profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
+          userName="userName"
+          createdDate="2022-11-10"
         />
       </ul>
       <S.AnswerTitle>3 Answer</S.AnswerTitle>
       <AnswerList
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
+        profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
+        userName="userName"
+        createdDate="2022-11-10"
       />
       <S.AnswerForm>
         {/* <label htmlFor="answer">Your Answer</label> */}
@@ -46,7 +40,7 @@ const DetailContent: React.FC<Props> = ({
           Post Your Answer
         </Button>
       </S.AnswerForm>
-    </>
+    </div>
   )
 }
 

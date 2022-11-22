@@ -1,12 +1,32 @@
-import React from "react"
+import React, { FormEvent, useRef, useState } from "react"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
 import Container from "./AskForms.styles"
 
 const AskForms = () => {
+  const [tags, setTags] = useState<string[]>([])
+  const titleInputRef = useRef<HTMLInputElement>(null)
+  // const summaryInputRef = useRef<HTMLTextAreaElement>(null)
+  // const contentInputRef = useRef<HTMLInputElement>(null)
+
+  const submitHandler = (event: FormEvent) => {
+    event.preventDefault()
+
+    const title = titleInputRef.current?.value
+
+    const postData = {
+      userId: "1",
+      title,
+      content: "내용",
+      tags,
+    }
+
+    console.log(postData)
+  }
+
   return (
-    <Container>
-      <AskForm id="answer" title="Title" type="default">
+    <Container onSubmit={submitHandler}>
+      <AskForm id="title" title="Title" type="default" ref={titleInputRef}>
         Be specific and imagine you’re asking a question to another person.
       </AskForm>
 
@@ -28,7 +48,7 @@ const AskForms = () => {
         resulted. Minimum 20 characters.
       </AskForm>
 
-      <AskForm id="content" title="Tags" type="tagsInput">
+      <AskForm id="tags" title="Tags" type="tagsInput" onEnterTag={setTags}>
         Add up to 5 tags to describe what your question is about. Start typing
         to see suggestions.
       </AskForm>

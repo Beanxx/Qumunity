@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import Input from "../../atoms/Input/Input"
 import TextArea from "../../atoms/TextArea/TextArea"
 import TagsInput from "../../molecules/TagsInput/TagsInput"
@@ -9,20 +9,25 @@ export type Props = {
   title: string
   children: React.ReactNode
   type: "default" | "textarea" | "tagsInput"
+  onEnterTag?: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-const AskForm: React.FC<Props> = ({ id, title, children, type }) => {
-  return (
-    <Container>
-      <label htmlFor={id}>
-        {title}
-        <p>{children}</p>
-      </label>
-      {type === "default" && <Input id={id} name={id} />}
-      {type === "textarea" && <TextArea id={id} name={id} />}
-      {type === "tagsInput" && <TagsInput />}
-    </Container>
-  )
-}
+const AskForm = forwardRef<HTMLInputElement, Props>(
+  ({ id, title, children, type, onEnterTag }, ref) => {
+    return (
+      <Container>
+        <label htmlFor={id}>
+          {title}
+          <p>{children}</p>
+        </label>
+        {type === "default" && <Input id={id} name={id} ref={ref} />}
+        {type === "textarea" && <TextArea id={id} name={id} />}
+        {type === "tagsInput" && (
+          <TagsInput id={id} name={id} onEnterTag={onEnterTag} />
+        )}
+      </Container>
+    )
+  }
+)
 
 export default AskForm

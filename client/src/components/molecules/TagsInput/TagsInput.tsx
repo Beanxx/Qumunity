@@ -3,7 +3,13 @@ import Tag from "../../atoms/Tag/Tag"
 import Input from "../../atoms/Input/Input"
 import * as S from "./TagsInput.styles"
 
-const TagsInput: React.FC = () => {
+export interface Props {
+  id: string
+  name: string
+  onEnterTag?: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
   const [tags, setTags] = useState<string[]>([])
 
   const tagAddHandler = (
@@ -17,6 +23,10 @@ const TagsInput: React.FC = () => {
         //   return [...preTags, event.currentTarget.value]
         // })
         // 이건 왜 안되는거지?
+
+        if (onEnterTag) {
+          onEnterTag([...tags, event.currentTarget.value])
+        }
       }
     }
   }
@@ -31,7 +41,7 @@ const TagsInput: React.FC = () => {
           </li>
         ))}
       </S.Tags>
-      <Input id="input" name="input" onKeyUp={tagAddHandler} />
+      <Input id={id} name={name} onKeyUp={tagAddHandler} />
     </S.Container>
   )
 }

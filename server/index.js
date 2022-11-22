@@ -1,7 +1,10 @@
+"use strict";
+
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-
+const main = require("./Router/main/main");
+const detail = require("./Router/detail/detail");
 const app = express();
 
 app.use(cors());
@@ -10,6 +13,8 @@ app.use(express.json()); // [body-parser] client에서 보내는 body 명령어 
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/user", require("./Router/user.js"));
+app.use("/api/main", main);
+app.use("/api/detail", detail);
 
 // https://localhost:4000/ 으로 빌드한 client 파일 연결
 app.get("/", (req, res) => {

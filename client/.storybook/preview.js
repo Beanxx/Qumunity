@@ -1,11 +1,15 @@
+import React from "react"
+import { BrowserRouter } from "react-router-dom"
 import GlobalStyle from "../src/GlobalStyle"
 import "@storybook/addon-console"
 
 export const decorators = [
   (Story) => (
     <>
-      <GlobalStyle />
-      <Story />
+      <BrowserRouter>
+        <GlobalStyle />
+        <Story />
+      </BrowserRouter>
     </>
   ),
 ]

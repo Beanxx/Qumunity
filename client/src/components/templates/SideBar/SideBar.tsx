@@ -1,13 +1,16 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import Container from "./SideBar.styles"
 
 const SideBar = () => {
   return (
     <Container>
-      <ul>
-        <li>Question</li>
-        <li>Users</li>
-      </ul>
+      <li>
+        <Link to="/">Question</Link>
+      </li>
+      <li className="on">
+        <Link to="/users">Users</Link>
+      </li>
     </Container>
   )
 }
