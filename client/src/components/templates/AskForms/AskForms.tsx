@@ -1,12 +1,33 @@
-import React from "react"
+import React, { FormEvent, useRef } from "react"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
 import Container from "./AskForms.styles"
 
 const AskForms = () => {
+  // 글 작성후 제출 할 때
+  // userId, title, content, tags 전송
+  const titleInputRef = useRef<HTMLInputElement>(null)
+  // const summaryInputRef = useRef<HTMLTextAreaElement>(null)
+  // const contentInputRef = useRef<HTMLInputElement>(null)
+
+  const submitHandler = (event: FormEvent) => {
+    event.preventDefault()
+
+    const title = titleInputRef.current?.value
+
+    const postData = {
+      userId: "1",
+      title,
+      content: "내용",
+      tags: [],
+    }
+
+    console.log(title)
+  }
+
   return (
-    <Container>
-      <AskForm id="answer" title="Title" type="default">
+    <Container onSubmit={submitHandler}>
+      <AskForm id="title" title="Title" type="default" ref={titleInputRef}>
         Be specific and imagine you’re asking a question to another person.
       </AskForm>
 
