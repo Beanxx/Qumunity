@@ -1,12 +1,11 @@
 import styled from "styled-components"
 
-const Container = styled.div`
+const Container = styled.form`
   width: 300px;
   height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   border-radius: 7px;
   background-color: #fff;
   box-shadow: 0 10px 24px hsla(0, 0%, 0%, 0.05),

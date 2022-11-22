@@ -6,6 +6,7 @@ export type Props = {
   btnType: "default" | "highlighted"
   width?: string
   disabled?: boolean
+  type?: "button" | "submit" | "reset"
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
@@ -15,9 +16,11 @@ const Button: React.FC<Props> = ({
   onClick,
   width,
   disabled,
+  type,
 }) => {
   return (
     <Container
+      type={type}
       btnType={btnType}
       onClick={onClick}
       width={width}

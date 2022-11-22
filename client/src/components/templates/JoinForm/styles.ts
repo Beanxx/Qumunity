@@ -37,3 +37,21 @@ export const CheckDescription = styled.div`
     margin-right: 5px;
   }
 `
+export const Message = styled.div`
+  width: 100%;
+  color: red;
+  font-size: 11px;
+  padding-left: 3px;
+`
+
+export const Box = styled.div`
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+`
+
+export const BtnBox = styled.div`
+  margin-top: 1rem;
+`

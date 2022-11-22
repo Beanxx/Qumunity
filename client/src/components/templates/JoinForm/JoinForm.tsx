@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
+import { useForm, SubmitHandler } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
 import LoginInput from "../../atoms/LoginInput"
 import Button from "../../atoms/Button"
 import Form from "../../../layouts/Form/Form"
@@ -8,64 +10,46 @@ import * as S from "./styles"
 import Toast from "../../atoms/Toast/Toast"
 import { ReactComponent as QuestionImg } from "../../../assets/icons/questionmark.svg"
 import firebase from "../../../firebase-config"
+import { schemaJoin } from "../../../hooks/validationYup"
+
+type Inputs = {
+  name: string
+  email: string
+  password: string
+  confirmPassword: string
+}
 
 const JoinForm = () => {
   const navigate = useNavigate()
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [pw, setPw] = useState("")
-  const [pwConfirm, setPwConfirm] = useState("")
-  const [flag, setFlag] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = useForm<Inputs>({ resolver: yupResolver(schemaJoin), mode: "onChange" })
 
-  const JoinFunc = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    setFlag(true)
-    e.preventDefault()
-
-    if (!(name && email && pw && pwConfirm)) {
-      Toast.fire({
-        icon: "warning",
-        text: "모든 칸을 채워주세요.",
-      })
-    }
-
-    if (pw !== pwConfirm) {
-      Toast.fire({
-        icon: "warning",
-        text: "비밀번호와 비빌번호 확인 값은 같아야 합니다.",
-      })
-    }
-
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const createdUser = await firebase
       .auth()
-      .createUserWithEmailAndPassword(email, pw)
+      .createUserWithEmailAndPassword(data.email, data.password)
 
     await createdUser?.user?.updateProfile({
-      displayName: name,
-      // photoURL:
-      //   "https://kr.object.ncloudstorage.com/community-bucket/post/profile.png",
+      displayName: data.name,
     })
 
     const body = {
       email: createdUser?.user?.multiFactor.user.email,
       displayName: createdUser?.user?.multiFactor.user.displayName,
       uid: createdUser?.user?.multiFactor.user.uid,
-      // photoURL:
-      //   "https://kr.object.ncloudstorage.com/community-bucket/post/profile.png",
     }
-
-    console.log(body)
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/user/join`, body)
       .then((response) => {
-        setFlag(false) // 회원가입이 완료되면 다시 버튼 활성화해주기
         if (response.data.success) {
           Toast.fire({
             icon: "success",
-            text: "Go!Street 회원가입을 축하드립니다 :>",
+            text: "회원가입에 성공하였습니다.",
           }).then(() => {
             navigate("/login")
           })
@@ -79,35 +63,45 @@ const JoinForm = () => {
   }
 
   return (
-    <Form style={S.styles.container}>
-      <LoginInput
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.currentTarget.value)}
-      >
-        NickName
-      </LoginInput>
-      <LoginInput
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.currentTarget.value)}
-      >
-        Email
-      </LoginInput>
-      <LoginInput
-        type="password"
-        value={pw}
-        onChange={(e) => setPw(e.currentTarget.value)}
-      >
-        Password
-      </LoginInput>
-      <LoginInput
-        type="password"
-        value={pwConfirm}
-        onChange={(e) => setPwConfirm(e.currentTarget.value)}
-      >
-        Password Confirm
-      </LoginInput>
+    <Form
+      id="join"
+      style={S.styles.container}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <S.Box>
+        <LoginInput id="name" type="text" register={register("name")}>
+          NickName
+        </LoginInput>
+        {errors.name && <S.Message>{errors.name.message}</S.Message>}
+      </S.Box>
+      <S.Box>
+        <LoginInput id="email" type="email" register={register("email")}>
+          Email
+        </LoginInput>
+        {errors.email && <S.Message>{errors.email.message}</S.Message>}
+      </S.Box>
+      <S.Box>
+        <LoginInput
+          id="password"
+          type="password"
+          register={register("password")}
+        >
+          Password
+        </LoginInput>
+        {errors.password && <S.Message>{errors.password.message}</S.Message>}
+      </S.Box>
+      <S.Box>
+        <LoginInput
+          id="confirmPw"
+          type="password"
+          register={register("confirmPassword")}
+        >
+          Confirm Password
+        </LoginInput>
+        {errors.confirmPassword && (
+          <S.Message>{errors.confirmPassword.message}</S.Message>
+        )}
+      </S.Box>
 
       <S.Description>
         Passwords must contain at least eight characters, including at least 1
@@ -123,11 +117,7 @@ const JoinForm = () => {
         </div>
       </S.CheckDescription>
 
-      <Button
-        disabled={flag}
-        btnType="highlighted"
-        onClick={(e) => JoinFunc(e)}
-      >
+      <Button disabled={isSubmitting} btnType="highlighted" type="submit">
         Sign up
       </Button>
 
