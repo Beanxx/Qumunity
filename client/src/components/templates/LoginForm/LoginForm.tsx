@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
+import { useForm, SubmitHandler } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
 import firebase from "../../../firebase-config"
 import LoginInput from "../../atoms/LoginInput"
 import Button from "../../atoms/Button"
 import Form from "../../../layouts/Form/Form"
 import Toast from "../../atoms/Toast/Toast"
+import { schemaLogin } from "../../../hooks/validationYup"
+import { Box, Message } from "../JoinForm/styles"
 
 interface ErrorType {
   code: string
 }
 
+type Inputs = {
+  email: string
+  password: string
+}
+
 const LoginForm = () => {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [pw, setPw] = useState("")
-  const [errorMsg, setErrorMsg] = useState("")
 
-  const SignInFunc = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting, errors },
+  } = useForm<Inputs>({ resolver: yupResolver(schemaLogin), mode: "onChange" })
 
-    if (!(email && pw)) {
-      return Toast.fire({
-        icon: "warning",
-        text: "모든 칸을 채워주세요.",
-      })
-    }
-
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, pw)
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(data.email, data.password)
       Toast.fire({
         icon: "success",
         text: "로그인에 성공하셨습니다.",
@@ -37,43 +41,54 @@ const LoginForm = () => {
         navigate("/")
       })
     } catch (error: unknown) {
+      console.log(error)
       const err = error as ErrorType
       if (err.code === "auth/user-not-found") {
-        setErrorMsg("존재하지 않는 이메일입니다.")
+        Toast.fire({
+          icon: "error",
+          text: "존재하지 않는 이메일입니다.",
+        }).then(() => {
+          reset()
+        })
       } else if (err.code === "auth/wrong-password") {
-        setErrorMsg("비밀번호가 일치하지 않습니다.")
+        Toast.fire({
+          icon: "error",
+          text: "비밀번호가 일치하지 않습니다.",
+        }).then(() => {
+          reset()
+        })
       } else {
-        setErrorMsg("로그인에 실패하였습니다.")
+        Toast.fire({
+          icon: "error",
+          text: "로그인에 실패하였습니다.",
+        }).then(() => {
+          reset()
+        })
       }
     }
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      setErrorMsg("")
-    }, 4000)
-  }, [errorMsg])
-
   return (
-    <Form>
-      <LoginInput
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.currentTarget.value)}
-      >
-        Email
-      </LoginInput>
-      <LoginInput
-        type="password"
-        sub="Forgot passowrd?"
-        value={pw}
-        onChange={(e) => setPw(e.currentTarget.value)}
-      >
-        Password
-      </LoginInput>
-      {errorMsg !== "" && <p>{errorMsg}</p>}
-      <Button btnType="highlighted" onClick={(e) => SignInFunc(e)}>
-        Log in
+    <Form id="login" onSubmit={handleSubmit(onSubmit)}>
+      <Box>
+        <LoginInput id="email" type="email" register={register("email")}>
+          Email
+        </LoginInput>
+        {errors.email && <Message>{errors.email.message}</Message>}
+      </Box>
+      <Box>
+        <LoginInput
+          id="password"
+          type="password"
+          sub="Forgot passowrd?"
+          register={register("password")}
+        >
+          Password
+        </LoginInput>
+        {errors.password && <Message>{errors.password.message}</Message>}
+      </Box>
+      <Button disabled={isSubmitting} btnType="highlighted" type="submit">
+        Login
       </Button>
     </Form>
   )
