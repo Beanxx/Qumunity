@@ -16,12 +16,25 @@ const output = {
 const process = {
   test: (req, res) => {
     const TestPost = new Post(req.body);
+
+    PostCollection.findOne({ name: "postCount" })
+      .exec()
+      .then((err, result) => {
+        TestPost._id = result.totalPost;
+      });
+
     TestPost.save()
       .then(() => {
-        res.status(200).json({ success: true });
+        PostCollection.updateOne(
+          { name: "postCount" },
+          { $inc: { totalPost: 1 } },
+          (err, result) => {
+            res.status(200).json({ success: true });
+          }
+        );
       })
       .catch((err) => {
-        console.log(err);
+        res.status(400).json({ success: false, msg: err });
       });
   },
 };
