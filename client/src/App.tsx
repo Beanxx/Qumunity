@@ -29,7 +29,7 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("token", user.accessToken)
+    sessionStorage.setItem("token", user.accessToken)
   }, [user])
 
   // useEffect(() => {
