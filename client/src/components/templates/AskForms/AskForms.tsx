@@ -1,4 +1,7 @@
 import React, { FormEvent, useRef, useState } from "react"
+import axios from "axios"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../redux/store"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
 import Container from "./AskForms.styles"
@@ -8,6 +11,7 @@ const AskForms = () => {
   const titleInputRef = useRef<HTMLInputElement>(null)
   // const summaryInputRef = useRef<HTMLTextAreaElement>(null)
   // const contentInputRef = useRef<HTMLInputElement>(null)
+  const uid = useSelector((state: RootState) => state.user.uid)
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault()
@@ -15,12 +19,21 @@ const AskForms = () => {
     const title = titleInputRef.current?.value
 
     const postData = {
-      userId: "1",
+      uid,
+      createdDate: new Date(),
       title,
       content: "테스트중입니다.",
       tags,
-      createdDate: new Date(),
     }
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/ask/register`, postData)
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
     console.log(postData)
   }
