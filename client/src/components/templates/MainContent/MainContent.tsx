@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import FilterButtons from "../../atoms/FilterButton/FilterButtons"
 import PostList from "../../organisms/PostList/PostList"
 import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
@@ -6,6 +7,19 @@ import Info from "./MainContent.styles"
 import postType from "../../../types/post.interface"
 
 const MainContent: React.FC = () => {
+  // 테스트 코드입니다.
+  // axios
+  //   .post(`${process.env.REACT_APP_API_URL}/main/test`, {
+  //     title: "지금추가",
+  //     content: "지금추가",
+  //   })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+
   const postData: postType[] = [
     {
       id: "1",

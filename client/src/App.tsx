@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Routes, Route } from "react-router-dom"
-import axios from "axios"
 import { RootState } from "./redux/store"
 import firebase from "./firebase-config"
 import MainLayout from "./layouts/MainLayout/MainLayout"
@@ -16,28 +15,9 @@ import Footer from "./components/templates/Footer/Footer"
 import Ask from "./pages/Ask/Ask"
 import { loginUser } from "./redux/reducers/userSlice"
 
-interface userState {
-  displayName: string
-  uid: string
-  accessToken: string
-}
-
 const App = () => {
   const dispatch = useDispatch()
   const user = useSelector((state: RootState) => state.user)
-
-  // 테스트 코드입니다.
-  // axios
-  //   .post(`${process.env.REACT_APP_API_URL}/main/test`, {
-  //     title: "지금추가",
-  //     content: "지금추가",
-  //   })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((userInfo) => {
@@ -45,6 +25,7 @@ const App = () => {
         dispatch(loginUser(userInfo.multiFactor.user))
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
