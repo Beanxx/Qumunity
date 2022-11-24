@@ -17,8 +17,9 @@ const AskForms = () => {
     const postData = {
       userId: "1",
       title,
-      content: "내용",
+      content: "테스트중입니다.",
       tags,
+      createdDate: new Date(),
     }
 
     console.log(postData)
