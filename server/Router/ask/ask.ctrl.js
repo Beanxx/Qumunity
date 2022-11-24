@@ -7,8 +7,7 @@ const { Counter } = require("../../Model/Counter");
 const process = {
   register: (req, res) => {
     const postData = new Post(req.body);
-    // User.findOne({ uid: req.body.uid })
-    User.findOne({ uid: "EBBpe61iGYhwOG7BXAGgcidGZUn2" })
+    User.findOne({ uid: req.body.uid })
       .exec()
       .then((userInfo) => {
         postData.author = userInfo._id;
