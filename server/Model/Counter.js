@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const counterSchema = new mongoose.Schema(
   {
     name: String,
-    // postNum: Number,
     userNum: Number,
+    postNum: Number,
   },
   { collection: "counter" }
 );
