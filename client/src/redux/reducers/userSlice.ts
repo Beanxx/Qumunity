@@ -1,15 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
-import { RootState } from "../store"
 
-// Define a type for the slice state
 interface userState {
   displayName: string
   uid: string
   accessToken: string
 }
 
-// Define the initial state using that type
 const initialState: userState = {
   displayName: "",
   uid: "",
@@ -18,7 +15,6 @@ const initialState: userState = {
 
 export const userSlice = createSlice({
   name: "user",
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
     loginUser: (state, action: PayloadAction<userState>) => {

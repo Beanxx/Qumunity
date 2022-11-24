@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Routes, Route } from "react-router-dom"
-import { RootState } from "./redux/store"
 import firebase from "./firebase-config"
 import MainLayout from "./layouts/MainLayout/MainLayout"
 import Main from "./pages/Main/Main"
@@ -17,7 +16,6 @@ import { loginUser } from "./redux/reducers/userSlice"
 
 const App = () => {
   const dispatch = useDispatch()
-  const user = useSelector((state: RootState) => state.user)
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((userInfo) => {
@@ -27,14 +25,6 @@ const App = () => {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  useEffect(() => {
-    sessionStorage.setItem("token", user.accessToken)
-  }, [user])
-
-  // useEffect(() => {
-  //   firebase.auth().signOut()
-  // }, [])
 
   return (
     <>
