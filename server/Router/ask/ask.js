@@ -4,6 +4,6 @@ const express = require("express");
 const router = express.Router();
 const ctrl = require("./ask.ctrl");
 
-router.post("/test", ctrl.process.register);
+router.post("/register", ctrl.process.register);
 
 module.exports = router;
