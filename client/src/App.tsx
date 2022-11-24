@@ -23,7 +23,6 @@ const App = () => {
         dispatch(loginUser(userInfo.multiFactor.user))
       }
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
