@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Routes, Route } from "react-router-dom"
 import firebase from "./firebase-config"
 import MainLayout from "./layouts/MainLayout/MainLayout"
