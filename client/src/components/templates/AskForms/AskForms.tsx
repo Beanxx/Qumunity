@@ -20,7 +20,6 @@ const AskForms = () => {
 
     const postData = {
       uid,
-      createdDate: new Date(),
       title,
       content: "테스트중입니다.",
       tags,
