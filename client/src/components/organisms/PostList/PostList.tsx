@@ -6,7 +6,7 @@ const PostList: React.FC<{ postData: postType[] }> = ({ postData }) => {
   return (
     <ul>
       {postData.map((el: postType) => (
-        <PostItem key={el.id} postData={el} />
+        <PostItem key={el.postNum} postData={el} />
       ))}
     </ul>
   )
