@@ -4,7 +4,7 @@
     {
       "emoji": "✨",
       "code": ":sparkles:",
-      "description": "[new features] 기능 및 코드 추가"
+      "description": "[feat] 기능 및 코드 추가"
     },
     {
       "emoji": "🔥",
@@ -19,7 +19,7 @@
     {
       "emoji": "🎨",
       "code": ":art:",
-      "description": "[styling] 코드 스타일링"
+      "description": "[styling] 코드의 구조/형태 개선"
     },
     {
       "emoji": "➕",
@@ -75,6 +75,11 @@
       "emoji": "💡",
       "code": ":bulb:",
       "description": "[comment] 주석 추가/수정"
+    },
+    {
+      "emoji": "🙈",
+      "code": ":see_no_evil:",
+      "description": "[ignore] gitignore 추가/수정"
     },
   ]
 }
