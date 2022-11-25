@@ -1,22 +1,41 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router"
+import axios from "axios"
 import * as S from "./DetailContent.styles"
 import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
 import AnswerList from "../../organisms/AnswerList/AnswerList"
 import DetailItem from "../../molecules/DetailItem/DetailItem"
 import Button from "../../atoms/Button"
 import TextArea from "../../atoms/TextArea/TextArea"
+import postType from "../../../types/post.interface"
 
 const DetailContent: React.FC = () => {
+  const [detailtData, setDetailData] = useState<postType>()
+  const { id } = useParams()
+
+  const getDetailData = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/detail/${id}`
+      )
+      setDetailData(data)
+    } catch (err) {
+      // 임시에러처리
+      // eslint-disable-next-line no-alert
+      alert(err)
+    }
+  }
+
+  useEffect(() => {
+    getDetailData()
+  }, [])
+
   return (
     <div>
-      <MiniHeader>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore,
-        ipsam corrupti? Assumenda libero, dignissimos sed enim deserunt ipsa
-        iusto neque.
-      </MiniHeader>
+      <MiniHeader>{detailtData?.title}</MiniHeader>
       <S.Info>
-        <div>Asked 5 years ago</div>
-        <div>Viewed 454 times</div>
+        <div>{`Asked ${detailtData?.createdDate} years ago`}</div>
+        <div>{`Viewed ${detailtData?.views} times`}</div>
       </S.Info>
       <ul>
         <DetailItem
