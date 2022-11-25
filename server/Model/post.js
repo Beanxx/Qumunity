@@ -5,10 +5,10 @@ const mongoose = require("mongoose");
 const PostSchema = new mongoose.Schema({
   postNum: Number,
   title: String,
-  summury: String,
+  summary: String,
   content: String,
   tags: Array,
-  createDate: { type: Date, default: Date.now },
+  createdDate: { type: Date, default: Date.now },
   votes: { type: Number, default: 0 },
   answers: { type: Number, default: 0 },
   views: { type: Number, default: 0 },
