@@ -6,6 +6,7 @@ const cors = require("cors");
 const main = require("./Router/main/main");
 const detail = require("./Router/detail/detail");
 const ask = require("./Router/ask/ask");
+const answer = require("./Router/answer/answer");
 const app = express();
 
 app.use(cors());
@@ -17,6 +18,7 @@ app.use("/api/user", require("./Router/user.js"));
 app.use("/api/main", main);
 app.use("/api/detail", detail);
 app.use("/api/ask", ask);
+app.use("/api/answer", answer);
 
 // https://localhost:4000/ 으로 빌드한 client 파일 연결
 app.get("/", (req, res) => {
