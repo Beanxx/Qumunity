@@ -1,33 +1,11 @@
 import React from "react"
 import DetailItem from "../../molecules/DetailItem/DetailItem"
+import postType from "../../../types/post.interface"
 
-export type Props = {
-  profileImg: string
-  userName: string
-  createdDate: string
-}
-
-const AnswerList: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
+const AnswerList: React.FC<{ detailData: postType }> = ({ detailData }) => {
   return (
     <ul>
-      <DetailItem
-        detailType="answer"
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
-      />
-      <DetailItem
-        detailType="answer"
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
-      />
-      <DetailItem
-        detailType="answer"
-        profileImg={profileImg}
-        userName={userName}
-        createdDate={createdDate}
-      />
+      <DetailItem detailType="answer" detailData={detailData} />
     </ul>
   )
 }

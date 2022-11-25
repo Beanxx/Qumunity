@@ -10,7 +10,7 @@ import TextArea from "../../atoms/TextArea/TextArea"
 import postType from "../../../types/post.interface"
 
 const DetailContent: React.FC = () => {
-  const [detailtData, setDetailData] = useState<postType>()
+  const [detailData, setDetailData] = useState<postType[]>([])
   const { id } = useParams()
 
   const getDetailData = async () => {
@@ -18,7 +18,7 @@ const DetailContent: React.FC = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/detail/${id}`
       )
-      setDetailData(data)
+      setDetailData([data])
     } catch (err) {
       // 임시에러처리
       // eslint-disable-next-line no-alert
@@ -32,25 +32,16 @@ const DetailContent: React.FC = () => {
 
   return (
     <div>
-      <MiniHeader>{detailtData?.title}</MiniHeader>
+      <MiniHeader>{detailData[0]?.title}</MiniHeader>
       <S.Info>
-        <div>{`Asked ${detailtData?.createdDate} years ago`}</div>
-        <div>{`Viewed ${detailtData?.views} times`}</div>
+        <div>{`Asked ${detailData[0]?.createdDate} years ago`}</div>
+        <div>{`Viewed ${detailData[0]?.views} times`}</div>
       </S.Info>
       <ul>
-        <DetailItem
-          detailType="question"
-          profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
-          userName="userName"
-          createdDate="2022-11-10"
-        />
+        <DetailItem detailType="question" detailData={detailData[0]} />
       </ul>
       <S.AnswerTitle>3 Answer</S.AnswerTitle>
-      <AnswerList
-        profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
-        userName="userName"
-        createdDate="2022-11-10"
-      />
+      <AnswerList detailData={detailData[0]} />
       <S.AnswerForm>
         {/* <label htmlFor="answer">Your Answer</label> */}
         <div>Your Answer</div>
