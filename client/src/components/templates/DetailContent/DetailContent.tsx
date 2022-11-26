@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { FormEvent, useEffect, useRef, useState } from "react"
 import { useParams } from "react-router"
 import axios from "axios"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../redux/store"
 import * as S from "./DetailContent.styles"
 import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
 import AnswerList from "../../organisms/AnswerList/AnswerList"
@@ -12,6 +14,25 @@ import postType from "../../../types/post.interface"
 const DetailContent: React.FC = () => {
   const [detailData, setDetailData] = useState<postType[]>([])
   const { id } = useParams()
+  const uid = useSelector((state: RootState) => state.user.uid)
+  const answerInputRef = useRef<HTMLTextAreaElement>(null)
+
+  const submitHandler = (event: FormEvent) => {
+    event.preventDefault()
+    const answer = answerInputRef.current?.value
+    const answerData = { uid, content: answer, postId: detailData[0]._id }
+
+    console.log(answerData)
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/answer/register`, answerData)
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   const getDetailData = async () => {
     try {
@@ -42,10 +63,10 @@ const DetailContent: React.FC = () => {
       </ul>
       <S.AnswerTitle>3 Answer</S.AnswerTitle>
       <AnswerList detailData={detailData[0]} />
-      <S.AnswerForm>
+      <S.AnswerForm onSubmit={submitHandler}>
         {/* <label htmlFor="answer">Your Answer</label> */}
         <div>Your Answer</div>
-        <TextArea id="answer" name="answer" />
+        <TextArea id="answer" name="answer" ref={answerInputRef} />
         <Button btnType="highlighted" width="auto">
           Post Your Answer
         </Button>
