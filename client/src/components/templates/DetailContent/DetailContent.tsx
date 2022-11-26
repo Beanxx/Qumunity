@@ -27,7 +27,8 @@ const DetailContent: React.FC = () => {
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/answer/register`, answer)
       .then((res) => {
-        console.log(res.data)
+        // 댓글 등록시 바로 보이게하기위해 작성하였는데 나중에 지우고 다른방법 찾아야함
+        window.location.reload()
       })
       .catch((err) => {
         console.log(err)
@@ -50,15 +51,15 @@ const DetailContent: React.FC = () => {
   const getAnswerData = async () => {
     const currentPostId = { postId: detailData[0]?._id }
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/api/answer`, currentPostId)
-      .then((res) => {
-        setDataAnswer(res.data.answerList)
-        console.log(res.data.answerList)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    try {
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/answer`,
+        currentPostId
+      )
+      setDataAnswer(data.answerList)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   useEffect(() => {
@@ -80,7 +81,7 @@ const DetailContent: React.FC = () => {
         <DetailItem detailType="question" detailData={detailData[0]} />
       </ul>
       <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
-      <AnswerList detailData={detailData[0]} />
+      <AnswerList answerData={answerData} />
       <S.AnswerForm onSubmit={submitHandler}>
         {/* <label htmlFor="answer">Your Answer</label> */}
         <div>Your Answer</div>
