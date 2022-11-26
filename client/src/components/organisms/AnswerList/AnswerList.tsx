@@ -1,11 +1,13 @@
 import React from "react"
 import DetailItem from "../../molecules/DetailItem/DetailItem"
-import postType from "../../../types/post.interface"
+import answerType from "../../../types/answer.interface"
 
-const AnswerList: React.FC<{ detailData: postType }> = ({ detailData }) => {
+const AnswerList: React.FC<{ answerData: answerType[] }> = ({ answerData }) => {
   return (
     <ul>
-      <DetailItem detailType="answer" detailData={detailData} />
+      {answerData.map((el) => (
+        <DetailItem key={el._id} detailType="answer" detailData={el} />
+      ))}
     </ul>
   )
 }
