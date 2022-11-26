@@ -36,8 +36,6 @@ const AskForms = () => {
       .catch((err) => {
         console.log(err)
       })
-
-    console.log(postData)
   }
 
   return (
