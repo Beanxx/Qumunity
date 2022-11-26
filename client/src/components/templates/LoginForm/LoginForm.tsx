@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { getAuth, sendPasswordResetEmail } from "firebase/auth"
 import firebase from "../../../firebase-config"
 import LoginInput from "../../atoms/LoginInput"
 import Button from "../../atoms/Button"
@@ -21,6 +22,7 @@ type Inputs = {
 
 const LoginForm = () => {
   const navigate = useNavigate()
+  const [email, setEmail] = useState("")
 
   const {
     register,
@@ -68,6 +70,22 @@ const LoginForm = () => {
     }
   }
 
+  const onSendPwResetEmail = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault()
+    const auth = getAuth()
+    await sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("이메일을 확인해 주세요.")
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        alert("등록되지 않은 이메일입니다.")
+      })
+  }
+
   return (
     <Form id="login" onSubmit={handleSubmit(onSubmit)}>
       <Box>
@@ -89,6 +107,14 @@ const LoginForm = () => {
       </Box>
       <Button disabled={isSubmitting} btnType="highlighted" type="submit">
         Login
+      </Button>
+      <input
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <Button btnType="highlighted" onClick={onSendPwResetEmail}>
+        비밀번호 찾기
       </Button>
     </Form>
   )
