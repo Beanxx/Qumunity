@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, FormEventHandler } from "react"
 import { useNavigate } from "react-router"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { getAuth, sendPasswordResetEmail } from "firebase/auth"
 import firebase from "../../../firebase-config"
 import LoginInput from "../../atoms/LoginInput"
 import Button from "../../atoms/Button"
@@ -9,6 +10,7 @@ import Form from "../../../layouts/Form/Form"
 import Toast from "../../atoms/Toast/Toast"
 import { schemaLogin } from "../../../hooks/validationYup"
 import { Box, Message } from "../JoinForm/styles"
+import Modal from "../../atoms/Modal"
 
 interface ErrorType {
   code: string
@@ -21,6 +23,16 @@ type Inputs = {
 
 const LoginForm = () => {
   const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [isShow, setIsShow] = useState(false)
+
+  const onClose = () => {
+    setIsShow(false)
+  }
+
+  const handleClick = () => {
+    onClose()
+  }
 
   const {
     register,
@@ -68,6 +80,27 @@ const LoginForm = () => {
     }
   }
 
+  // 비밀번호 재설정 이메일 전송 event
+  const onSendPwResetEmail = async () => {
+    const auth = getAuth()
+    await sendPasswordResetEmail(auth, email)
+      .then(() => {
+        Toast.fire({
+          icon: "success",
+          text: "메일을 확인해주세요.",
+        }).then(() => {
+          setEmail("")
+          onClose()
+        })
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: "error",
+          text: "회원가입하지 않은 이메일입니다.",
+        })
+      })
+  }
+
   return (
     <Form id="login" onSubmit={handleSubmit(onSubmit)}>
       <Box>
@@ -82,6 +115,7 @@ const LoginForm = () => {
           type="password"
           sub="Forgot passowrd?"
           register={register("password")}
+          onClick={() => setIsShow(true)}
         >
           Password
         </LoginInput>
@@ -90,6 +124,18 @@ const LoginForm = () => {
       <Button disabled={isSubmitting} btnType="highlighted" type="submit">
         Login
       </Button>
+
+      {isShow && (
+        <Modal
+          title="Forgot Password?"
+          onConfirm={onSendPwResetEmail}
+          value={email}
+          onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+          onClose={handleClick}
+        >
+          비밀번호 재설정 메일을 받을 이메일을 입력해주세요.
+        </Modal>
+      )}
     </Form>
   )
 }
