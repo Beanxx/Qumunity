@@ -13,6 +13,7 @@ export const Question = Template.bind({})
 
 Question.args = {
   detailData: {
+    _id: "1",
     postNum: 1,
     title: "제목",
     summary: "질문내용",
@@ -38,6 +39,7 @@ export const Answer = Template.bind({})
 
 Answer.args = {
   detailData: {
+    _id: "1",
     postNum: 1,
     title: "제목",
     summary: "질문내용",

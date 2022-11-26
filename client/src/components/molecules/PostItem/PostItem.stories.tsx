@@ -20,6 +20,7 @@ export const Default = Template.bind({})
 
 Default.args = {
   postData: {
+    _id: "1",
     postNum: 1,
     title: "제목",
     summary: "질문내용",
