@@ -25,9 +25,11 @@ export const Box = styled.div`
     font-weight: 600;
   }
 
-  span {
+  button {
     float: right;
     font-size: 12px;
     color: #0074cc;
+    border: none;
+    background: none;
   }
 `
