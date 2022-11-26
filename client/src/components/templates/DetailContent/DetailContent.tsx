@@ -10,22 +10,22 @@ import DetailItem from "../../molecules/DetailItem/DetailItem"
 import Button from "../../atoms/Button"
 import TextArea from "../../atoms/TextArea/TextArea"
 import postType from "../../../types/post.interface"
+import answerType from "../../../types/answer.interface"
 
 const DetailContent: React.FC = () => {
   const [detailData, setDetailData] = useState<postType[]>([])
+  const [answerData, setDataAnswer] = useState<answerType[]>([])
   const { id } = useParams()
   const uid = useSelector((state: RootState) => state.user.uid)
   const answerInputRef = useRef<HTMLTextAreaElement>(null)
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault()
-    const answer = answerInputRef.current?.value
-    const answerData = { uid, content: answer, postId: detailData[0]._id }
-
-    console.log(answerData)
+    const answerInput = answerInputRef.current?.value
+    const answer = { uid, content: answerInput, postId: detailData[0]._id }
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/api/answer/register`, answerData)
+      .post(`${process.env.REACT_APP_API_URL}/api/answer/register`, answer)
       .then((res) => {
         console.log(res.data)
       })
@@ -47,9 +47,27 @@ const DetailContent: React.FC = () => {
     }
   }
 
+  const getAnswerData = async () => {
+    const currentPostId = { postId: detailData[0]?._id }
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/answer`, currentPostId)
+      .then((res) => {
+        setDataAnswer(res.data.answerList)
+        console.log(res.data.answerList)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   useEffect(() => {
     getDetailData()
   }, [])
+
+  useEffect(() => {
+    getAnswerData()
+  }, [detailData])
 
   return (
     <div>
@@ -61,7 +79,7 @@ const DetailContent: React.FC = () => {
       <ul>
         <DetailItem detailType="question" detailData={detailData[0]} />
       </ul>
-      <S.AnswerTitle>3 Answer</S.AnswerTitle>
+      <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
       <AnswerList detailData={detailData[0]} />
       <S.AnswerForm onSubmit={submitHandler}>
         {/* <label htmlFor="answer">Your Answer</label> */}
