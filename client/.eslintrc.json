@@ -75,8 +75,15 @@
     "func-names": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "no-param-reassign": "off"
-    
+    "no-param-reassign": "off",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
