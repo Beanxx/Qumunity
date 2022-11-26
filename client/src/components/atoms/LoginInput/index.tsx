@@ -2,14 +2,6 @@ import React from "react"
 import { UseFormRegisterReturn } from "react-hook-form"
 import * as S from "./styles"
 
-// export type Props = {
-//   children: React.ReactNode
-//   value: string
-//   type: string
-//   sub?: string
-//   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-// }
-
 interface InputType {
   children: React.ReactNode
   id: string
