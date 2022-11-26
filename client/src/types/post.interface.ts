@@ -8,6 +8,7 @@ interface authorType {
 }
 
 export default interface postType {
+  _id: string
   postNum: number
   title: string
   summary: string
