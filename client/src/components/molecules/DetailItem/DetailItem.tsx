@@ -38,6 +38,7 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
         ) : null}
         <S.Edit>
           <a href="/">Edit</a>
+          <a href="/">Delete</a>
           <SmallProfile
             profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
             userName={detailData?.author.displayName}
