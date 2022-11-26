@@ -7,16 +7,11 @@ interface authorType {
   __v: number
 }
 
-export default interface postType {
+export default interface answerType {
   _id: string
-  postNum: number
-  title: string
-  summary: string
   content: string
-  tags: string[]
   createdDate: string
   votes: number
-  answers: number
-  views: number
   author: authorType
+  postId: string
 }

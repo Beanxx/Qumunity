@@ -7,11 +7,7 @@ export type Props = {
 }
 
 const TextArea = forwardRef<HTMLTextAreaElement, Props>(({ id, name }, ref) => {
-  return <Container id={id} name={name} ref={ref} disabled />
+  return <Container id={id} name={name} ref={ref} />
 })
-
-// const TextArea: React.FC<Props> = ({ id, name }) => {
-//   return <Container id={id} name={name} />
-// }
 
 export default TextArea

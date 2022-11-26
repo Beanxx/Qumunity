@@ -8,20 +8,23 @@ import Container from "./AskForms.styles"
 
 const AskForms = () => {
   const [tags, setTags] = useState<string[]>([])
-  const titleInputRef = useRef<HTMLInputElement>(null)
-  // const summaryInputRef = useRef<HTMLTextAreaElement>(null)
-  // const contentInputRef = useRef<HTMLInputElement>(null)
+  const titleInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
+  const summaryInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
+  const contentInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const uid = useSelector((state: RootState) => state.user.uid)
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault()
 
     const title = titleInputRef.current?.value
+    const summary = summaryInputRef.current?.value
+    const content = contentInputRef.current?.value
 
     const postData = {
       uid,
       title,
-      content: "테스트중입니다.",
+      summary,
+      content,
       tags,
     }
 
@@ -33,8 +36,6 @@ const AskForms = () => {
       .catch((err) => {
         console.log(err)
       })
-
-    console.log(postData)
   }
 
   return (
@@ -47,6 +48,7 @@ const AskForms = () => {
         id="summary"
         title="What are the details of your problem?"
         type="textarea"
+        ref={summaryInputRef}
       >
         Introduce the problem and expand on what you put in the title. Minimum
         20 characters.
@@ -56,6 +58,7 @@ const AskForms = () => {
         id="content"
         title="What did you try and what were you expecting?"
         type="textarea"
+        ref={contentInputRef}
       >
         Describe what you tried, what you expected to happen, and what actually
         resulted. Minimum 20 characters.

@@ -6,7 +6,6 @@ export type Props = {
   name: string
   placeholder?: string
   onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void
-  // ref?: React.RefObject<HTMLInputElement>
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(
@@ -22,17 +21,5 @@ const Input = forwardRef<HTMLInputElement, Props>(
     )
   }
 )
-
-// const Input: React.FC<Props> = ({ id, name, placeholder, onKeyUp }) => {
-//   return (
-//     <Container
-//       id={id}
-//       placeholder={placeholder}
-//       name={name}
-//       onKeyUp={onKeyUp}
-//       ref={ref}
-//     />
-//   )
-// }
 
 export default Input

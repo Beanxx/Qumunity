@@ -4,7 +4,7 @@
     {
       "emoji": "✨",
       "code": ":sparkles:",
-      "description": "[new features] 기능 및 코드 추가"
+      "description": "[feat] 기능 및 코드 추가"
     },
     {
       "emoji": "🔥",
@@ -19,7 +19,22 @@
     {
       "emoji": "🎨",
       "code": ":art:",
-      "description": "[styling] 코드 스타일링"
+      "description": "[styling] 코드의 구조/형태 개선"
+    },
+    {
+      "emoji": "♻️",
+      "code": ":recycle:",
+      "description": "[refactor] 코드 리팩토링"
+    },
+    {
+      "emoji": "🐛",
+      "code": ":bug:",
+      "description": "[fix] 버그 수정"
+    },
+    {
+      "emoji": "🏗️",
+      "code": ":card_file_box:",
+      "description": "[structure] 프로젝트 구조 변경"
     },
     {
       "emoji": "➕",
@@ -32,24 +47,14 @@
       "description": "[remove] 파일 제거"
     },
     {
-      "emoji": "🏗️",
-      "code": ":card_file_box:",
-      "description": "[structure] 프로젝트 구조 변경"
-    },
-    {
-      "emoji": "🐛",
-      "code": ":bug:",
-      "description": "[fix] 버그 수정"
-    },
-    {
-      "emoji": "♻️",
-      "code": ":recycle:",
-      "description": "[refactor] 코드 리팩토링"
-    },
-    {
       "emoji": "📝",
       "code": ":memo:",
       "description": "[doc] 문서작성 및 편집"
+    },
+    {
+      "emoji": "💡",
+      "code": ":bulb:",
+      "description": "[comment] 주석 추가/수정"
     },
     {
       "emoji": "🎉",
@@ -72,9 +77,9 @@
       "description": "[chore] 컴파일된 파일 추가/수정"
     },
     {
-      "emoji": "💡",
-      "code": ":bulb:",
-      "description": "[comment] 주석 추가/수정"
+      "emoji": "🙈",
+      "code": ":see_no_evil:",
+      "description": "[ignore] gitignore 추가/수정"
     },
   ]
 }
