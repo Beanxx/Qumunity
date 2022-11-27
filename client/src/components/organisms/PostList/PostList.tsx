@@ -1,6 +1,6 @@
 import React from "react"
 import PostItem from "../../molecules/PostItem/PostItem"
-import postType from "../../../types/post.interface"
+import { postType } from "../../../types/post.interface"
 
 const PostList: React.FC<{ postData: postType[] }> = ({ postData }) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import PostItem from "./PostItem"
-import postType from "../../../types/post.interface"
+import { postType } from "../../../types/post.interface"
 
 export default {
   title: "molecules/PostItem",
