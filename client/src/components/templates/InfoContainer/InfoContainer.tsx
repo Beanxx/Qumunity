@@ -3,9 +3,12 @@ import { useSelector } from "react-redux"
 import StatsBox from "../../organisms/StatsBox/StatsBox"
 import { RootState } from "../../../redux/store"
 import * as S from "./styles"
-import { myQuestionType } from "../../../types/post.interface"
+import { postLengthType } from "../../../types/post.interface"
 
-const InfoContainer: React.FC<myQuestionType> = ({ myQuestionLength }) => {
+const InfoContainer: React.FC<postLengthType> = ({
+  myQuestionLength,
+  myAnswerLength,
+}) => {
   const user = useSelector((state: RootState) => state.user)
   const [nickName, setNickName] = useState("")
 
@@ -28,7 +31,10 @@ const InfoContainer: React.FC<myQuestionType> = ({ myQuestionLength }) => {
       </S.ProfileBox>
       <S.StatsBox>
         <div className="title_style">Stats</div>
-        <StatsBox myQuestionLength={myQuestionLength} />
+        <StatsBox
+          myQuestionLength={myQuestionLength}
+          myAnswerLength={myAnswerLength}
+        />
       </S.StatsBox>
     </S.Container>
   )

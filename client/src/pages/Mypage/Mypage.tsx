@@ -8,15 +8,28 @@ import Layout from "./styles"
 const Mypage = () => {
   const { id } = useParams()
 
-  const [myData, setMyData] = useState([])
-  const myQuestionLength = myData.length
+  const [myQuestionData, setMyQuestionData] = useState([])
+  const [myAnswerData, setMyAnswerData] = useState([])
+  const myQuestionLength = myQuestionData.length
+  const myAnswerLength = myAnswerData.length
 
   const getMyQuestionData = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/user/${id}`
+        `${process.env.REACT_APP_API_URL}/api/user/myquestion/${id}`
       )
-      setMyData(data)
+      setMyQuestionData(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const getMyAnswerData = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/user/myanswer/${id}`
+      )
+      setMyAnswerData(data)
     } catch (err) {
       console.log(err)
     }
@@ -24,11 +37,15 @@ const Mypage = () => {
 
   useEffect(() => {
     getMyQuestionData()
+    getMyAnswerData()
   }, [])
 
   return (
     <Layout>
-      <InfoContainer myQuestionLength={myQuestionLength} />
+      <InfoContainer
+        myQuestionLength={myQuestionLength}
+        myAnswerLength={myAnswerLength}
+      />
       <QnaContainer />
     </Layout>
   )
