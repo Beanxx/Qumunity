@@ -1,5 +1,6 @@
 import React, { FormEvent, useRef, useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
 import AskForm from "../../organisms/AskForm/AskForm"
@@ -13,6 +14,7 @@ const AskForms = () => {
   const contentInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
   const uid = useSelector((state: RootState) => state.user.uid)
+  const navigate = useNavigate()
 
   formRef.current?.addEventListener("keydown", (event) => {
     if (event.code === "Enter") {
@@ -20,7 +22,7 @@ const AskForms = () => {
     }
   })
 
-  const submitHandler = (event: FormEvent) => {
+  const submitHandler = async (event: FormEvent) => {
     event.preventDefault()
 
     const title = titleInputRef.current?.value
@@ -35,14 +37,17 @@ const AskForms = () => {
       tags,
     }
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/api/ask/register`, postData)
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_API_URL}/api/ask/register`,
+      postData
+    )
+
+    if (data.success) {
+      navigate("/")
+    } else {
+      // eslint-disable-next-line no-alert
+      alert(data.msg)
+    }
   }
 
   return (
