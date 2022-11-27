@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: calc(100vh - 50px - 80vh);
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 1rem;
   padding-right: 1.5rem;
   margin: auto;
@@ -31,7 +30,8 @@ export const ProfileBox = styled.div`
 export const StatsBox = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 120px;
+
   > .title_style {
     font-size: 23px;
     font-weight: 400;
