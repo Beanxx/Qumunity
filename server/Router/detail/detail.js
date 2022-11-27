@@ -6,4 +6,6 @@ const ctrl = require("./detail.ctrl");
 
 router.get("/:id", ctrl.output.detail);
 
+router.delete("/delete", ctrl.process.delete);
+
 module.exports = router;
