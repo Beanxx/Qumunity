@@ -1,6 +1,7 @@
 "use strict";
 
 const Post = require("../../Model/post");
+const Answer = require("../../Model/answer");
 
 const output = {
   detail: async (req, res) => {
@@ -22,8 +23,8 @@ const process = {
   },
   delete: async (req, res) => {
     try {
-      console.log(req.body);
       await Post.deleteOne({ _id: req.body._id }).exec();
+      await Answer.deleteMany({ postId: req.body._id }).exec();
       return res.status(200).json({ success: true });
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });
