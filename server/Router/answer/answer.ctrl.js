@@ -41,6 +41,15 @@ const process = {
         res.status(400).json({ success: false, msg: err });
       });
   },
+  delete: async (req, res) => {
+    try {
+      console.log(req.body);
+      await Answer.deleteOne({ _id: req.body._id }).exec();
+      return res.status(200).json({ success: true });
+    } catch (err) {
+      return res.status(400).json({ success: false, msg: err });
+    }
+  },
 };
 
 module.exports = {
