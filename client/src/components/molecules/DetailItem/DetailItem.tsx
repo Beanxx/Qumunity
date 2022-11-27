@@ -1,6 +1,8 @@
 import React from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../redux/store"
 import * as S from "./DetailItem.styles"
 import Tag from "../../atoms/Tag/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
@@ -17,6 +19,7 @@ export type Props = {
 
 const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
   const navigate = useNavigate()
+  const userId = useSelector((state: RootState) => state.user.uid)
   const api = detailType === "question" ? "detail" : "answer"
 
   const deleteHandler = async (paramApi: string) => {
@@ -67,11 +70,15 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
           </S.Tags>
         ) : null}
         <S.Edit>
-          <a href="/">Edit</a>
-          <button type="button" onClick={() => deleteHandler(api)}>
-            Delete
-          </button>
-          <a href="/">Delete</a>
+          {userId === detailData?.author.uid && (
+            <>
+              <a href="/">Edit</a>
+              <button type="button" onClick={() => deleteHandler(api)}>
+                Delete
+              </button>
+              <a href="/">Delete</a>
+            </>
+          )}
           <SmallProfile
             profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
             userName={detailData?.author.displayName}
