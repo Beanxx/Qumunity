@@ -7,7 +7,7 @@ interface authorType {
   __v: number
 }
 
-export default interface postType {
+export interface postType {
   _id: string
   postNum: number
   title: string
@@ -19,4 +19,9 @@ export default interface postType {
   answers: number
   views: number
   author: authorType
+}
+
+export interface postLengthType {
+  myQuestionLength?: number
+  myAnswerLength?: number
 }

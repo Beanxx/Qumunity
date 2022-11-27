@@ -2,19 +2,14 @@ import React from "react"
 import { UseFormRegisterReturn } from "react-hook-form"
 import * as S from "./styles"
 
-// export type Props = {
-//   children: React.ReactNode
-//   value: string
-//   type: string
-//   sub?: string
-//   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-// }
-
 interface InputType {
-  children: React.ReactNode
-  id: string
+  children?: React.ReactNode
+  id?: string
   type?: string
   sub?: string
+  onClick?: () => void
+  value?: string
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
 export interface Props extends InputType {
@@ -26,13 +21,17 @@ const LoginInput = React.forwardRef((props: Props, ref) => {
     <S.Container>
       <S.Box>
         <label htmlFor={props.id}>{props.children}</label>
-        <span>{props.sub}</span>
+        <button type="button" onClick={props.onClick}>
+          {props.sub}
+        </button>
       </S.Box>
 
       <input
         id={props.id}
         type={props.type}
         autoComplete="off"
+        value={props.value}
+        onChange={props.onChange}
         {...props.register}
       />
     </S.Container>

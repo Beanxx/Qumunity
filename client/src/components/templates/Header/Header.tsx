@@ -9,9 +9,11 @@ import Button from "../../atoms/Button"
 
 const Header = () => {
   const user = useSelector((state: RootState) => state.user)
+
   const logOutHandler = () => {
     firebase.auth().signOut()
   }
+
   return (
     <S.Layout>
       <div className="line-style" />
@@ -25,7 +27,7 @@ const Header = () => {
         <S.ButtonContianer>
           {user.accessToken ? (
             <>
-              <Link to="/mypage">
+              <Link to={`/user/${user.displayName}`}>
                 <Button btnType="highlighted">MyPage</Button>
               </Link>
               <a href="/">
