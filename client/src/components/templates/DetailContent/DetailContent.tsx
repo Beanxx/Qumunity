@@ -27,7 +27,6 @@ const DetailContent: React.FC = () => {
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/answer/register`, answer)
       .then((res) => {
-        // 댓글 등록시 바로 보이게하기위해 작성하였는데 나중에 지우고 다른방법 찾아야함
         window.location.reload()
       })
       .catch((err) => {
@@ -83,7 +82,6 @@ const DetailContent: React.FC = () => {
       <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
       <AnswerList answerData={answerData} />
       <S.AnswerForm onSubmit={submitHandler}>
-        {/* <label htmlFor="answer">Your Answer</label> */}
         <div>Your Answer</div>
         <TextArea id="answer" name="answer" ref={answerInputRef} />
         <Button btnType="highlighted" width="auto">
