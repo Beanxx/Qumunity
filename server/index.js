@@ -7,6 +7,7 @@ const main = require("./Router/main/main");
 const detail = require("./Router/detail/detail");
 const ask = require("./Router/ask/ask");
 const answer = require("./Router/answer/answer");
+const user = require("./Router/user/user");
 const app = express();
 
 app.use(cors());
@@ -14,7 +15,7 @@ app.use(express.static(path.join(__dirname, "../client/build"))); // path 모듈
 app.use(express.json()); // [body-parser] client에서 보내는 body 명령어 추적 가능해짐!
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/user", require("./Router/user.js"));
+app.use("/api/user", user);
 app.use("/api/main", main);
 app.use("/api/detail", detail);
 app.use("/api/ask", ask);
