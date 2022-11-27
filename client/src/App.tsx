@@ -36,7 +36,7 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Main />} />
           <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/user/:id" element={<Mypage />} />
           <Route path="/users" element={<Users />} />
         </Route>
       </Routes>
