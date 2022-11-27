@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import * as S from "./PostItem.styles"
 import Tag from "../../atoms/Tag/Tag"
 import SmallProfile from "../../atoms/SmallProfile"
-import postType from "../../../types/post.interface"
+import { postType } from "../../../types/post.interface"
 
 const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
   // const formatter = new Intl.RelativeTimeFormat("ko", { numeric: "auto" })

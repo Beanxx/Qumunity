@@ -9,7 +9,7 @@ import AnswerList from "../../organisms/AnswerList/AnswerList"
 import DetailItem from "../../molecules/DetailItem/DetailItem"
 import Button from "../../atoms/Button"
 import TextArea from "../../atoms/TextArea/TextArea"
-import postType from "../../../types/post.interface"
+import { postType } from "../../../types/post.interface"
 import answerType from "../../../types/answer.interface"
 
 const DetailContent: React.FC = () => {

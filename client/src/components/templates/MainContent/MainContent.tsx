@@ -4,7 +4,7 @@ import FilterButtons from "../../atoms/FilterButton/FilterButtons"
 import PostList from "../../organisms/PostList/PostList"
 import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
 import Info from "./MainContent.styles"
-import postType from "../../../types/post.interface"
+import { postType } from "../../../types/post.interface"
 
 const MainContent: React.FC = () => {
   const [postData, setPostData] = useState<postType[]>([])
