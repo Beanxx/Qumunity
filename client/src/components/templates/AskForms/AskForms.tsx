@@ -1,7 +1,7 @@
 import React, { FormEvent, useRef, useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router"
 import { RootState } from "../../../redux/store"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
@@ -12,19 +12,10 @@ const AskForms = () => {
   const titleInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const summaryInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const contentInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
-  const formRef = useRef<HTMLFormElement>(null)
   const uid = useSelector((state: RootState) => state.user.uid)
   const navigate = useNavigate()
 
-  formRef.current?.addEventListener("keydown", (event) => {
-    if (event.code === "Enter") {
-      event.preventDefault()
-    }
-  })
-
-  const submitHandler = async (event: FormEvent) => {
-    event.preventDefault()
-
+  const submitHandler = async () => {
     const title = titleInputRef.current?.value
     const summary = summaryInputRef.current?.value
     const content = contentInputRef.current?.value
@@ -51,7 +42,7 @@ const AskForms = () => {
   }
 
   return (
-    <Container onSubmit={submitHandler} ref={formRef}>
+    <Container>
       <AskForm id="title" title="Title" type="default" ref={titleInputRef}>
         Be specific and imagine you’re asking a question to another person.
       </AskForm>
@@ -81,7 +72,9 @@ const AskForms = () => {
         to see suggestions.
       </AskForm>
 
-      <Button btnType="highlighted">Post Your Question</Button>
+      <Button btnType="highlighted" onClick={submitHandler}>
+        Post Your Question
+      </Button>
     </Container>
   )
 }
