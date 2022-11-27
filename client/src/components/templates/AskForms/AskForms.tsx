@@ -11,7 +11,14 @@ const AskForms = () => {
   const titleInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const summaryInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const contentInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
+  const formRef = useRef<HTMLFormElement>(null)
   const uid = useSelector((state: RootState) => state.user.uid)
+
+  formRef.current?.addEventListener("keydown", (event) => {
+    if (event.code === "Enter") {
+      event.preventDefault()
+    }
+  })
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault()
@@ -39,7 +46,7 @@ const AskForms = () => {
   }
 
   return (
-    <Container onSubmit={submitHandler}>
+    <Container onSubmit={submitHandler} ref={formRef}>
       <AskForm id="title" title="Title" type="default" ref={titleInputRef}>
         Be specific and imagine you’re asking a question to another person.
       </AskForm>
