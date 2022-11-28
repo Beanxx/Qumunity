@@ -1,5 +1,5 @@
-import axios from "axios"
 import React, { useEffect, useState } from "react"
+import axios from "axios"
 import { useParams } from "react-router"
 import InfoContainer from "../../components/templates/InfoContainer/InfoContainer"
 import QnaContainer from "../../components/templates/QnaContainer/QnaContainer"
@@ -46,7 +46,10 @@ const Mypage = () => {
         myQuestionLength={myQuestionLength}
         myAnswerLength={myAnswerLength}
       />
-      <QnaContainer />
+      <QnaContainer
+        myQuestionData={myQuestionData}
+        myAnswerData={myAnswerData}
+      />
     </Layout>
   )
 }
