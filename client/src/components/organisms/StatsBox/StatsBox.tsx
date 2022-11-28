@@ -1,5 +1,5 @@
 import React from "react"
-import * as S from "./styles"
+import Container from "./styles"
 import { postLengthType } from "../../../types/post.interface"
 
 const StatsBox: React.FC<postLengthType> = ({
@@ -7,7 +7,7 @@ const StatsBox: React.FC<postLengthType> = ({
   myAnswerLength,
 }) => {
   return (
-    <S.Container>
+    <Container>
       <div className="inner_style">
         <div className="num_style">{myQuestionLength}</div>
         <div className="title_style">Questions</div>
@@ -16,7 +16,7 @@ const StatsBox: React.FC<postLengthType> = ({
         <div className="num_style">{myAnswerLength}</div>
         <div className="title_style">Answers</div>
       </div>
-    </S.Container>
+    </Container>
   )
 }
 
