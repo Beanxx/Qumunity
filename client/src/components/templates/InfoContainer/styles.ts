@@ -2,18 +2,15 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   width: 80%;
-  height: calc(100vh - 50px - 80vh);
+  height: 170px;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  padding-right: 1.5rem;
   margin: auto;
-  margin-top: 2rem;
 `
 
 export const ProfileBox = styled.div`
   display: flex;
-  justify-content: flex-start;
   align-items: flex-end;
 
   img {
@@ -31,6 +28,7 @@ export const StatsBox = styled.div`
   display: flex;
   flex-direction: column;
   height: 120px;
+  margin-top: 6px;
 
   > .title_style {
     font-size: 23px;

@@ -2,8 +2,9 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   width: 80%;
-  height: calc(100vh - 50px - 20vh);
+  height: calc(100vh - 50px);
   display: flex;
+  gap: 10px;
   padding: 1rem;
   margin: auto;
 
@@ -11,6 +12,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: stretch;
     width: 100%;
     height: 100%;
 
@@ -23,7 +25,7 @@ export const Container = styled.div`
 `
 
 export const ListBox = styled.div`
-  width: 98%;
+  width: 100%;
   height: 95%;
   background-color: #fff;
   border: 1px solid #d6d9dc;

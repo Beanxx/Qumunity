@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   width: 200px;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   background-color: #fff;
   border: 1px solid #d6d9dc;
   padding: 10px;
-  margin: 10px 0;
+  margin-top: 5px;
 
   > .inner_style {
     width: 100%;
@@ -26,11 +26,4 @@ export const Container = styled.div`
   }
 `
 
-export const BottomContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  font-size: 13px;
-  .link-style {
-    color: #0074cc;
-  }
-`
+export default Container
