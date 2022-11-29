@@ -8,7 +8,13 @@ const Answer = require("../../Model/answer.js");
 const output = {
   myQuestions: async (req, res) => {
     try {
-      const myQuestionsData = await Post.find().populate("author").exec();
+      const userInfo = await User.findOne({
+        displayName: req.params.id,
+      }).exec();
+
+      const myQuestionsData = await Post.find({ author: userInfo._id })
+        .populate("author")
+        .exec();
       return res.status(200).json(myQuestionsData);
     } catch {
       return res.status(400).json({ success: false });
@@ -17,7 +23,13 @@ const output = {
 
   myAnswers: async (req, res) => {
     try {
-      const myAnswersData = await Answer.find().populate("author").exec();
+      const userInfo = await User.findOne({
+        displayName: req.params.id,
+      }).exec();
+
+      const myAnswersData = await Answer.find({ author: userInfo._id })
+        .populate("author")
+        .exec();
       return res.status(200).json(myAnswersData);
     } catch {
       return res.status(400).json({ success: false });
