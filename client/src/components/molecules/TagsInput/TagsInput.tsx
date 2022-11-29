@@ -23,10 +23,10 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
     if (event.key === "Enter" || event.key === " ") {
       if (isIncludes.length === 0 && event.currentTarget.value !== "") {
         setTags([...tags, event.currentTarget.value])
-        event.currentTarget.value = ""
         if (onEnterTag) {
           onEnterTag([...tags, event.currentTarget.value])
         }
+        event.currentTarget.value = ""
       }
     }
   }
