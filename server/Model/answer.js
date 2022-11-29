@@ -12,6 +12,7 @@ const answerSchema = new mongoose.Schema({
   },
   postId: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "post",
   },
 });
 
