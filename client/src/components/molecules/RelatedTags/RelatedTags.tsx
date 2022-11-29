@@ -29,8 +29,6 @@ const RelatedTags = () => {
     getTagData()
   }, [])
 
-  console.log(tagList)
-
   return (
     <S.Container>
       <h3>Related Tags</h3>
