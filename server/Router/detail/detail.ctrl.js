@@ -2,6 +2,7 @@
 
 const Post = require("../../Model/post");
 const Answer = require("../../Model/answer");
+const Tags = require("../../Model/tags");
 
 const output = {
   detail: async (req, res) => {
@@ -22,9 +23,22 @@ const process = {
     } catch (err) {}
   },
   delete: async (req, res) => {
+    const tags = req.body.tags;
     try {
       await Post.deleteOne({ _id: req.body._id }).exec();
       await Answer.deleteMany({ postId: req.body._id }).exec();
+
+      tags.map(async (el) => {
+        const updatedTag = await Tags.findOneAndUpdate(
+          { tagName: el },
+          { $inc: { tagCount: -1 } },
+          { new: true }
+        ).exec();
+        if (updatedTag.tagCount === 0) {
+          await Tags.deleteOne({ tagName: el });
+        }
+      });
+
       return res.status(200).json({ success: true });
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });

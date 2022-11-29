@@ -1,6 +1,7 @@
 "use strict";
 
 const Post = require("../../Model/post");
+const Tags = require("../../Model/tags");
 
 const output = {
   main: async (req, res) => {
@@ -11,10 +12,19 @@ const output = {
       return res.status(400).json({ success: false, msg: err });
     }
   },
-  tagSearch: (req, res) => {},
+  tags: async (req, res) => {
+    try {
+      const tagData = await Tags.find().exec();
+      return res.status(200).json(tagData);
+    } catch (err) {
+      return res.status(400).json({ success: false, msg: err });
+    }
+  },
 };
 
-const process = {};
+const process = {
+  tagSearch: (req, res) => {},
+};
 
 module.exports = {
   output,
