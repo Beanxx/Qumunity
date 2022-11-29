@@ -29,6 +29,7 @@ const output = {
 
       const myAnswersData = await Answer.find({ author: userInfo._id })
         .populate("author")
+        .populate("postId")
         .exec();
       return res.status(200).json(myAnswersData);
     } catch {

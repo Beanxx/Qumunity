@@ -13,13 +13,16 @@ const MyQuestionItem: React.FC<Props> = ({ data }) => {
 
   return (
     <S.Container>
-      <S.TopBox>
-        <div>{data.votes} votes</div>
-      </S.TopBox>
-      <S.TitleBox>{data.content}</S.TitleBox>
-      <S.BottomBox>
-        <div>{date}</div>
-      </S.BottomBox>
+      <Link to={`/detail/${data.postId.postNum}`}>
+        <S.TopBox>
+          <div>{data.votes} votes</div>
+        </S.TopBox>
+        <S.TitleBox>{data.postId.title}</S.TitleBox>
+        <S.BottomBox>
+          <div>{data.postId.tags.map((el) => el)}</div>
+          <div>{date}</div>
+        </S.BottomBox>
+      </Link>
     </S.Container>
   )
 }

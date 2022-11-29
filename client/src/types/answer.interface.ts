@@ -1,3 +1,5 @@
+import { postType } from "./post.interface"
+
 interface authorType {
   _id: string
   userNum: number
@@ -13,5 +15,5 @@ export default interface answerType {
   createdDate: string
   votes: number
   author: authorType
-  postId: string
+  postId: postType
 }
