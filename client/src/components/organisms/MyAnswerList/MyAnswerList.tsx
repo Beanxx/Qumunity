@@ -7,7 +7,6 @@ interface Props {
 }
 
 const MyAnswerList: React.FC<Props> = ({ myAnswerData }) => {
-  console.log(myAnswerData)
   return (
     <ul>
       {myAnswerData.map((el) => (
