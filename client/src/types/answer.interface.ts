@@ -10,7 +10,8 @@ interface authorType {
 export default interface answerType {
   _id: string
   content: string
-  createdDate: string
+  createdAt: string
+  updatedAt: string
   votes: number
   author: authorType
   postId: string
