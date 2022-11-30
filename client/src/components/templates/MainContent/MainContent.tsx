@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../redux/store"
 import FilterButtons from "../../atoms/FilterButton/FilterButtons"
 import PostList from "../../organisms/PostList/PostList"
 import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
@@ -9,9 +11,12 @@ import { postType } from "../../../types/post.interface"
 const MainContent: React.FC = () => {
   const [postData, setPostData] = useState<postType[]>([])
   const [sort, setSort] = useState<string>("newest")
+  const { search } = useSelector((state: RootState) => state.search)
+
   const getPostData = async () => {
     const body = {
       sort,
+      search,
     }
     try {
       const { data } = await axios.post(
@@ -28,7 +33,7 @@ const MainContent: React.FC = () => {
 
   useEffect(() => {
     getPostData()
-  }, [sort])
+  }, [sort, search])
 
   return (
     <div>
