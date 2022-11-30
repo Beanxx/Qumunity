@@ -73,7 +73,7 @@ const DetailContent: React.FC = () => {
     <div>
       <MiniHeader>{detailData[0]?.title}</MiniHeader>
       <S.Info>
-        <div>{`Asked ${detailData[0]?.createdDate} years ago`}</div>
+        <div>{`Asked ${detailData[0]?.createdAt}`}</div>
         <div>{`Viewed ${detailData[0]?.views} times`}</div>
       </S.Info>
       <ul>

@@ -22,9 +22,9 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
     const isIncludes = tags.filter((el) => el === event.currentTarget.value)
     if (event.key === "Enter" || event.key === " ") {
       if (isIncludes.length === 0 && event.currentTarget.value !== "") {
-        setTags([...tags, event.currentTarget.value])
+        setTags([...tags, event.currentTarget.value.trim()])
         if (onEnterTag) {
-          onEnterTag([...tags, event.currentTarget.value])
+          onEnterTag([...tags, event.currentTarget.value.trim()])
         }
         event.currentTarget.value = ""
       }

@@ -14,7 +14,8 @@ export interface postType {
   summary: string
   content: string
   tags: string[]
-  createdDate: string
+  createdAt: string
+  updatedAt: string
   votes: number
   answers: number
   views: number
