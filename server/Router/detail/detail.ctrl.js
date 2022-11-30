@@ -18,6 +18,17 @@ const output = {
 };
 
 const process = {
+  view: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { postNum: req.params.id },
+        { $inc: { views: 1 } }
+      );
+      return res.status(200).json({ success: true });
+    } catch (err) {
+      return res.status(400).json({ success: false, msg: err });
+    }
+  },
   edit: async (req, res) => {
     try {
     } catch (err) {}
