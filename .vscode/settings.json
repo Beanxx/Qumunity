@@ -1,6 +1,6 @@
 {
-  "gitmoji.onlyUseAdditionalEmojis": true,
-  "gitmoji.additionalEmojis": [
+  "gitmoji.onlyUseCustomEmoji": true,
+  "gitmoji.addCustomEmoji": [
     {
       "emoji": "✨",
       "code": ":sparkles:",
