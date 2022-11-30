@@ -7,6 +7,8 @@ export default {
   components: FilterButtons,
 }
 
-const Template: Story = (args) => <FilterButtons {...args} />
+const Template: Story<{ setSort: (sort: string) => void }> = (args) => (
+  <FilterButtons {...args} />
+)
 
 export const Default = Template.bind({})

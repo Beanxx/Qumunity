@@ -1,18 +1,25 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
 import firebase from "../../../firebase-config"
+import { getInput } from "../../../redux/reducers/searchSlice"
 import * as S from "./styles"
 import SearchInput from "../../atoms/SearchInput"
 import Button from "../../atoms/Button"
 
 const Header = () => {
+  const dispatch = useDispatch()
+  const [inputSearch, setInputSearch] = useState("")
   const user = useSelector((state: RootState) => state.user)
 
   const logOutHandler = () => {
     firebase.auth().signOut()
   }
+
+  useEffect(() => {
+    dispatch(getInput(inputSearch))
+  }, [inputSearch])
 
   return (
     <S.Layout>
@@ -22,7 +29,7 @@ const Header = () => {
           <Link to="/">Qumunity</Link>
         </div>
         <div className="search-box">
-          <SearchInput />
+          <SearchInput setInputSearch={setInputSearch} />
         </div>
         <S.ButtonContianer>
           {user.accessToken ? (
