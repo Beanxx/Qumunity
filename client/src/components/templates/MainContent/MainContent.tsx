@@ -8,11 +8,15 @@ import { postType } from "../../../types/post.interface"
 
 const MainContent: React.FC = () => {
   const [postData, setPostData] = useState<postType[]>([])
-
+  const [sort, setSort] = useState<string>("newest")
   const getPostData = async () => {
+    const body = {
+      sort,
+    }
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/main`
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/main`,
+        body
       )
       setPostData(data)
     } catch (err) {
@@ -24,14 +28,14 @@ const MainContent: React.FC = () => {
 
   useEffect(() => {
     getPostData()
-  }, [])
+  }, [sort])
 
   return (
     <div>
       <MiniHeader>Questions</MiniHeader>
       <Info>
         <div>{postData.length} questions</div>
-        <FilterButtons />
+        <FilterButtons setSort={setSort} />
       </Info>
       <PostList postData={postData} />
     </div>
