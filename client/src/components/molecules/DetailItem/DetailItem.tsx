@@ -82,7 +82,7 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
           <SmallProfile
             profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
             userName={detailData?.author.displayName}
-            createdDate={detailData?.createdDate}
+            createdDate={detailData?.createdAt}
           />
         </S.Edit>
       </S.Content>

@@ -42,7 +42,7 @@ const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
           <SmallProfile
             profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
             userName={postData.author.displayName}
-            createdDate={postData.createdDate}
+            createdDate={postData.createdAt}
           />
         </S.ContentBot>
       </S.Content>

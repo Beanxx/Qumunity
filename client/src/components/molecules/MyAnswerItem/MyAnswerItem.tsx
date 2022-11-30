@@ -9,7 +9,7 @@ interface Props {
 }
 
 const MyQuestionItem: React.FC<Props> = ({ data }) => {
-  const date = moment(data.createdDate).format("YYYY MM/DD, HH:mm")
+  const date = moment(data.createdAt).format("YYYY MM/DD, HH:mm")
 
   return (
     <S.Container>
