@@ -18,7 +18,16 @@ const output = {
       sort.answers = 1;
     }
     try {
-      const postData = await Post.find().populate("author").sort(sort).exec();
+      const postData = await Post.find({
+        $or: [
+          { title: { $regex: req.body.search } },
+          { summary: { $regex: req.body.search } },
+          { content: { $regex: req.body.search } },
+        ],
+      })
+        .populate("author")
+        .sort(sort)
+        .exec();
       return res.status(200).json(postData);
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });
