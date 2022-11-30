@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import userSlice from "./reducers/userSlice"
+import searchSlice from "./reducers/searchSlice"
 
 export const store = configureStore({
   reducer: {
     user: userSlice,
+    search: searchSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
