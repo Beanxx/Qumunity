@@ -2,18 +2,20 @@
 
 const mongoose = require("mongoose");
 
-const answerSchema = new mongoose.Schema({
-  content: String,
-  createdDate: { type: Date, default: Date.now },
-  votes: { type: Number, default: 0 },
-  author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+const answerSchema = new mongoose.Schema(
+  {
+    content: String,
+    votes: { type: Number, default: 0 },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    postId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "post",
+    },
   },
-  postId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "post",
-  },
-});
+  { collection: "answers", timestamps: true }
+);
 
 module.exports = mongoose.model("answer", answerSchema);
