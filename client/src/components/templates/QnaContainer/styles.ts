@@ -30,4 +30,14 @@ export const ListBox = styled.div`
   background-color: #fff;
   border: 1px solid #d6d9dc;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  .list_box {
+    flex: 6;
+  }
+
+  .pagination_box {
+    flex: 1;
+    width: 100%;
+  }
 `
