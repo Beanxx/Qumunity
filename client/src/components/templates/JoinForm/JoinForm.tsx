@@ -35,12 +35,14 @@ const JoinForm = () => {
 
     await createdUser?.user?.updateProfile({
       displayName: data.name,
+      photoURL: `https://source.boringavatars.com/beam/130/${data.name}?square`,
     })
 
     const body = {
       email: createdUser?.user?.multiFactor.user.email,
       displayName: createdUser?.user?.multiFactor.user.displayName,
       uid: createdUser?.user?.multiFactor.user.uid,
+      photoURL: `https://source.boringavatars.com/beam/130/${createdUser?.user?.multiFactor.user.displayName}?square`,
     }
 
     axios
