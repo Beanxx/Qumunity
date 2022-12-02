@@ -8,6 +8,7 @@ const Container = styled.div`
   img {
     width: 20px;
     height: 20px;
+    border-radius: 5px;
   }
 
   a {

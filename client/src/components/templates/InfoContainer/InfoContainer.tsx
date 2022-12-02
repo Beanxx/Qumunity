@@ -22,10 +22,7 @@ const InfoContainer: React.FC<postLengthType> = ({
     <S.Container>
       <S.ProfileBox>
         <div>
-          <img
-            src="https://source.boringavatars.com/beam/130?square"
-            alt="profile"
-          />
+          <img src={user.photoURL} alt="profile" />
         </div>
         <div className="name-style">{user.displayName}</div>
       </S.ProfileBox>

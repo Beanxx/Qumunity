@@ -5,6 +5,7 @@ interface authorType {
   displayName: string
   uid: string
   __v: number
+  photoURL: string
 }
 
 export interface postType {
