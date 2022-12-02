@@ -40,7 +40,7 @@ const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
             ))}
           </S.Tags>
           <SmallProfile
-            profileImg={`${process.env.PUBLIC_URL}/logo192.png`}
+            profileImg={postData.author.photoURL}
             userName={postData.author.displayName}
             createdDate={postData.createdAt}
           />
