@@ -7,6 +7,8 @@ const userSchema = new mongoose.Schema(
     displayName: String,
     uid: String,
     photoURL: String,
+    voteLike: [{ type: mongoose.Schema.Types.ObjectId, default: [] }],
+    voteDisLike: [{ type: mongoose.Schema.Types.ObjectId, default: [] }],
   },
   { collection: "users" }
 );
