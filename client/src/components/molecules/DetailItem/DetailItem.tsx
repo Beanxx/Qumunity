@@ -47,12 +47,28 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
     }
   }
 
+  const voteHandler = async (el: string) => {
+    const body = {
+      userId,
+      postId: detailData?._id,
+    }
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/api/detail/votes/${el}`,
+        body
+      )
+      console.log(response.data.msg)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <S.Container detailType={detailType}>
       <S.Side>
-        <ArrowTop />
+        <ArrowTop onClick={() => voteHandler("like")} />
         <span>{detailData?.votes}</span>
-        <ArrowBot />
+        <ArrowBot onClick={() => voteHandler("dislike")} />
         <BookMark />
       </S.Side>
       <S.Content>
