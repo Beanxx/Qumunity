@@ -45,9 +45,12 @@ export const Edit = styled.div`
   display: flex;
   justify-content: space-between;
 
-  > a {
+  > button {
     font-size: 13px;
     color: rgb(131, 140, 149);
+    background-color: #fff;
+    border: none;
     cursor: pointer;
+    margin-right: 10px;
   }
 `

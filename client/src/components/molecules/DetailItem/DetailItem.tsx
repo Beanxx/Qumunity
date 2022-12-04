@@ -103,11 +103,10 @@ const DetailItem: React.FC<Props> = ({
         <S.Edit>
           {userId === detailData?.author.uid && (
             <>
-              <a href="/">Edit</a>
+              <button type="button">Edit</button>
               <button type="button" onClick={() => deleteHandler(api)}>
                 Delete
               </button>
-              <a href="/">Delete</a>
             </>
           )}
           <SmallProfile
