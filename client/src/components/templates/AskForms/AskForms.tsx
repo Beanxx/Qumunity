@@ -7,29 +7,21 @@ import { RootState } from "../../../redux/store"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
 import Container from "./AskForms.styles"
-import "@toast-ui/editor/dist/toastui-editor.css"
-import "@toast-ui/editor/dist/toastui-editor-viewer.css"
-import "@toast-ui/editor/dist/theme/toastui-editor-dark.css"
+
+type Refs = HTMLInputElement & HTMLTextAreaElement & Editor
 
 const AskForms = () => {
   const navigate = useNavigate()
-
   const [tags, setTags] = useState<string[]>([])
-  const titleInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
-  const summaryInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
-  const contentInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
-  const editorRef = useRef<Editor>(null)
+  const titleInputRef = useRef<Refs>(null)
+  const summaryInputRef = useRef<Refs>(null)
+  const contentEditorRef = useRef<Refs>(null)
   const uid = useSelector((state: RootState) => state.user.uid)
-
-  const editorChangeHandler = () => {
-    const editorData = editorRef.current?.getInstance().getHTML()
-  }
 
   const submitHandler = async () => {
     const title = titleInputRef.current?.value
     const summary = summaryInputRef.current?.value
-    const content = editorRef.current?.getInstance().getHTML()
-
+    const content = contentEditorRef.current?.getInstance().getHTML()
     const postData = {
       uid,
       title,
@@ -37,7 +29,6 @@ const AskForms = () => {
       content,
       tags,
     }
-
     const { data } = await axios.post(
       `${process.env.REACT_APP_API_URL}/api/ask/register`,
       postData
@@ -47,7 +38,6 @@ const AskForms = () => {
     if (data.success) {
       navigate("/")
     } else {
-      // eslint-disable-next-line no-alert
       alert(data.msg)
     }
   }
@@ -71,8 +61,8 @@ const AskForms = () => {
       <AskForm
         id="content"
         title="What did you try and what were you expecting?"
-        type="textarea"
-        ref={contentInputRef}
+        type="editor"
+        ref={contentEditorRef}
       >
         Describe what you tried, what you expected to happen, and what actually
         resulted. Minimum 20 characters.
@@ -86,23 +76,6 @@ const AskForms = () => {
       <Button btnType="highlighted" onClick={submitHandler}>
         Post Your Question
       </Button>
-
-      <Editor
-        previewStyle="tab"
-        height="200px"
-        theme="dark"
-        useCommandShortcut={false}
-        initialEditType="markdown"
-        toolbarItems={[
-          ["heading", "bold", "italic", "strike"],
-          ["hr", "quote"],
-          ["ul", "ol", "task"],
-          ["table", "link"],
-          ["code", "codeblock"],
-        ]}
-        ref={editorRef}
-        onChange={editorChangeHandler}
-      />
     </Container>
   )
 }
