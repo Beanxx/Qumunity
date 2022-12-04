@@ -16,7 +16,7 @@ const SmallProfile: React.FC<Props> = ({
     <Container>
       <img src={profileImg} alt="profileImg" />
       <a href="temporary">{userName}</a>
-      <time dateTime={createdDate}>{createdDate}</time>
+      <time dateTime={createdDate}>{`asked ${createdDate}`}</time>
     </Container>
   )
 }
