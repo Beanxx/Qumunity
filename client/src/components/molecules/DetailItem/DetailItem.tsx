@@ -57,7 +57,9 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
         `${process.env.REACT_APP_API_URL}/api/detail/votes/${el}`,
         body
       )
-      console.log(response.data.msg)
+      if (!response.data.success) {
+        alert(response.data.msg)
+      }
     } catch (err) {
       console.log(err)
     }

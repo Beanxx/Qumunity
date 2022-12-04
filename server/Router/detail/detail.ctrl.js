@@ -63,7 +63,7 @@ const process = {
       const isIncludes = user.voteLike.includes(req.body.postId);
 
       if (isIncludesDislike) {
-        const disLike = await User.findOneAndUpdate(
+        await User.findOneAndUpdate(
           { uid: req.body.userId },
           { $pullAll: { voteDisLike: [req.body.postId] } },
           { new: true }
@@ -73,8 +73,8 @@ const process = {
           { $inc: { votes: 1 } }
         );
         return res.status(200).json({
-          success: true,
-          msg: { disLike: disLike.voteDisLike },
+          success: false,
+          msg: "반대 취소",
         });
       }
 
@@ -95,7 +95,7 @@ const process = {
       } else {
         return res
           .status(200)
-          .json({ success: true, msg: "이미 추천했습니다." });
+          .json({ success: false, msg: "이미 추천했습니다." });
       }
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });
@@ -108,7 +108,7 @@ const process = {
       const isIncludes = user.voteDisLike.includes(req.body.postId);
 
       if (isIncludesLike) {
-        const like = await User.findOneAndUpdate(
+        await User.findOneAndUpdate(
           { uid: req.body.userId },
           { $pullAll: { voteLike: [req.body.postId] } },
           { new: true }
@@ -118,8 +118,8 @@ const process = {
           { $inc: { votes: -1 } }
         );
         return res.status(200).json({
-          success: true,
-          msg: { like: like.voteLike },
+          success: false,
+          msg: "추천취소",
         });
       }
 
@@ -140,7 +140,7 @@ const process = {
       } else {
         return res
           .status(200)
-          .json({ success: true, msg: "이미 반대했습니다." });
+          .json({ success: false, msg: "이미 반대했습니다." });
       }
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });
