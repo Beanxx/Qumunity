@@ -30,6 +30,11 @@ const process = {
       return res.status(400).json({ success: false, msg: err });
     }
   },
+  edit: async (req, res) => {
+    try {
+      console.log("실행");
+    } catch (err) {}
+  },
 };
 
 module.exports = {
