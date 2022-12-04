@@ -28,14 +28,7 @@ const DetailItem: React.FC<Props> = ({
   const navigate = useNavigate()
   const userId = useSelector((state: RootState) => state.user.uid)
   const api = detailType === "question" ? "detail" : "answer"
-  const [viewContent, setViewContent] = useState("")
   const createdAt = format(detailData?.createdAt, "en_US")
-
-  useEffect(() => {
-    if (api === "detail") {
-      setViewContent(detailData?.content)
-    }
-  }, [detailData])
 
   const deleteHandler = async (paramApi: string) => {
     try {
@@ -97,9 +90,7 @@ const DetailItem: React.FC<Props> = ({
         {detailData && "summary" in detailData ? (
           <p>{detailData?.summary}</p>
         ) : null}
-        {api === "answer" && <p>{detailData?.content}</p>}
-        {viewContent && <Viewer initialValue={viewContent} />}
-
+        {detailData && <Viewer initialValue={detailData?.content} />}
         {detailData && "tags" in detailData ? (
           <S.Tags>
             {detailData?.tags.map((el) => (
