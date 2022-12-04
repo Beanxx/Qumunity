@@ -1,14 +1,15 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import Tag from "../../atoms/Tag/Tag"
 import * as S from "./TagsInput.styles"
 
 export interface Props {
   id: string
-  name: string
+  name?: string
   onEnterTag?: React.Dispatch<React.SetStateAction<string[]>>
+  value?: string | string[]
 }
 
-const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
+const TagsInput: React.FC<Props> = ({ id, name, onEnterTag, value }) => {
   const [tags, setTags] = useState<string[]>([])
   const InputRef = useRef<HTMLInputElement>(null)
   InputRef.current?.addEventListener("keydown", (event) => {
@@ -16,6 +17,15 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
       event.preventDefault()
     }
   })
+
+  useEffect(() => {
+    if (value) {
+      setTags(value as string[])
+      if (onEnterTag) {
+        onEnterTag(value as string[])
+      }
+    }
+  }, [value])
 
   const tagAddHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const isIncludes = tags.filter((el) => el === event.currentTarget.value)
