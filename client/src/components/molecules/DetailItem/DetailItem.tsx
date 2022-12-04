@@ -16,9 +16,14 @@ import { ReactComponent as BookMark } from "../../../assets/icons/bookMark.svg"
 export type Props = {
   detailData: postType | answerType
   detailType: "question" | "answer"
+  getDetailData?: () => void
 }
 
-const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
+const DetailItem: React.FC<Props> = ({
+  detailData,
+  detailType,
+  getDetailData,
+}) => {
   const navigate = useNavigate()
   const userId = useSelector((state: RootState) => state.user.uid)
   const api = detailType === "question" ? "detail" : "answer"
@@ -59,6 +64,9 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
         `${process.env.REACT_APP_API_URL}/api/detail/votes/${el}`,
         body
       )
+      if (getDetailData) {
+        getDetailData()
+      }
       if (!response.data.success) {
         alert(response.data.msg)
       }
@@ -69,12 +77,14 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
 
   return (
     <S.Container detailType={detailType}>
-      <S.Side>
-        <ArrowTop onClick={() => voteHandler("like")} />
-        <span>{detailData?.votes}</span>
-        <ArrowBot onClick={() => voteHandler("dislike")} />
-        <BookMark />
-      </S.Side>
+      {detailType === "question" ? (
+        <S.Side>
+          <ArrowTop onClick={() => voteHandler("like")} />
+          <span>{detailData?.votes}</span>
+          <ArrowBot onClick={() => voteHandler("dislike")} />
+          <BookMark />
+        </S.Side>
+      ) : null}
       <S.Content>
         {detailData && "summary" in detailData ? (
           <p>{detailData?.summary}</p>
