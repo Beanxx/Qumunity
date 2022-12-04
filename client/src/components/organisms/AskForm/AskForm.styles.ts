@@ -22,7 +22,7 @@ const Container = styled.fieldset`
     border: 1px solid #babfc4;
     border-radius: 3px;
     width: 100%;
-    height: 200px;
+    height: 100px;
     resize: none;
     padding: 10px;
 
