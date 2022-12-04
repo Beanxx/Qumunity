@@ -43,9 +43,7 @@ const DetailContent: React.FC = () => {
       )
       setDetailData([data])
     } catch (err) {
-      // 임시에러처리
-      // eslint-disable-next-line no-alert
-      alert(err)
+      console.log(err)
     }
   }
 
@@ -65,7 +63,7 @@ const DetailContent: React.FC = () => {
 
   useEffect(() => {
     getDetailData()
-  }, [detailData])
+  }, [])
 
   useEffect(() => {
     getAnswerData()
@@ -79,7 +77,11 @@ const DetailContent: React.FC = () => {
         <div>{`Viewed ${detailData[0]?.views} times`}</div>
       </S.Info>
       <ul>
-        <DetailItem detailType="question" detailData={detailData[0]} />
+        <DetailItem
+          detailType="question"
+          detailData={detailData[0]}
+          getDetailData={getDetailData}
+        />
       </ul>
       <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
       <AnswerList answerData={answerData} />

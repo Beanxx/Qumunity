@@ -13,12 +13,14 @@ const Container = styled.div`
     &:first-child {
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px;
-      background-color: #e3e6e8;
     }
     &:last-child {
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
     }
+  }
+  .on {
+    background-color: #e3e6e8;
   }
 `
 
