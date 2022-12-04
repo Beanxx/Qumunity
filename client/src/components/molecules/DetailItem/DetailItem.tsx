@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
 import { format } from "timeago.js"
 import { useSelector } from "react-redux"
+import { Viewer } from "@toast-ui/react-editor"
 import { RootState } from "../../../redux/store"
 import * as S from "./DetailItem.styles"
 import Tag from "../../atoms/Tag/Tag"
@@ -27,7 +28,14 @@ const DetailItem: React.FC<Props> = ({
   const navigate = useNavigate()
   const userId = useSelector((state: RootState) => state.user.uid)
   const api = detailType === "question" ? "detail" : "answer"
+  const [viewContent, setViewContent] = useState("")
   const createdAt = format(detailData?.createdAt, "en_US")
+
+  useEffect(() => {
+    if (api === "detail") {
+      setViewContent(detailData?.content)
+    }
+  }, [detailData])
 
   const deleteHandler = async (paramApi: string) => {
     try {
@@ -89,7 +97,8 @@ const DetailItem: React.FC<Props> = ({
         {detailData && "summary" in detailData ? (
           <p>{detailData?.summary}</p>
         ) : null}
-        <p>{detailData?.content}</p>
+        {viewContent && <Viewer initialValue={viewContent} />}
+
         {detailData && "tags" in detailData ? (
           <S.Tags>
             {detailData?.tags.map((el) => (

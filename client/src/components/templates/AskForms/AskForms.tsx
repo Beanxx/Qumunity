@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import axios from "axios"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router"
-import { Editor, Viewer } from "@toast-ui/react-editor"
+import { Editor } from "@toast-ui/react-editor"
 import { RootState } from "../../../redux/store"
 import AskForm from "../../organisms/AskForm/AskForm"
 import Button from "../../atoms/Button"
@@ -12,34 +12,23 @@ import "@toast-ui/editor/dist/toastui-editor-viewer.css"
 import "@toast-ui/editor/dist/theme/toastui-editor-dark.css"
 
 const AskForms = () => {
+  const navigate = useNavigate()
+
   const [tags, setTags] = useState<string[]>([])
   const titleInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const summaryInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const contentInputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null)
   const editorRef = useRef<Editor>(null)
   const uid = useSelector((state: RootState) => state.user.uid)
-  const navigate = useNavigate()
-
-  const [test1, setTest1] = useState("")
-  const [test2, setTest2] = useState("")
 
   const editorChangeHandler = () => {
-    const data1 = editorRef.current?.getInstance().getHTML()
-    const data2 = editorRef.current?.getInstance().getMarkdown()
-    if (data1) {
-      setTest1(data1)
-    }
-    if (data2) {
-      setTest2(data2)
-    }
-    console.log(data1)
-    console.log(data2)
+    const editorData = editorRef.current?.getInstance().getHTML()
   }
 
   const submitHandler = async () => {
     const title = titleInputRef.current?.value
     const summary = summaryInputRef.current?.value
-    const content = contentInputRef.current?.value
+    const content = editorRef.current?.getInstance().getHTML()
 
     const postData = {
       uid,
@@ -53,6 +42,7 @@ const AskForms = () => {
       `${process.env.REACT_APP_API_URL}/api/ask/register`,
       postData
     )
+    console.log(postData)
 
     if (data.success) {
       navigate("/")
@@ -98,7 +88,6 @@ const AskForms = () => {
       </Button>
 
       <Editor
-        initialValue="hello react editor world!"
         previewStyle="tab"
         height="200px"
         theme="dark"
@@ -114,8 +103,6 @@ const AskForms = () => {
         ref={editorRef}
         onChange={editorChangeHandler}
       />
-
-      <Viewer initialValue="테스트" />
     </Container>
   )
 }

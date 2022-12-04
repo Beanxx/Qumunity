@@ -21,7 +21,7 @@ const LoginInput = React.forwardRef((props: Props, ref) => {
     <S.Container>
       <S.Box>
         <label htmlFor={props.id}>{props.children}</label>
-        <button type="button" onClick={props.onClick}>
+        <button type="button" onClick={props.onClick} tabIndex={-1}>
           {props.sub}
         </button>
       </S.Box>
