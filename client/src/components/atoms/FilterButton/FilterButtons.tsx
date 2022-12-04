@@ -26,6 +26,7 @@ const FilterButtons: React.FC<{ setSort: (sort: string) => void }> = ({
       {btnList.map((el, idx) => {
         return (
           <button
+            key={el.value}
             type="button"
             value={el.value}
             onClick={(event) => btnHandler(event, idx)}
