@@ -13,7 +13,7 @@ export interface postType {
   postNum: number
   title: string
   summary: string
-  content: string
+  content: { html: string; markdown: string }
   tags: string[]
   createdAt: string
   updatedAt: string

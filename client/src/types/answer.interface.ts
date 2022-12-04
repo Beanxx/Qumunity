@@ -12,7 +12,7 @@ interface authorType {
 
 export default interface answerType {
   _id: string
-  content: string
+  content: { html: string; markdown: string }
   createdAt: string
   updatedAt: string
   votes: number
