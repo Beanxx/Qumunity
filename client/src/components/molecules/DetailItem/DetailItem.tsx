@@ -97,6 +97,7 @@ const DetailItem: React.FC<Props> = ({
         {detailData && "summary" in detailData ? (
           <p>{detailData?.summary}</p>
         ) : null}
+        {api === "answer" && <p>{detailData?.content}</p>}
         {viewContent && <Viewer initialValue={viewContent} />}
 
         {detailData && "tags" in detailData ? (
