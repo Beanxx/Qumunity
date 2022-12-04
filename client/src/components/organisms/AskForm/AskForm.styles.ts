@@ -17,6 +17,30 @@ const Container = styled.fieldset`
       font-weight: 400;
     }
   }
+
+  textarea {
+    border: 1px solid #babfc4;
+    border-radius: 3px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding: 10px;
+
+    &:focus {
+      outline: 1px solid #59a4de;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #babfc4;
+    border-radius: 3px;
+
+    &:focus {
+      outline: 1px solid #59a4de;
+    }
+  }
 `
 
 export default Container
