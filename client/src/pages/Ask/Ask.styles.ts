@@ -1,7 +1,15 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+  width: 100%;
   background-color: #f1f2f3;
+`
+
+export const Inner = styled.div`
+  max-width: 1200px;
+  min-width: 1024px;
+  padding: 0 30px;
+  margin: 0 auto;
 
   h1 {
     display: block;
