@@ -2,17 +2,17 @@ import React from "react"
 import MainContent from "../../components/templates/MainContent/MainContent"
 import WatchedTags from "../../components/molecules/WatchedTags/WatchedTags"
 import RelatedTags from "../../components/molecules/RelatedTags/RelatedTags"
-import Container from "./Main.styles"
+import * as S from "./Main.styles"
 
 const Main: React.FC = () => {
   return (
-    <Container>
+    <S.Container>
       <MainContent />
-      <div>
+      <S.Side>
         <WatchedTags />
         <RelatedTags />
-      </div>
-    </Container>
+      </S.Side>
+    </S.Container>
   )
 }
 

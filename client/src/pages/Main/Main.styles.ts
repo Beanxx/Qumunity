@@ -1,7 +1,11 @@
 import styled from "styled-components"
 
-const Container = styled.div`
+export const Container = styled.div`
+  flex-grow: 1;
   display: flex;
+  gap: 24px;
 `
 
-export default Container
+export const Side = styled.aside`
+  padding-top: 24px;
+`

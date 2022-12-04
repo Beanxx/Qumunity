@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
+import { format } from "timeago.js"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
 import * as S from "./DetailItem.styles"
@@ -21,6 +22,7 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
   const navigate = useNavigate()
   const userId = useSelector((state: RootState) => state.user.uid)
   const api = detailType === "question" ? "detail" : "answer"
+  const createdAt = format(detailData?.createdAt, "en_US")
 
   const deleteHandler = async (paramApi: string) => {
     try {
@@ -100,7 +102,7 @@ const DetailItem: React.FC<Props> = ({ detailData, detailType }) => {
           <SmallProfile
             profileImg={detailData?.author.photoURL}
             userName={detailData?.author.displayName}
-            createdDate={detailData?.createdAt}
+            createdDate={createdAt}
           />
         </S.Edit>
       </S.Content>
