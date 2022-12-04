@@ -1,13 +1,12 @@
 import React from "react"
 import DetailContent from "../../components/templates/DetailContent/DetailContent"
-import * as S from "./Detail.styles"
+import Container from "./Detail.styles"
 
 const Detail = () => {
   return (
-    <S.Cotainer>
+    <Container>
       <DetailContent />
-      <S.Side>side</S.Side>
-    </S.Cotainer>
+    </Container>
   )
 }
 

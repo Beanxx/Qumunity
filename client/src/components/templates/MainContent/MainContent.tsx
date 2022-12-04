@@ -5,7 +5,7 @@ import { RootState } from "../../../redux/store"
 import FilterButtons from "../../atoms/FilterButton/FilterButtons"
 import PostList from "../../organisms/PostList/PostList"
 import MiniHeader from "../../molecules/MiniHeader/MiniHeader"
-import Info from "./MainContent.styles"
+import * as S from "./MainContent.styles"
 import { postType } from "../../../types/post.interface"
 
 const MainContent: React.FC = () => {
@@ -36,14 +36,14 @@ const MainContent: React.FC = () => {
   }, [sort, search])
 
   return (
-    <div>
+    <S.Container>
       <MiniHeader>Questions</MiniHeader>
-      <Info>
+      <S.Info>
         <div>{postData.length} questions</div>
         <FilterButtons setSort={setSort} />
-      </Info>
+      </S.Info>
       <PostList postData={postData} />
-    </div>
+    </S.Container>
   )
 }
 
