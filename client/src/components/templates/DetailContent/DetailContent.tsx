@@ -63,7 +63,7 @@ const DetailContent: React.FC = () => {
 
   useEffect(() => {
     getDetailData()
-  }, [detailData])
+  }, [])
 
   useEffect(() => {
     getAnswerData()
