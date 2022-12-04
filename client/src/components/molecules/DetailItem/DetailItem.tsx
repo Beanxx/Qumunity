@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
 import { format } from "timeago.js"
@@ -55,6 +55,12 @@ const DetailItem: React.FC<Props> = ({
     }
   }
 
+  const editHandler = () => {
+    if (detailData && "postNum" in detailData) {
+      navigate(`/edit/${detailData.postNum}`)
+    }
+  }
+
   const voteHandler = async (el: string) => {
     const body = {
       userId,
@@ -90,7 +96,7 @@ const DetailItem: React.FC<Props> = ({
         {detailData && "summary" in detailData ? (
           <p>{detailData?.summary}</p>
         ) : null}
-        {detailData && <Viewer initialValue={detailData?.content} />}
+        {detailData && <Viewer initialValue={detailData?.content.html} />}
         {detailData && "tags" in detailData ? (
           <S.Tags>
             {detailData?.tags.map((el) => (
@@ -103,7 +109,9 @@ const DetailItem: React.FC<Props> = ({
         <S.Edit>
           {userId === detailData?.author.uid && (
             <>
-              <button type="button">Edit</button>
+              <button type="button" onClick={editHandler}>
+                Edit
+              </button>
               <button type="button" onClick={() => deleteHandler(api)}>
                 Delete
               </button>
