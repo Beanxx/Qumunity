@@ -1,4 +1,4 @@
-interface authorType {
+export interface authorType {
   _id: string
   userNum: number
   email: string
@@ -6,6 +6,8 @@ interface authorType {
   uid: string
   __v: number
   photoURL: string
+  voteLike: string[]
+  voteDisLike: string[]
 }
 
 export interface postType {
@@ -26,4 +28,5 @@ export interface postType {
 export interface postLengthType {
   myQuestionLength?: number
   myAnswerLength?: number
+  data?: authorType
 }
