@@ -22,13 +22,14 @@ export const Layout = styled.div`
 `
 
 export const Container = styled.div`
-  width: 80%;
+  max-width: 1200px;
+  min-width: 1024px;
   height: 50px;
+  padding: 0 30px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
 
   .logo-box {
     flex: 1;

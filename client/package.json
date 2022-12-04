@@ -32,6 +32,7 @@
     "styled-components": "^5.3.6",
     "styled-reset": "^4.4.2",
     "sweetalert2": "^11.6.9",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

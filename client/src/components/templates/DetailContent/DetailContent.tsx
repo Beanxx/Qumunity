@@ -1,6 +1,7 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react"
 import { useParams } from "react-router"
 import axios from "axios"
+import { format } from "timeago.js"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
 import * as S from "./DetailContent.styles"
@@ -18,6 +19,7 @@ const DetailContent: React.FC = () => {
   const { id } = useParams()
   const uid = useSelector((state: RootState) => state.user.uid)
   const answerInputRef = useRef<HTMLTextAreaElement>(null)
+  const createdAt = format(detailData[0]?.createdAt, "en_US")
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault()
@@ -41,9 +43,7 @@ const DetailContent: React.FC = () => {
       )
       setDetailData([data])
     } catch (err) {
-      // 임시에러처리
-      // eslint-disable-next-line no-alert
-      alert(err)
+      console.log(err)
     }
   }
 
@@ -70,14 +70,18 @@ const DetailContent: React.FC = () => {
   }, [detailData])
 
   return (
-    <div>
+    <>
       <MiniHeader>{detailData[0]?.title}</MiniHeader>
       <S.Info>
-        <div>{`Asked ${detailData[0]?.createdAt}`}</div>
+        <div>{`Asked ${createdAt}`}</div>
         <div>{`Viewed ${detailData[0]?.views} times`}</div>
       </S.Info>
       <ul>
-        <DetailItem detailType="question" detailData={detailData[0]} />
+        <DetailItem
+          detailType="question"
+          detailData={detailData[0]}
+          getDetailData={getDetailData}
+        />
       </ul>
       <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
       <AnswerList answerData={answerData} />
@@ -88,7 +92,7 @@ const DetailContent: React.FC = () => {
           Post Your Answer
         </Button>
       </S.AnswerForm>
-    </div>
+    </>
   )
 }
 

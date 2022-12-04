@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 const Container = styled.ul`
-  border: 1px solid green;
+  border-right: 1px solid #e3e6e8;
+  padding-top: 24px;
   flex: 0 0 160px;
   font-size: 13px;
 
