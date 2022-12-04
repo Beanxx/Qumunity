@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from "react"
-import { useSelector } from "react-redux"
 import StatsBox from "../../organisms/StatsBox/StatsBox"
-import { RootState } from "../../../redux/store"
 import * as S from "./styles"
 import { postLengthType } from "../../../types/post.interface"
 
 const InfoContainer: React.FC<postLengthType> = ({
   myQuestionLength,
   myAnswerLength,
+  data,
 }) => {
-  const user = useSelector((state: RootState) => state.user)
-  const [nickName, setNickName] = useState("")
-
-  useEffect(() => {
-    if (user.accessToken) {
-      setNickName(user.displayName)
-    }
-  }, [user])
-
   return (
     <S.Container>
       <S.ProfileBox>
         <div>
-          <img src={user.photoURL} alt="profile" />
+          <img src={data && data.photoURL} alt="profile" />
         </div>
-        <div className="name-style">{user.displayName}</div>
+        <div className="name-style">{data && data.displayName}</div>
       </S.ProfileBox>
       <S.StatsBox>
         <div className="title_style">Stats</div>

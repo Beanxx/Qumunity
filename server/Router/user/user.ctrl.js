@@ -6,6 +6,18 @@ const Post = require("../../Model/post.js");
 const Answer = require("../../Model/answer.js");
 
 const output = {
+  user: async (req, res) => {
+    try {
+      const userInfo = await User.findOne({
+        displayName: req.params.id,
+      }).exec();
+
+      return res.status(200).json(userInfo);
+    } catch {
+      return res.status(400).json({ success: false });
+    }
+  },
+
   myQuestions: async (req, res) => {
     try {
       const userInfo = await User.findOne({
@@ -32,6 +44,15 @@ const output = {
         .populate("postId")
         .exec();
       return res.status(200).json(myAnswersData);
+    } catch {
+      return res.status(400).json({ success: false });
+    }
+  },
+
+  allUsers: async (req, res) => {
+    try {
+      const usersData = await User.find().exec();
+      return res.status(200).json(usersData);
     } catch {
       return res.status(400).json({ success: false });
     }

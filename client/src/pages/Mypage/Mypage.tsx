@@ -10,6 +10,7 @@ const Mypage = () => {
 
   const [myQuestionData, setMyQuestionData] = useState([])
   const [myAnswerData, setMyAnswerData] = useState([])
+  const [userInfo, setUserInfo] = useState()
   const myQuestionLength = myQuestionData.length
   const myAnswerLength = myAnswerData.length
 
@@ -35,14 +36,27 @@ const Mypage = () => {
     }
   }
 
+  const getUserData = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/user/${id}`
+      )
+      setUserInfo(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
     getMyQuestionData()
     getMyAnswerData()
+    getUserData()
   }, [])
 
   return (
     <Layout>
       <InfoContainer
+        data={userInfo}
         myQuestionLength={myQuestionLength}
         myAnswerLength={myAnswerLength}
       />

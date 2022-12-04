@@ -5,7 +5,6 @@ export const Container = styled.div`
   justify-items: center;
   align-items: center;
   width: 100%;
-  margin: 0 10px;
 
   svg {
     position: absolute;
