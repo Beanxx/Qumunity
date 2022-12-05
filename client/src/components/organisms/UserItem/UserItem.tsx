@@ -17,8 +17,8 @@ const UserItem: React.FC<Props> = ({ user }) => {
         <Link to={`/user/${user.displayName}`}>
           <div className="title">{user.displayName}</div>
         </Link>
-        <div>Question: 1</div>
-        <div>Answer: 3</div>
+        <div>Question {user.questions}</div>
+        <div>Answer {user.answers}</div>
       </div>
     </Container>
   )
