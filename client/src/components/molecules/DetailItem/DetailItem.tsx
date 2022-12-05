@@ -18,12 +18,14 @@ export type Props = {
   detailData: postType | answerType
   detailType: "question" | "answer"
   getDetailData?: () => void
+  getAnswerData?: () => void
 }
 
 const DetailItem: React.FC<Props> = ({
   detailData,
   detailType,
   getDetailData,
+  getAnswerData,
 }) => {
   const navigate = useNavigate()
   const userId = useSelector((state: RootState) => state.user.uid)
@@ -65,6 +67,7 @@ const DetailItem: React.FC<Props> = ({
     const body = {
       userId,
       postId: detailData?._id,
+      detailType,
     }
     try {
       const response = await axios.put(
@@ -73,6 +76,9 @@ const DetailItem: React.FC<Props> = ({
       )
       if (getDetailData) {
         getDetailData()
+      }
+      if (getAnswerData) {
+        getAnswerData()
       }
       if (!response.data.success) {
         alert(response.data.msg)
@@ -84,14 +90,12 @@ const DetailItem: React.FC<Props> = ({
 
   return (
     <S.Container detailType={detailType}>
-      {detailType === "question" ? (
-        <S.Side>
-          <ArrowTop onClick={() => voteHandler("like")} />
-          <span>{detailData?.votes}</span>
-          <ArrowBot onClick={() => voteHandler("dislike")} />
-          <BookMark />
-        </S.Side>
-      ) : null}
+      <S.Side>
+        <ArrowTop onClick={() => voteHandler("like")} />
+        <span>{detailData?.votes}</span>
+        <ArrowBot onClick={() => voteHandler("dislike")} />
+        <BookMark />
+      </S.Side>
       <S.Content>
         {detailData && "summary" in detailData ? (
           <p>{detailData?.summary}</p>
@@ -108,14 +112,14 @@ const DetailItem: React.FC<Props> = ({
         ) : null}
         <S.Edit>
           {userId === detailData?.author.uid && (
-            <>
+            <div>
               <button type="button" onClick={editHandler}>
                 Edit
               </button>
               <button type="button" onClick={() => deleteHandler(api)}>
                 Delete
               </button>
-            </>
+            </div>
           )}
           <SmallProfile
             profileImg={detailData?.author.photoURL}

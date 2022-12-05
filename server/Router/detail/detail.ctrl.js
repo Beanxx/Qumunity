@@ -64,10 +64,17 @@ const process = {
           { $pullAll: { voteDisLike: [req.body.postId] } },
           { new: true }
         );
-        await Post.findOneAndUpdate(
-          { _id: req.body.postId },
-          { $inc: { votes: 1 } }
-        );
+        if (req.body.detailType === "question") {
+          await Post.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: 1 } }
+          );
+        } else if (req.body.detailType === "answer") {
+          await Answer.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: 1 } }
+          );
+        }
         return res.status(200).json({
           success: false,
           msg: "반대 취소",
@@ -80,10 +87,17 @@ const process = {
           { $push: { voteLike: req.body.postId } },
           { new: true }
         );
-        await Post.findOneAndUpdate(
-          { _id: req.body.postId },
-          { $inc: { votes: 1 } }
-        );
+        if (req.body.detailType === "question") {
+          await Post.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: 1 } }
+          );
+        } else if (req.body.detailType === "answer") {
+          await Answer.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: 1 } }
+          );
+        }
         return res.status(200).json({
           success: true,
           msg: { like: like.voteLike },
@@ -109,10 +123,17 @@ const process = {
           { $pullAll: { voteLike: [req.body.postId] } },
           { new: true }
         );
-        await Post.findOneAndUpdate(
-          { _id: req.body.postId },
-          { $inc: { votes: -1 } }
-        );
+        if (req.body.detailType === "question") {
+          await Post.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: -1 } }
+          );
+        } else if (req.body.detailType === "answer") {
+          await Answer.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: -1 } }
+          );
+        }
         return res.status(200).json({
           success: false,
           msg: "추천취소",
@@ -125,10 +146,17 @@ const process = {
           { $push: { voteDisLike: req.body.postId } },
           { new: true }
         );
-        await Post.findOneAndUpdate(
-          { _id: req.body.postId },
-          { $inc: { votes: -1 } }
-        );
+        if (req.body.detailType === "question") {
+          await Post.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: -1 } }
+          );
+        } else if (req.body.detailType === "answer") {
+          await Answer.findOneAndUpdate(
+            { _id: req.body.postId },
+            { $inc: { votes: -1 } }
+          );
+        }
         return res.status(200).json({
           success: true,
           msg: { disLike: disLike.voteDisLike },

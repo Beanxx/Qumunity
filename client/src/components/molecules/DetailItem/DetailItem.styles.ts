@@ -27,6 +27,7 @@ export const Side = styled.div`
 `
 
 export const Content = styled.div`
+  flex-grow: 1;
   > p {
     font-size: 15px;
     color: #232629;
@@ -45,7 +46,7 @@ export const Edit = styled.div`
   display: flex;
   justify-content: space-between;
 
-  > button {
+  > div > button {
     font-size: 13px;
     color: rgb(131, 140, 149);
     background-color: #fff;
