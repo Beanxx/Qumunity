@@ -8,6 +8,8 @@ export interface authorType {
   photoURL: string
   voteLike: string[]
   voteDisLike: string[]
+  questions: number
+  answers: number
 }
 
 export interface postType {
