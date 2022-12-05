@@ -112,14 +112,14 @@ const DetailItem: React.FC<Props> = ({
         ) : null}
         <S.Edit>
           {userId === detailData?.author.uid && (
-            <>
+            <div>
               <button type="button" onClick={editHandler}>
                 Edit
               </button>
               <button type="button" onClick={() => deleteHandler(api)}>
                 Delete
               </button>
-            </>
+            </div>
           )}
           <SmallProfile
             profileImg={detailData?.author.photoURL}
