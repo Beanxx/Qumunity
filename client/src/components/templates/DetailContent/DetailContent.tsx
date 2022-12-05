@@ -88,7 +88,7 @@ const DetailContent: React.FC = () => {
         />
       </ul>
       <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
-      <AnswerList answerData={answerData} />
+      <AnswerList answerData={answerData} getAnswerData={getAnswerData} />
 
       <S.AnswerForm onSubmit={submitHandler}>
         <div>Your Answer</div>
