@@ -29,6 +29,10 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag, value }) => {
   }, [value])
 
   const addHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (tags.length >= 5) {
+      return alert("최대 5개까지 입력가능합니다.")
+    }
+
     const isIncludes = tags.filter((el) => el === event.currentTarget.value)
     if (event.key === "Enter" || event.key === " ") {
       if (isIncludes.length === 0 && event.currentTarget.value !== "") {
