@@ -27,6 +27,7 @@ export const Side = styled.div`
 `
 
 export const Content = styled.div`
+  flex-grow: 1;
   > p {
     font-size: 15px;
     color: #232629;
