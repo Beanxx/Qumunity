@@ -17,13 +17,13 @@ const process = {
       await postData.save();
       await Counter.updateOne({ name: "counter" }, { $inc: { postNum: 1 } });
 
-      tags.map(async (el) => {
+      for (let el of tags) {
         await Tags.findOneAndUpdate(
           { tagName: el },
           { $inc: { tagCount: 1 } },
           { upsert: true }
         ).exec();
-      });
+      }
 
       return res.status(200).json({ success: true });
     } catch (err) {
@@ -31,9 +31,42 @@ const process = {
     }
   },
   edit: async (req, res) => {
+    const data = {
+      title: req.body.title,
+      summary: req.body.summary,
+      content: req.body.content,
+      tags: req.body.tags,
+    };
+    const previousTags = req.body.previousTags;
     try {
-      console.log("실행");
-    } catch (err) {}
+      for (let el of previousTags) {
+        const updatedTag = await Tags.findOneAndUpdate(
+          { tagName: el },
+          { $inc: { tagCount: -1 } },
+          { new: true }
+        ).exec();
+        if (updatedTag.tagCount <= 0) {
+          await Tags.deleteOne({ tagName: el });
+        }
+      }
+
+      for (let el of data.tags) {
+        await Tags.findOneAndUpdate(
+          { tagName: el },
+          { $inc: { tagCount: 1 } },
+          { upsert: true }
+        ).exec();
+      }
+
+      await Post.findOneAndUpdate(
+        { postNum: Number(req.body.postNum) },
+        { $set: data }
+      );
+
+      return res.status(200).json({ success: true });
+    } catch (err) {
+      return res.status(400).json({ success: false, msg: err });
+    }
   },
 };
 
