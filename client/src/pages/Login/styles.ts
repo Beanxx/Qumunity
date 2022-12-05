@@ -12,9 +12,29 @@ export const Layout = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
-  gap: 10px;
-  font-size: 13px;
+  gap: 5px;
+  font-size: 14px;
+  margin-top: 13px;
   .link-style {
     color: #0074cc;
+
+    &:hover {
+      color: #0a95df;
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #0074cc;
+    font-size: 13px;
+    font-weight: 100;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+
+    &:hover {
+      color: #0a95df;
+    }
   }
 `
