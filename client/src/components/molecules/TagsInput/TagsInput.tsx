@@ -1,15 +1,17 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import Tag from "../../atoms/Tag/Tag"
 import * as S from "./TagsInput.styles"
 
 export interface Props {
   id: string
-  name: string
+  name?: string
   onEnterTag?: React.Dispatch<React.SetStateAction<string[]>>
+  value?: string | string[]
 }
 
-const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
+const TagsInput: React.FC<Props> = ({ id, name, onEnterTag, value }) => {
   const [tags, setTags] = useState<string[]>([])
+
   const InputRef = useRef<HTMLInputElement>(null)
   InputRef.current?.addEventListener("keydown", (event) => {
     if (event.key === " ") {
@@ -17,7 +19,16 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
     }
   })
 
-  const tagAddHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (value) {
+      setTags(value as string[])
+      if (onEnterTag) {
+        onEnterTag(value as string[])
+      }
+    }
+  }, [value])
+
+  const addHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const isIncludes = tags.filter((el) => el === event.currentTarget.value)
     if (event.key === "Enter" || event.key === " ") {
       if (isIncludes.length === 0 && event.currentTarget.value !== "") {
@@ -30,16 +41,27 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag }) => {
     }
   }
 
+  const deleteHandler = (tag: string) => {
+    const filteredTags = tags.filter((el) => tag !== el)
+    setTags(filteredTags)
+    if (onEnterTag) {
+      onEnterTag(filteredTags)
+    }
+  }
+
   return (
     <S.Container>
       <S.Tags>
         {tags.map((el) => (
-          <li key={el}>
-            <Tag>{el}</Tag>
+          <li key={el} onClick={() => deleteHandler(el)} aria-hidden="true">
+            <Tag>
+              {el}
+              <span>&times;</span>
+            </Tag>
           </li>
         ))}
       </S.Tags>
-      <input id={id} name={name} onKeyUp={tagAddHandler} ref={InputRef} />
+      <input id={id} name={name} onKeyUp={addHandler} ref={InputRef} />
     </S.Container>
   )
 }

@@ -20,12 +20,14 @@ const DetailContent: React.FC = () => {
   const { id } = useParams()
   const uid = useSelector((state: RootState) => state.user.uid)
   const createdAt = format(detailData[0]?.createdAt, "en_US")
-
   const EditorRef = useRef<Editor>(null)
 
   const submitHandler = (event: FormEvent) => {
     event.preventDefault()
-    const answerInput = EditorRef.current?.getInstance().getHTML()
+    const answerInput = {
+      html: EditorRef.current?.getInstance().getHTML(),
+      markdown: EditorRef.current?.getInstance().getMarkdown(),
+    }
     const answer = { uid, content: answerInput, postId: detailData[0]._id }
 
     axios

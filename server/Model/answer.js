@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const answerSchema = new mongoose.Schema(
   {
-    content: String,
+    content: Object,
     votes: { type: Number, default: 0 },
     author: {
       type: mongoose.Schema.Types.ObjectId,

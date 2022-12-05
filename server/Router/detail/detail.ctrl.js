@@ -30,10 +30,6 @@ const process = {
       return res.status(400).json({ success: false, msg: err });
     }
   },
-  edit: async (req, res) => {
-    try {
-    } catch (err) {}
-  },
   delete: async (req, res) => {
     const tags = req.body.tags;
     try {
