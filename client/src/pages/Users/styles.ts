@@ -3,10 +3,10 @@ import styled from "styled-components"
 const Layout = styled.div`
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: #f1f2f3;
   display: flex;
   flex-direction: column;
-  padding: 24px 12px;
+  padding: 24px;
+  padding-right: 0;
 
   .top_container {
     display: flex;

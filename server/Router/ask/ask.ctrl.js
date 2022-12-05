@@ -16,6 +16,10 @@ const process = {
       postData.postNum = count.postNum;
       await postData.save();
       await Counter.updateOne({ name: "counter" }, { $inc: { postNum: 1 } });
+      await User.findOneAndUpdate(
+        { _id: postData.author },
+        { $inc: { questions: 1 } }
+      ).exec();
 
       for (let el of tags) {
         await Tags.findOneAndUpdate(

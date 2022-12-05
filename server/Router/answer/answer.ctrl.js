@@ -29,6 +29,10 @@ const process = {
         { _id: req.body.postId },
         { $inc: { answers: 1 } }
       ).exec();
+      await User.findOneAndUpdate(
+        { _id: answerData.author },
+        { $inc: { answers: 1 } }
+      ).exec();
       return res.status(200).json({ success: true });
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });
@@ -39,6 +43,10 @@ const process = {
       await Answer.deleteOne({ _id: req.body._id }).exec();
       await Post.findOneAndUpdate(
         { _id: req.body.postId },
+        { $inc: { answers: -1 } }
+      ).exec();
+      await User.findOneAndUpdate(
+        { _id: req.body.author },
         { $inc: { answers: -1 } }
       ).exec();
       return res.status(200).json({ success: true });

@@ -35,6 +35,10 @@ const process = {
     try {
       await Post.deleteOne({ _id: req.body._id }).exec();
       await Answer.deleteMany({ postId: req.body._id }).exec();
+      await User.findOneAndUpdate(
+        { _id: req.body.author },
+        { $inc: { questions: -1 } }
+      ).exec();
 
       tags.map(async (el) => {
         const updatedTag = await Tags.findOneAndUpdate(

@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema(
     photoURL: String,
     voteLike: [{ type: mongoose.Schema.Types.ObjectId, default: [] }],
     voteDisLike: [{ type: mongoose.Schema.Types.ObjectId, default: [] }],
+    questions: { type: Number, default: 0 },
+    answers: { type: Number, default: 0 },
   },
   { collection: "users" }
 );
