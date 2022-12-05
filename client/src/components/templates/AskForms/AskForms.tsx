@@ -47,13 +47,14 @@ const AskForms = () => {
       markdown: contentEditorRef.current?.getInstance().getMarkdown(),
     }
     const postData = {
+      postNum: id,
+      previousTags: editData?.tags,
       uid,
       title,
       summary,
       content,
       tags,
     }
-    console.log(postData)
     const { data } = await axios.post(
       `${process.env.REACT_APP_API_URL}/api/ask/${editor}`,
       postData
