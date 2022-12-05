@@ -50,8 +50,12 @@ const output = {
   },
 
   allUsers: async (req, res) => {
+    let sort = {};
+    sort.answers = -1;
+    sort.questions = -1;
+
     try {
-      const usersData = await User.find().exec();
+      const usersData = await User.find().sort(sort).exec();
       return res.status(200).json(usersData);
     } catch {
       return res.status(400).json({ success: false });
