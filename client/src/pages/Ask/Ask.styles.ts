@@ -24,6 +24,7 @@ export const Inner = styled.div`
 export const Content = styled.div`
   display: flex;
   gap: 20px;
+  padding-bottom: 20px;
 `
 
 export const Side = styled.aside`
