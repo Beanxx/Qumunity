@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router"
 import * as S from "./styles"
 import { ReactComponent as SearchIcon } from "../../../assets/icons/searchIcon.svg"
 
@@ -8,14 +9,15 @@ export type Props = {
 
 const SearchInput: React.FC<Props> = ({ setInputSearch }) => {
   const [input, setInput] = useState("")
-
+  const navigate = useNavigate()
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.currentTarget.value)
   }
 
-  const test = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const submitHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       setInputSearch(input)
+      navigate("/")
     }
   }
 
@@ -26,7 +28,7 @@ const SearchInput: React.FC<Props> = ({ setInputSearch }) => {
         type="text"
         placeholder="Search..."
         onChange={inputHandler}
-        onKeyDown={test}
+        onKeyDown={submitHandler}
       />
     </S.Container>
   )
