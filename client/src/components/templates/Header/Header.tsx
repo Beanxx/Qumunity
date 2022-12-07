@@ -26,7 +26,7 @@ const Header = () => {
       <div className="line-style" />
       <S.Container>
         <div className="logo-box">
-          <Link to="/">Qumunity</Link>
+          <a href="/">Qumunity</a>
         </div>
         <div className="search-box">
           <SearchInput setInputSearch={setInputSearch} />
