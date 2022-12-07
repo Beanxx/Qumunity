@@ -1,13 +1,15 @@
 # dependencies
-/client/node_modules
-/client/src/firebase-config.ts
-/client/build
+/App/client/node_modules
+/App/client/src/firebase-config.ts
+/App/client/build
 
-/server/node_modules
-/server/config/dev.js
+/App/server/node_modules
+/App/server/config/dev.js
+
+/App/node_modules
+/App/package-lock.json
 
 # production
-/build
 
 # misc
 .DS_Store
