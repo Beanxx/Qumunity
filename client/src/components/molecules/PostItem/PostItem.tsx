@@ -4,7 +4,7 @@ import axios from "axios"
 import { format } from "timeago.js"
 import * as S from "./PostItem.styles"
 import Tag from "../../atoms/Tag/Tag"
-import SmallProfile from "../../atoms/SmallProfile"
+import AuthorInfo from "../../atoms/AuthorInfo/AuthorInfo"
 import { postType } from "../../../types/post.interface"
 
 const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
@@ -36,7 +36,7 @@ const PostItem: React.FC<{ postData: postType }> = ({ postData }) => {
               </li>
             ))}
           </S.Tags>
-          <SmallProfile
+          <AuthorInfo
             profileImg={postData.author.photoURL}
             userName={postData.author.displayName}
             createdDate={createdAt}
