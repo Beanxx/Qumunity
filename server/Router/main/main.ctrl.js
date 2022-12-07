@@ -5,8 +5,6 @@ const Tags = require("../../Model/tags");
 
 const output = {
   main: async (req, res) => {
-    console.log(req.body);
-
     const sort = {};
     if (req.body.sort === "newest") {
       sort.createdAt = -1;
