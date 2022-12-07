@@ -7,7 +7,7 @@ import { Viewer } from "@toast-ui/react-editor"
 import { RootState } from "../../../redux/store"
 import * as S from "./DetailItem.styles"
 import Tag from "../../atoms/Tag/Tag"
-import SmallProfile from "../../atoms/SmallProfile"
+import AuthorInfo from "../../atoms/AuthorInfo/AuthorInfo"
 import { postType } from "../../../types/post.interface"
 import answerType from "../../../types/answer.interface"
 import { ReactComponent as ArrowTop } from "../../../assets/icons/arrowTop.svg"
@@ -121,7 +121,7 @@ const DetailItem: React.FC<Props> = ({
               </button>
             </div>
           )}
-          <SmallProfile
+          <AuthorInfo
             profileImg={detailData?.author.photoURL}
             userName={detailData?.author.displayName}
             createdDate={createdAt}

@@ -1,10 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import SmallProfile, { Props } from "./index"
+import AuthorInfo, { Props } from "./AuthorInfo"
 
 export default {
-  title: "atoms/SmallProfile",
-  component: SmallProfile,
+  title: "atoms/AuthorInfo",
+  component: AuthorInfo,
 
   argTypes: {
     profileImg: {},
@@ -13,7 +13,7 @@ export default {
   },
 }
 
-const Template: Story<Props> = (args) => <SmallProfile {...args} />
+const Template: Story<Props> = (args) => <AuthorInfo {...args} />
 
 export const Default = Template.bind({})
 

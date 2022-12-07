@@ -12,7 +12,13 @@ const Container = styled.div`
   }
 
   a {
-    color: #0a95ff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    > span {
+      color: #0a95ff;
+    }
   }
 
   time {
