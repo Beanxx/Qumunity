@@ -1,9 +1,10 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 import Container from "./SideBar.styles"
 
 const SideBar = () => {
   const [activity, setActivity] = useState(0)
+  const location = useLocation()
   const tab = [
     { title: "Question", to: "/" },
     { title: "Users", to: "/users" },
@@ -12,6 +13,12 @@ const SideBar = () => {
   const tabHandler = (idx: number) => {
     setActivity(idx)
   }
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setActivity(0)
+    }
+  }, [location])
 
   return (
     <Container>
