@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 const app = require("../index");
-const config = require("../server/config/dev");
+const config = require("../server/config/dev.js");
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
