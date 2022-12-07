@@ -76,10 +76,6 @@ const DetailContent: React.FC = () => {
   return (
     <>
       <MiniHeader>{detailData[0]?.title}</MiniHeader>
-      <S.Info>
-        <div>{`Asked ${createdAt}`}</div>
-        <div>{`Viewed ${detailData[0]?.views} times`}</div>
-      </S.Info>
       <ul>
         <DetailItem
           detailType="question"
@@ -89,7 +85,6 @@ const DetailContent: React.FC = () => {
       </ul>
       <S.AnswerTitle>{detailData[0]?.answers} Answer</S.AnswerTitle>
       <AnswerList answerData={answerData} getAnswerData={getAnswerData} />
-
       <S.AnswerForm onSubmit={submitHandler}>
         <div>Your Answer</div>
         <EditorInput ref={EditorRef} />
