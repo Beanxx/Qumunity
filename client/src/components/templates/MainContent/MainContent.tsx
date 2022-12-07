@@ -12,14 +12,12 @@ const MainContent: React.FC = () => {
   const [postData, setPostData] = useState<postType[]>([])
   const [sort, setSort] = useState<string>("newest")
   const { search } = useSelector((state: RootState) => state.search)
-
-  //------------------------------------------------------------
-
   const [page, setPage] = useState(0)
   const [isFetching, setFetching] = useState(false)
   const [hasNextPage, setNextPage] = useState(true)
 
   const getPostData = useCallback(async () => {
+    console.log("실행")
     const body = {
       sort,
       search,
@@ -57,31 +55,14 @@ const MainContent: React.FC = () => {
   useEffect(() => {
     if (isFetching && hasNextPage) getPostData()
     else if (!hasNextPage) setFetching(false)
-  }, [isFetching])
+  }, [isFetching, page, search])
 
-  //------------------------------------------------------------
-
-  // const getPostData = async () => {
-  //   const body = {
-  //     sort,
-  //     search,
-  //   }
-  //   try {
-  //     const { data } = await axios.post(
-  //       `${process.env.REACT_APP_API_URL}/api/main`,
-  //       body
-  //     )
-  //     setPostData(data)
-  //   } catch (err) {
-  //     // 임시에러처리
-  //     // eslint-disable-next-line no-alert
-  //     alert(err)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getPostData()
-  // }, [sort, search])
+  useEffect(() => {
+    setPage(0)
+    setFetching(true)
+    setNextPage(true)
+    setPostData([])
+  }, [sort, search])
 
   return (
     <S.Container>
