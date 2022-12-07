@@ -5,6 +5,8 @@ const Tags = require("../../Model/tags");
 
 const output = {
   main: async (req, res) => {
+    console.log(req.body);
+
     const sort = {};
     if (req.body.sort === "newest") {
       sort.createdAt = -1;
@@ -28,7 +30,22 @@ const output = {
         .populate("author")
         .sort(sort)
         .exec();
-      return res.status(200).json(postData);
+
+      const searchParams = req.body.params;
+      const size = Number(searchParams.size);
+      const page = Number(searchParams.page);
+      const totalCount = postData.length;
+      const totalPages = Math.round(totalCount / size);
+
+      return res.status(200).json({
+        contents: postData.slice(page * size, (page + 1) * size),
+        pageNumber: page,
+        pageSize: size,
+        totalPages,
+        totalCount,
+        isLastPage: totalPages <= page,
+        isFirstPage: page === 0,
+      });
     } catch (err) {
       return res.status(400).json({ success: false, msg: err });
     }
