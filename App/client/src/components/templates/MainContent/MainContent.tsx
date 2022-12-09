@@ -30,9 +30,7 @@ const MainContent: React.FC = () => {
       setNextPage(!data.isLastPage)
       setFetching(false)
     } catch (err) {
-      // 임시에러처리
-      // eslint-disable-next-line no-alert
-      alert(err)
+      console.log(err)
     }
   }, [page])
 
