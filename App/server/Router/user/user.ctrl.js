@@ -48,19 +48,6 @@ const output = {
       return res.status(400).json({ success: false });
     }
   },
-
-  allUsers: async (req, res) => {
-    let sort = {};
-    sort.answers = -1;
-    sort.questions = -1;
-
-    try {
-      const usersData = await User.find().sort(sort).exec();
-      return res.status(200).json(usersData);
-    } catch {
-      return res.status(400).json({ success: false });
-    }
-  },
 };
 
 const process = {
@@ -82,6 +69,24 @@ const process = {
       .catch((err) => {
         res.status(400).json({ success: false });
       });
+  },
+
+  allUsers: async (req, res) => {
+    let sort = {};
+    sort.answers = -1;
+    sort.questions = -1;
+    console.log(req.body.search);
+
+    try {
+      const usersData = await User.find({
+        displayName: { $regex: req.body.search },
+      })
+        .sort(sort)
+        .exec();
+      return res.status(200).json(usersData);
+    } catch {
+      return res.status(400).json({ success: false });
+    }
   },
 };
 
