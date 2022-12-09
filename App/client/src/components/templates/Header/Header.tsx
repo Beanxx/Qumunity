@@ -29,7 +29,10 @@ const Header = () => {
           <a href="/">Qumunity</a>
         </div>
         <div className="search-box">
-          <SearchInput setInputSearch={setInputSearch} />
+          <SearchInput
+            setInputSearch={setInputSearch}
+            placeholder="Search..."
+          />
         </div>
         <S.ButtonContianer>
           {user.accessToken ? (
