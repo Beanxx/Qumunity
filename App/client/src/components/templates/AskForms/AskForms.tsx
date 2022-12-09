@@ -53,11 +53,17 @@ const AskForms = () => {
       content,
       tags,
     }
-    const { data } = await axios.post(`/api/ask/${editor}`, postData)
-    if (data.success) {
-      navigate("/")
-    } else {
-      alert(data.msg)
+
+    if (title && summary && content && tags.length !== 0) {
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/ask/${editor}`,
+        postData
+      )
+      if (data.success) {
+        navigate("/")
+      } else {
+        alert(data.msg)
+      }
     }
   }
 
