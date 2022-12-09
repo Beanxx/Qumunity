@@ -87,44 +87,59 @@ const DetailItem: React.FC<Props> = ({
 
   return (
     <S.Container detailType={detailType}>
-      <S.Side>
-        <ArrowTop onClick={() => voteHandler("like")} />
-        <span>{detailData?.votes}</span>
-        <ArrowBot onClick={() => voteHandler("dislike")} />
-        <BookMark />
-      </S.Side>
-      <S.Content>
-        {detailData && "summary" in detailData ? (
-          <p>{detailData?.summary}</p>
-        ) : null}
-        {detailData && <Viewer initialValue={detailData?.content.html} />}
-        {detailData && "tags" in detailData ? (
-          <S.Tags>
-            {detailData?.tags.map((el) => (
-              <li key={el}>
-                <Tag>{el}</Tag>
-              </li>
-            ))}
-          </S.Tags>
-        ) : null}
-        <S.Edit>
-          {userId === detailData?.author.uid && (
-            <div>
-              <button type="button" onClick={editHandler}>
-                Edit
-              </button>
-              <button type="button" onClick={() => deleteHandler(api)}>
-                Delete
-              </button>
-            </div>
-          )}
-          <AuthorInfo
-            profileImg={detailData?.author.photoURL}
-            userName={detailData?.author.displayName}
-            createdDate={createdAt}
-          />
-        </S.Edit>
-      </S.Content>
+      {detailData && (
+        <>
+          <S.Header>
+            <S.HeaderTop>
+              <AuthorInfo
+                profileImg={detailData.author.photoURL}
+                userName={detailData.author.displayName}
+                createdDate={createdAt}
+              />
+              {"views" in detailData ? (
+                <S.View>
+                  Viewed <span>{detailData.views} times</span>
+                </S.View>
+              ) : null}
+            </S.HeaderTop>
+            <S.Edit>
+              {userId === detailData.author.uid && (
+                <>
+                  <button type="button" onClick={editHandler}>
+                    Edit
+                  </button>
+                  <button type="button" onClick={() => deleteHandler(api)}>
+                    Delete
+                  </button>
+                </>
+              )}
+            </S.Edit>
+          </S.Header>
+          <S.Main>
+            <S.Side>
+              <ArrowTop onClick={() => voteHandler("like")} />
+              <span>{detailData.votes}</span>
+              <ArrowBot onClick={() => voteHandler("dislike")} />
+              <BookMark />
+            </S.Side>
+            <S.Content>
+              <S.Top>
+                {"summary" in detailData ? <p>{detailData.summary}</p> : null}
+                <Viewer initialValue={detailData.content.html} />
+              </S.Top>
+              {"tags" in detailData ? (
+                <S.Tags>
+                  {detailData.tags.map((el) => (
+                    <li key={el}>
+                      <Tag>{el}</Tag>
+                    </li>
+                  ))}
+                </S.Tags>
+              ) : null}
+            </S.Content>
+          </S.Main>
+        </>
+      )}
     </S.Container>
   )
 }
