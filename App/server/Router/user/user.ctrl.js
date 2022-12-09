@@ -75,7 +75,6 @@ const process = {
     let sort = {};
     sort.answers = -1;
     sort.questions = -1;
-    console.log(req.body.search);
 
     try {
       const usersData = await User.find({
