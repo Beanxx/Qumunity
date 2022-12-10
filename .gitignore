@@ -1,6 +1,5 @@
 # dependencies
 /App/client/node_modules
-/App/client/build
 /App/client/src/firebase-config.ts
 
 /App/server/node_modules
