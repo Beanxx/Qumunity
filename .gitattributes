@@ -1,1 +1,3 @@
-/App/client/build/* linguist-vendored
+App/client/build/static/media/* linguist-vendored
+App/client/build/static/js/* linguist-vendored
+App/client/.storybook/* linguist-vendored
