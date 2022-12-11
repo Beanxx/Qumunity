@@ -13,9 +13,10 @@ export const Container = styled.div`
 `
 
 export const Input = styled.input`
-  border-radius: 3px;
-  border: 1px solid #babfc4;
-  background: #fff;
+  border-radius: 7px;
+  border: 1px solid #30363d;
+  background-color: var(--main-bgc);
+  color: var(--text-color);
   width: 100%;
   height: 32px;
   padding-left: 35px;

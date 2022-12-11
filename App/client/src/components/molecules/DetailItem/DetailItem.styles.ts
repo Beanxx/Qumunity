@@ -13,7 +13,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 12px 24px;
-  border-top: 1px solid #e3e6e8;
+  border-top: 1px solid var(--border-color);
   color: rgb(106, 115, 124);
 `
 
@@ -71,9 +71,18 @@ export const Top = styled.div`
 
   > p {
     font-size: 14px;
-    color: #232629;
+    color: var(--text-color);
     line-height: 22.5px;
     margin-bottom: 16px;
+  }
+
+  .toastui-editor-contents p {
+    margin: 10px 0;
+    color: var(--text-color);
+  }
+
+  .toastui-editor-contents pre {
+    background-color: black;
   }
 `
 

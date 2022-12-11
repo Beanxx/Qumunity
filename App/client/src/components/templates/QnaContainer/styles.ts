@@ -7,6 +7,7 @@ export const Container = styled.div`
   gap: 10px;
   padding: 1rem;
   margin: auto;
+  color: var(--text-color);
 
   > .inner_box {
     display: flex;
@@ -27,8 +28,8 @@ export const Container = styled.div`
 export const ListBox = styled.div`
   width: 100%;
   height: 95%;
-  background-color: #fff;
-  border: 1px solid #d6d9dc;
+  background-color: var(--side-bgc);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ const Container = styled.div`
   display: flex;
   gap: 10px;
   flex: 1 1 auto;
+  color: var(--text-color);
 
   img {
     border-radius: 10px;
@@ -16,10 +17,10 @@ const Container = styled.div`
     justify-content: space-around;
 
     .title {
-      color: #0074cc;
+      color: var(--title-color);
 
       &:hover {
-        color: #0a95ff;
+        color: #5aa4fa;
       }
     }
   }

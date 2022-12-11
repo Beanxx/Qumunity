@@ -6,8 +6,9 @@ const Container = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-color: var(--side-bgc);
+  border: 1px solid var(--border-color);
   border-radius: 7px;
-  background-color: #fff;
   box-shadow: 0 10px 24px hsla(0, 0%, 0%, 0.05),
     0 20px 48px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.1);
   padding: 20px;

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const styles = {
   container: {
-    height: "530px",
+    height: "550px",
   },
 }
 
@@ -39,13 +39,13 @@ export const CheckDescription = styled.div`
 `
 export const Message = styled.div`
   width: 100%;
-  color: red;
+  color: #ed5e3e;
   font-size: 11px;
   padding-left: 3px;
 `
 
 export const Box = styled.div`
-  height: 70px;
+  height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

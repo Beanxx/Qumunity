@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.li`
   display: flex;
-  border-bottom: 1px solid #e3e6e8;
+  border-bottom: 1px solid var(--border-color);
   padding: 16px;
   font-size: 13px;
 `
@@ -27,7 +27,7 @@ export const Content = styled.div`
 
   h1 {
     font-size: 17px;
-    color: #0074cc;
+    color: var(--title-color);
   }
 
   p {
@@ -38,6 +38,7 @@ export const Content = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.4;
+    color: var(--content-color);
   }
 `
 

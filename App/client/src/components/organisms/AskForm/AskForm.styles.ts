@@ -2,9 +2,10 @@ import styled from "styled-components"
 
 const Container = styled.fieldset`
   padding: 24px;
-  border: 1px solid #d6d9dc;
+  border: 1px solid #30363d;
   border-radius: 3px;
-  background-color: #ffffff;
+  background-color: var(--side-bgc);
+  color: var(--text-color);
 
   label {
     cursor: pointer;
@@ -19,12 +20,14 @@ const Container = styled.fieldset`
   }
 
   textarea {
-    border: 1px solid #babfc4;
-    border-radius: 3px;
     width: 100%;
     height: 100px;
     resize: none;
     padding: 10px;
+    background-color: var(--main-bgc);
+    border: 1px solid #30363d;
+    border-radius: 5px;
+    color: var(--text-color);
 
     &:focus {
       outline: 1px solid #59a4de;
@@ -34,8 +37,10 @@ const Container = styled.fieldset`
   input {
     width: 100%;
     padding: 7px;
-    border: 1px solid #babfc4;
-    border-radius: 3px;
+    background-color: var(--main-bgc);
+    border: 1px solid #30363d;
+    border-radius: 5px;
+    color: var(--text-color);
 
     &:focus {
       outline: 1px solid #59a4de;

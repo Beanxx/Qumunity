@@ -97,9 +97,7 @@ const DetailItem: React.FC<Props> = ({
                 createdDate={createdAt}
               />
               {"views" in detailData ? (
-                <S.View>
-                  Viewed <span>{detailData.views} times</span>
-                </S.View>
+                <S.View>viewed {detailData.views} times</S.View>
               ) : null}
             </S.HeaderTop>
             <S.Edit>

@@ -6,8 +6,9 @@ const Container = styled.div`
   width: 200px;
   height: 80%;
   border-radius: 5px;
-  background-color: #fff;
-  border: 1px solid #d6d9dc;
+  background-color: var(--side-bgc);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
   padding: 10px;
   margin-top: 5px;
 
