@@ -10,7 +10,7 @@ export const Container = styled.div`
   }
 
   input {
-    padding: 7px;
+    padding: 10px;
     border: none;
   }
 `
@@ -20,4 +20,5 @@ export const Tags = styled.ul`
   display: flex;
   align-items: center;
   gap: 3px;
+  padding: 0 5px;
 `

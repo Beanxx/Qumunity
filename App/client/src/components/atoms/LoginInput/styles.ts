@@ -6,10 +6,12 @@ export const Container = styled.div`
   width: 100%;
 
   input {
-    border: 1px solid #babfc4;
-    border-radius: 3px;
+    background-color: var(--main-bgc);
+    border: 1px solid #30363d;
+    color: var(--text-color);
+    border-radius: 5px;
     padding: 8px 9px;
-    margin-bottom: 3px;
+    margin: 5px 0;
 
     ::placeholder {
       color: red;
@@ -23,12 +25,13 @@ export const Box = styled.div`
     padding: 0 2px;
     font-size: 14px;
     font-weight: 600;
+    color: var(--text-color);
   }
 
   button {
     float: right;
     font-size: 12px;
-    color: #0074cc;
+    color: #58a6ff;
     border: none;
     background: none;
   }

@@ -23,10 +23,6 @@ const Container = styled.div`
 
   time {
     color: rgb(106, 115, 124);
-
-    > span {
-      color: #000;
-    }
   }
 `
 

@@ -18,6 +18,7 @@ const EditorInput = forwardRef<Editor>((_, ref) => {
         ["code", "codeblock"],
       ]}
       ref={ref}
+      theme="dark"
     />
   )
 })

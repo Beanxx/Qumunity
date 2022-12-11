@@ -3,9 +3,9 @@ import styled from "styled-components"
 const Container = styled.div`
   button {
     padding: 10px;
-    color: rgb(82, 89, 96);
-    background-color: #f8f9f9;
-    border: 1px solid #9fa6ad;
+    color: #c9d1d9;
+    background-color: #21262d;
+    border: 1px solid rgba(240, 246, 252, 0.1);
     margin-left: -1px;
     font-size: 12px;
     cursor: pointer;
@@ -20,7 +20,7 @@ const Container = styled.div`
     }
   }
   .on {
-    background-color: #e3e6e8;
+    background-color: #30363d;
   }
 `
 

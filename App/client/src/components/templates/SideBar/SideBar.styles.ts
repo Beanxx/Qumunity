@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Container = styled.ul`
-  border-right: 1px solid #e3e6e8;
+  border-right: 1px solid var(--side-bgc);
   padding-top: 24px;
   flex: 0 0 160px;
   font-size: 13px;
@@ -13,8 +13,8 @@ const Container = styled.ul`
   }
 
   .on {
-    background-color: #f1f2f3;
-    border-right: 3px solid #f48225;
+    background-color: var(--side-bgc);
+    border-right: 3px solid var(--title-color);
     font-weight: 700;
   }
 `

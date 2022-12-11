@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const AnswerTitle = styled.div`
   font-size: 27px;
-  color: #232629;
+  color: var(--text-color);
   padding: 24px;
 `
 

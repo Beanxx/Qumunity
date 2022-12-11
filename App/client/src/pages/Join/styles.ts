@@ -4,7 +4,6 @@ export const Layout = styled.div`
   width: 100%;
   height: 100vh;
   padding-top: 60px;
-  background-color: #f1f2f3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,9 +14,9 @@ export const BottomContainer = styled.div`
   gap: 10px;
   font-size: 14px;
   .link-style {
-    color: #0074cc;
+    color: var(--sub-color);
     &:hover {
-      color: #0a95df;
+      color: #6aaefc;
     }
   }
 `

@@ -6,9 +6,8 @@ export const Layout = styled.header`
   left: 0;
   right: 0;
 
-  background-color: hsl(210, 8%, 97.5%);
+  background-color: var(--header-color);
   box-sizing: border-box;
-
   z-index: 1;
 
   box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05),
@@ -17,7 +16,7 @@ export const Layout = styled.header`
   .line-style {
     width: 100%;
     height: 3px;
-    background-color: #6799ff;
+    background-color: var(--title-color);
   }
 `
 

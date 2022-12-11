@@ -6,28 +6,29 @@ interface BtnProps {
 }
 
 export const defaultButton = css`
-  background: hsl(205, 46%, 92%);
-  color: hsl(205, 47%, 42%);
-  border: 1px solid #9fa6ad;
+  background-color: rgba(56, 139, 253, 0.15);
+  color: var(--title-color);
+  border: 1px solid rgba(56, 139, 253, 0.15);
 
   &:hover {
-    background-color: #b3d3ea;
+    background-color: #1f6feb;
+    color: white;
   }
 `
 
 export const highlightedButton = css<BtnProps>`
-  background: #0a96ff;
+  background: var(--btn-color);
   color: #fff;
-  border: 1px solid hsl(205, 41%, 63%);
+  border: rgba(240, 246, 252, 0.1);
   width: ${(props) => props.width || "100%"};
 
   &:hover {
-    background-color: #0074cc;
+    background-color: #2ea043;
   }
 `
 
 const Container = styled.button<Props>`
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 8px 10px;
   cursor: pointer;
 

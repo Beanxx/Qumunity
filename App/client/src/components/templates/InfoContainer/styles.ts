@@ -29,6 +29,7 @@ export const StatsBox = styled.div`
   flex-direction: column;
   height: 120px;
   margin-top: 6px;
+  color: var(--text-color);
 
   > .title_style {
     font-size: 23px;
