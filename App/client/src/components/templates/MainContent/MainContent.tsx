@@ -37,7 +37,7 @@ const MainContent: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const { scrollTop, offsetHeight } = document.documentElement
-      if (window.innerHeight + scrollTop >= offsetHeight) {
+      if (window.innerHeight + scrollTop >= offsetHeight - 10) {
         setFetching(true)
       }
       console.log(window.innerHeight + scrollTop, offsetHeight)
