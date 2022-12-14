@@ -15,7 +15,9 @@ const AuthorInfo: React.FC<Props> = ({ profileImg, userName, createdDate }) => {
         <img src={profileImg} alt="profileImg" />
         <span>{userName}</span>
       </Link>
-      <time dateTime={createdDate}>asked {createdDate}</time>
+      <time dateTime={createdDate}>
+        asked <span>{createdDate}</span>
+      </time>
     </Container>
   )
 }

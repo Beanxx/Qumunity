@@ -16,11 +16,17 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-around;
 
+    div {
+      color: var(--text-color);
+      font-size: 13px;
+    }
+
     .title {
-      color: var(--title-color);
+      color: var(--btn-hover-color);
+      font-size: 17px;
 
       &:hover {
-        color: #5aa4fa;
+        color: var(--title-color);
       }
     }
   }

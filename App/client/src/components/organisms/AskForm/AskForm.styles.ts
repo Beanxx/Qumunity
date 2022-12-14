@@ -39,7 +39,7 @@ const Container = styled.fieldset`
     padding: 7px;
     background-color: var(--main-bgc);
     border: 1px solid #30363d;
-    border-radius: 5px;
+    border-radius: 3px;
     color: var(--text-color);
 
     &:focus {

@@ -16,7 +16,9 @@ export const State = styled.ul`
   flex: 0 0 100px;
   gap: 10px;
 
-  color: rgb(106, 115, 124);
+  li {
+    color: var(--content-color);
+  }
 `
 
 export const Content = styled.div`
@@ -38,7 +40,7 @@ export const Content = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.4;
-    color: var(--content-color);
+    color: var(--text-color);
   }
 `
 
