@@ -17,7 +17,6 @@ const MainContent: React.FC = () => {
   const [hasNextPage, setNextPage] = useState(true)
 
   const getPostData = useCallback(async () => {
-    console.log("실행")
     const body = {
       sort,
       search,
@@ -40,7 +39,7 @@ const MainContent: React.FC = () => {
       if (window.innerHeight + scrollTop >= offsetHeight - 10) {
         setFetching(true)
       }
-      console.log(window.innerHeight + scrollTop, offsetHeight)
+      // console.log(window.innerHeight + scrollTop, offsetHeight)
     }
     setFetching(true)
     window.addEventListener("scroll", handleScroll)

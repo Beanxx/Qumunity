@@ -17,8 +17,6 @@ const RelatedTags = () => {
       const { data } = await axios.get(`/api/main/tags`)
       setTagList(data)
     } catch (err) {
-      // 임시에러처리
-      // eslint-disable-next-line no-alert
       alert(err)
     }
   }
