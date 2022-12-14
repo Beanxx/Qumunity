@@ -7,6 +7,7 @@ import { getInput } from "../../../redux/reducers/searchSlice"
 import * as S from "./styles"
 import SearchInput from "../../atoms/SearchInput"
 import Button from "../../atoms/Button"
+import { ReactComponent as LogoImg } from "../../../assets/icons/logo.svg"
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -26,7 +27,9 @@ const Header = () => {
       <div className="line-style" />
       <S.Container>
         <div className="logo-box">
-          <a href="/">Qumunity</a>
+          <a href="/">
+            <LogoImg viewBox="0 -55 600 200" fill="var(--font-color)" />
+          </a>
         </div>
         <div className="search-box">
           <SearchInput
