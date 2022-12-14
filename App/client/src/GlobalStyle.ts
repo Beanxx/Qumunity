@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     --side-bgc: #161b22;
     --border-color: #21262d;
     --sub-color: #58a6ff;
+    --footer-color: rgb(123, 123, 123);
   }
 
   body {

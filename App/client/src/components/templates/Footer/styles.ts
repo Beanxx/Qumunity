@@ -2,81 +2,74 @@ import styled from "styled-components"
 
 export const Container = styled.footer`
   width: 100%;
-  height: 322px;
   background-color: var(--header-color);
-  padding: 32px 12px 12px 12px;
+  padding: 1rem 0;
 `
 
-export const Box = styled.div`
-  width: 83%;
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
+export const Content = styled.div`
+  max-width: 1200px;
+  min-width: 1024px;
+  padding: 0 30px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--footer-color);
+  font-size: 14px;
 `
 
-export const InnerBox = styled.div`
-  flex: 3;
-  li {
-    color: #9fa6ad;
-    line-height: 2;
-    font-size: 13px;
+export const Top = styled.div`
+  display: flex;
+
+  .logo_box {
+    height: 60px;
+    flex: 1;
+
+    a {
+      color: var(--footer-color);
+    }
+  }
+
+  .link_box {
+    padding-top: 5px;
+    display: flex;
+    flex: 5;
+    gap: 2rem;
+
+    a {
+      color: var(--footer-color);
+
+      &:hover {
+        color: var(--text-color);
+      }
+    }
   }
 `
 
-export const RightBox = styled.div`
+export const Bottom = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  flex: 1 1 150px;
 
-  li {
-    color: #9fa6ad;
-    line-height: 1.6;
+  .copyright_box {
+    display: flex;
   }
-`
 
-export const Title = styled.h5`
-  color: #babfc4;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 12px;
-`
+  .github_box {
+    /* display: flex; */
+    /* flex-direction: column; */
 
-export const SnsBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 11px;
+    a {
+      display: flex;
+      gap: 5px;
 
-  ul li {
-    float: left;
-    margin-right: 1rem;
+      span {
+        font-size: 15px;
+        margin-top: 5px;
+        color: var(--footer-color);
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
-`
-
-export const Copyright = styled.div`
-  color: #9199a1;
-  font-size: 11px;
-  line-height: 14px;
-  padding-right: 3rem;
-  letter-spacing: 0.7px;
-  p span {
-    text-decoration: underline;
-  }
-`
-
-export const LogoBox = styled.div`
-  margin: 0 1rem;
-  p {
-    color: #9fa6ad;
-    font-size: 20px;
-  }
-`
-
-export const CenterBox = styled.div`
-  display: flex;
-  flex: 2 1 auto;
-  flex-direction: row;
-  margin-top: 5px;
 `
