@@ -12,22 +12,28 @@ const GlobalStyle = createGlobalStyle`
     --text-color: #c9d1d9;
     --title-color: #58a6ff;
     --content-color: #8b949e;
-    --btn-color: #238636;
+    --btn-color: #1f6feb;
+    --btn-hover-color: #388bfd;
     --side-bgc: #161b22;
     --border-color: #21262d;
+    --gray-color: rgba(240,246,252,0.1);
     --sub-color: #58a6ff;
+    --sub-btn-bgc: #21262d;
     --footer-color: rgb(123, 123, 123);
   }
 
   body {
     padding-top: 53px;
     background-color: var(--main-bgc);
-    color: var(--font-color)
+    color: var(--font-color);
+    font-family: 'Nanum Gothic', sans-serif;
   }
 
   * {
     box-sizing: border-box;
     line-height: 1.2;
+    color: var(--font-color);
+    font-family: 'Nanum Gothic', sans-serif;
     
   }
 
