@@ -11,11 +11,11 @@ export const Backdrop = styled.div`
 `
 
 export const Container = styled.div`
-  background: white;
+  background: var(--side-bgc);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
-  width: 300px;
-  height: 200px;
+  width: 330px;
+  height: 210px;
   position: fixed;
   top: 25vh;
   left: 40%;
@@ -28,7 +28,10 @@ export const Container = styled.div`
 
   header {
     text-align: center;
-    font-size: 19px;
+    h2 {
+      font-size: 20px;
+      color: var(--text-color);
+    }
   }
 
   main {

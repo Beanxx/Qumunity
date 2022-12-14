@@ -34,6 +34,7 @@ const EditInput = forwardRef<Editor, Props>(({ value }, ref) => {
             ["code", "codeblock"],
           ]}
           ref={ref}
+          theme="dark"
         />
       )}
     </>

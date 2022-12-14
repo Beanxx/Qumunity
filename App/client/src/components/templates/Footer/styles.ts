@@ -54,9 +54,6 @@ export const Bottom = styled.div`
   }
 
   .github_box {
-    /* display: flex; */
-    /* flex-direction: column; */
-
     a {
       display: flex;
       gap: 5px;

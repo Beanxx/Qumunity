@@ -31,8 +31,12 @@ export const Box = styled.div`
   button {
     float: right;
     font-size: 12px;
-    color: #58a6ff;
+    color: var(--btn-hover-color);
     border: none;
     background: none;
+
+    &:hover {
+      color: #58a6ff;
+    }
   }
 `

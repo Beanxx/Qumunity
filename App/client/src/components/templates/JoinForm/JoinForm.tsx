@@ -45,7 +45,7 @@ const JoinForm = () => {
       photoURL: `https://source.boringavatars.com/beam/130/${createdUser?.user?.multiFactor.user.displayName}?square`,
     }
 
-    axios.post(`api/user/join`, body).then((response) => {
+    axios.post(`/api/user/join`, body).then((response) => {
       if (response.data.success) {
         Toast.fire({
           icon: "success",
@@ -104,7 +104,7 @@ const JoinForm = () => {
       </S.Box>
 
       <S.Description>
-        Passwords must contain at least eight characters, including at least 1
+        Passwords must contain at least three characters, including at least 1
         letter and 1 number.
       </S.Description>
 

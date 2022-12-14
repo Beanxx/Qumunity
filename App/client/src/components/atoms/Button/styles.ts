@@ -11,7 +11,7 @@ export const defaultButton = css`
   border: 1px solid rgba(56, 139, 253, 0.15);
 
   &:hover {
-    background-color: #1f6feb;
+    background-color: var(--btn-hover-color);
     color: white;
   }
 `
@@ -23,7 +23,7 @@ export const highlightedButton = css<BtnProps>`
   width: ${(props) => props.width || "100%"};
 
   &:hover {
-    background-color: #2ea043;
+    background-color: var(--btn-hover-color);
   }
 `
 

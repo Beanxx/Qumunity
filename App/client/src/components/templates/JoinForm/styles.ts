@@ -2,23 +2,22 @@ import styled from "styled-components"
 
 export const styles = {
   container: {
-    height: "550px",
+    height: "580px",
   },
 }
 
 export const Description = styled.div`
-  font-size: 13px;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #6a737c;
   margin-bottom: 1rem;
-  margin-top: 10px; ;
 `
 
 export const BottomDescription = styled.div`
-  margin-top: 2rem;
-  font-size: 13px;
+  margin-top: 1rem;
+  font-size: 12px;
   color: #6a737c;
 
   span {
@@ -26,12 +25,13 @@ export const BottomDescription = styled.div`
   }
 `
 export const CheckDescription = styled.div`
-  height: 53px;
+  height: 70px;
   display: flex;
   align-items: flex-start;
   font-size: 13px;
   line-height: 1rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: var(--text-color);
 
   input {
     margin-right: 5px;

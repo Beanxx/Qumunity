@@ -65,7 +65,13 @@ const TagsInput: React.FC<Props> = ({ id, name, onEnterTag, value }) => {
           </li>
         ))}
       </S.Tags>
-      <input id={id} name={name} onKeyUp={addHandler} ref={InputRef} />
+      <input
+        style={{ border: "none" }}
+        id={id}
+        name={name}
+        onKeyUp={addHandler}
+        ref={InputRef}
+      />
     </S.Container>
   )
 }

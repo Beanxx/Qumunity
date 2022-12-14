@@ -67,10 +67,7 @@ const DetailItem: React.FC<Props> = ({
       detailType,
     }
     try {
-      const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/detail/votes/${el}`,
-        body
-      )
+      const response = await axios.put(`/api/detail/votes/${el}`, body)
       if (getDetailData) {
         getDetailData()
       }
@@ -97,7 +94,9 @@ const DetailItem: React.FC<Props> = ({
                 createdDate={createdAt}
               />
               {"views" in detailData ? (
-                <S.View>viewed {detailData.views} times</S.View>
+                <S.View>
+                  viewed <span>{detailData.views} times</span>
+                </S.View>
               ) : null}
             </S.HeaderTop>
             <S.Edit>
