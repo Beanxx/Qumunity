@@ -13,23 +13,26 @@ export const Button = styled.button`
   width: 30px;
   height: 30px;
   border-radius: 5px;
-  background: #fff;
-  color: #39739c;
+  color: var(--content-color);
+  background-color: var(--border-color);
+  border: 1px solid var(--gray-color);
   font-size: 15px;
 
   &:hover {
-    background: #d0e2f0;
+    background-color: var(--hover-bgc);
+    border-color: 1px solid var(--content-color);
     cursor: pointer;
   }
 
   &[disabled] {
-    color: #eaeaea;
+    color: var(--gray-color);
     cursor: revert;
     transform: revert;
   }
 
   &[aria-current="page"] {
-    background: #d0e2f0;
+    color: var(--font-color);
+    background: var(--hover-bgc);
     cursor: revert;
     transform: revert;
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import MyQuestionList from "../../organisms/MyQuestionList/MyQuestionList"
 import * as S from "./styles"
 import { postType } from "../../../types/post.interface"
@@ -12,7 +12,16 @@ interface Props {
 }
 
 const QnaContainer: React.FC<Props> = ({ myQuestionData, myAnswerData }) => {
-  const limit = 4 // 페이지 당 게시글 수
+  const [screen, setScreen] = useState(window.outerHeight)
+  const [limit, setLimit] = useState(3)
+
+  useEffect(() => {
+    setScreen(window.outerHeight)
+    if (screen > 870) {
+      setLimit(4)
+    }
+  }, [screen])
+
   const [pageQ, setPageQ] = useState(1) // Question 현재 페이지 번호
   const [pageA, setPageA] = useState(1) // Answer 현재 페이지 번호
   const offsetQ = (pageQ - 1) * limit // Question 페이지 당 첫 게시물 번호
