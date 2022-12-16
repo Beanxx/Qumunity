@@ -32,6 +32,7 @@ export const StatsBox = styled.div`
   color: var(--text-color);
 
   > .title_style {
+    color: var(--text-color);
     font-size: 23px;
     font-weight: 400;
     margin-left: 3px;
