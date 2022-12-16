@@ -23,10 +23,10 @@ export const BottomContainer = styled.div`
   }
 
   .link-style {
-    color: var(--sub-color);
+    color: var(--title-color);
 
     &:hover {
-      border-bottom: 1px solid var(--sub-color);
+      border-bottom: 1px solid var(--title-color);
     }
   }
 
@@ -34,7 +34,7 @@ export const BottomContainer = styled.div`
     background: none;
     border: none;
     height: 20px;
-    color: var(--sub-color);
+    color: var(--title-color);
     font-size: 13px;
     font-weight: 100;
     text-align: center;
@@ -42,7 +42,7 @@ export const BottomContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-      border-bottom: 1px solid var(--sub-color);
+      border-bottom: 1px solid var(--title-color);
     }
   }
 `

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.footer`
   width: 100%;
-  background-color: var(--header-color);
+  background-color: var(--side-bgc);
   padding: 1rem 0;
 `
 
@@ -51,6 +51,7 @@ export const Bottom = styled.div`
 
   .copyright_box {
     display: flex;
+    color: var(--footer-color);
   }
 
   .github_box {
