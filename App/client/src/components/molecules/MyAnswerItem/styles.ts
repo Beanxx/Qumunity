@@ -7,13 +7,18 @@ export const Container = styled.div`
 `
 
 export const TopBox = styled.div`
-  color: var(--text-color);
   display: flex;
   margin-bottom: 10px;
+
+  div {
+    color: var(--text-color);
+    font-size: 13px;
+  }
 `
 
 export const TitleBox = styled.div`
-  color: var(--text-color);
+  color: var(--title-color);
+  font-size: 15px;
   display: flex;
   margin-bottom: 10px;
 `
@@ -21,5 +26,15 @@ export const TitleBox = styled.div`
 export const BottomBox = styled.div`
   color: var(--text-color);
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
+
+  div {
+    color: var(--content-color);
+    font-size: 12px;
+  }
+`
+export const Tags = styled.ul`
+  display: flex;
+  gap: 4px;
 `

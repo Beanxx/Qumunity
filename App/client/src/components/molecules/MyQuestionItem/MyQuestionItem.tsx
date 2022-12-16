@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import moment from "moment"
 import { postType } from "../../../types/post.interface"
 import * as S from "./styles"
+import Tag from "../../atoms/Tag/Tag"
 
 interface Props {
   data: postType
@@ -21,7 +22,13 @@ const MyQuestionItem: React.FC<Props> = ({ data }) => {
         </S.TopBox>
         <S.TitleBox>{data.title}</S.TitleBox>
         <S.BottomBox>
-          <div>{data.tags.map((el) => el)}</div>
+          <S.Tags>
+            {data.tags.map((el) => (
+              <li key={el}>
+                <Tag>{el}</Tag>
+              </li>
+            ))}
+          </S.Tags>
           <div>{date}</div>
         </S.BottomBox>
       </Link>

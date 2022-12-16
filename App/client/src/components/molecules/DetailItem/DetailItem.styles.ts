@@ -26,7 +26,7 @@ export const HeaderTop = styled.div`
 export const View = styled.div`
   color: rgb(106, 115, 124);
   > span {
-    color: var(--text-color);
+    color: var(--content-color);
   }
 `
 
@@ -37,15 +37,15 @@ export const Edit = styled.div`
   > button {
     font-size: 13px;
     color: var(--text-color);
-    background-color: var(--sub-btn-bgc);
+    background-color: var(--border-color);
     border: 1px solid var(--gray-color);
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
 
     &:hover {
-      background-color: #30363d;
-      border-color: 1px solid #8b949e;
+      background-color: var(--hover-bgc);
+      border-color: 1px solid var(--content-color);
     }
   }
 `

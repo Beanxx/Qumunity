@@ -6,7 +6,7 @@ export const Layout = styled.header`
   left: 0;
   right: 0;
 
-  background-color: var(--header-color);
+  background-color: var(--side-bgc);
   box-sizing: border-box;
   z-index: 1;
 

@@ -19,9 +19,9 @@ export const BottomContainer = styled.div`
   }
 
   .link-style {
-    color: var(--sub-color);
+    color: var(--title-color);
     &:hover {
-      border-bottom: 1px solid var(--sub-color);
+      border-bottom: 1px solid var(--title-color);
     }
   }
 `

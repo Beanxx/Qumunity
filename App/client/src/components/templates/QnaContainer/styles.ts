@@ -18,23 +18,29 @@ export const Container = styled.div`
     height: 100%;
 
     > .title_style {
-      font-size: 25px;
+      color: var(--text-color);
+      font-size: 22px;
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 15px;
     }
   }
 `
 
 export const ListBox = styled.div`
   width: 100%;
-  height: 95%;
+  height: 90%;
   background-color: var(--side-bgc);
   border: 1px solid var(--border-color);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   .list_box {
-    flex: 6;
+    flex: 8;
+    overflow: scroll;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .pagination_box {

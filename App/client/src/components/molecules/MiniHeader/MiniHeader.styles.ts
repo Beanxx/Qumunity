@@ -9,7 +9,6 @@ const Container = styled.div`
 
   h1 {
     font-size: 27px;
-    color: var(--text-color);
   }
 `
 
