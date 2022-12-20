@@ -8,7 +8,6 @@ export const Container = styled.footer`
 
 export const Content = styled.div`
   max-width: 1200px;
-  min-width: 1024px;
   padding: 0 30px;
   margin: 0 auto;
   display: flex;
@@ -52,6 +51,16 @@ export const Bottom = styled.div`
   .copyright_box {
     display: flex;
     color: var(--footer-color);
+
+    span {
+      color: var(--footer-color);
+    }
+
+    @media ${(props) => props.theme.mobile} {
+      span {
+        display: none;
+      }
+    }
   }
 
   .github_box {

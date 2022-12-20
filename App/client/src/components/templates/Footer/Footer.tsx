@@ -23,7 +23,8 @@ const Footer = () => {
         </S.Top>
         <S.Bottom>
           <div className="copyright_box">
-            © Copyright 2022. Qumunity inc. all rights reserved.
+            © Copyright 2022. Qumunity inc.
+            <span>&nbsp;all rights reserved.</span>
           </div>
           <div className="github_box">
             <a href="https://github.com/Beanxx/Qumunity">
