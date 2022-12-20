@@ -28,7 +28,7 @@ const Header = () => {
       <S.Container>
         <div className="logo-box">
           <a href="/">
-            <LogoImg viewBox="0 -55 600 200" fill="var(--font-color)" />
+            <LogoImg viewBox="0 -30 550 300" fill="var(--font-color)" />
           </a>
         </div>
         <div className="search-box">
