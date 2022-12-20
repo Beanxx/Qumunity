@@ -17,6 +17,10 @@ const Container = styled.ul`
     border-right: 3px solid var(--title-color);
     font-weight: 700;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    display: none;
+  }
 `
 
 export default Container
