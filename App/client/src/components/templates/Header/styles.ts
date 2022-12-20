@@ -22,7 +22,6 @@ export const Layout = styled.header`
 
 export const Container = styled.div`
   max-width: 1200px;
-  min-width: 1024px;
   height: 50px;
   padding: 0 30px;
   margin: 0 auto;
@@ -32,12 +31,26 @@ export const Container = styled.div`
 
   .logo-box {
     flex: 1;
+    height: 100%;
+    width: 180px;
+
+    @media ${(props) => props.theme.mobile} {
+      width: 100px;
+    }
   }
 
   .search-box {
     display: flex;
     justify-content: center;
-    flex: 3;
+    flex: 3.5;
+
+    @media ${(props) => props.theme.tablet} {
+      flex: 2;
+    }
+
+    @media ${(props) => props.theme.mobile} {
+      display: none;
+    }
   }
 `
 
@@ -45,5 +58,5 @@ export const ButtonContianer = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  flex: 1.3;
+  flex: 1;
 `
