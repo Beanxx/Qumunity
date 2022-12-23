@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Layout = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 82vh;
   padding-top: 30px;
   display: flex;
   flex-direction: column;

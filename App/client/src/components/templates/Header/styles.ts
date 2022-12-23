@@ -52,6 +52,10 @@ export const Container = styled.div`
       display: none;
     }
   }
+
+  @media ${(props) => props.theme.mobile} {
+    padding: 0 10px;
+  }
 `
 
 export const ButtonContianer = styled.div`
