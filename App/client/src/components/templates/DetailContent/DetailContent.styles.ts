@@ -11,4 +11,5 @@ export const AnswerForm = styled.form`
   > div {
     margin: 24px 0;
   }
+  margin-bottom: 2rem;
 `

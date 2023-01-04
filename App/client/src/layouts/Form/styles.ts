@@ -14,5 +14,7 @@ const Container = styled.form`
   padding: 20px;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 `
 export default Container
