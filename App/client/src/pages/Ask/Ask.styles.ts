@@ -9,6 +9,7 @@ export const Inner = styled.div`
   min-width: 1024px;
   padding: 0 30px;
   margin: 0 auto;
+  margin-bottom: 2rem;
 
   h1 {
     display: block;
