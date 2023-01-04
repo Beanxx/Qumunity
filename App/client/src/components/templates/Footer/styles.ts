@@ -4,6 +4,8 @@ export const Container = styled.footer`
   width: 100%;
   background-color: var(--side-bgc);
   padding: 1rem 0;
+  position: relative;
+  z-index: 2;
 `
 
 export const Content = styled.div`
