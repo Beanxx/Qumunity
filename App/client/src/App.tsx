@@ -42,7 +42,7 @@ const App = () => {
         </Route>
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
